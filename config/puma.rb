@@ -13,3 +13,4 @@ else
   end
 end
 preload_app!
+port ENV['PORT'] || 9292
