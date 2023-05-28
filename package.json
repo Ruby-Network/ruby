@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@tomphttp/bare-server-node": "^1.2.6"
+  }
+}
