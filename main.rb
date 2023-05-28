@@ -1,10 +1,18 @@
 require 'sinatra'
 require 'config'
+require './ruby/utils.rb'
 set :root, File.dirname(__FILE__)
-#Register all settings in config/settings.yml
+set :uvPath, File.join(settings.root, 'node_modules', '@titaniumnetwork-dev', 'ultraviolet', 'dist')
+set :public_folder, File.join(settings.root, 'src', 'public')
+set :views, File.join(settings.root, 'src', 'views')
 register Config
 set :logging, Settings.verboseLogging
+generateConfigs()
 
 get '/' do
-  "Hello World!"
+  erb :index
+end
+
+get '/uv/*' do
+  send_file File.join(settings.uvPath, params[:splat][0])
 end
