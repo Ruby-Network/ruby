@@ -4,6 +4,7 @@ GEM
     mustermann (3.0.0)
       ruby2_keywords (~> 0.0.1)
     nio4r (2.5.8)
+    os (1.1.4)
     puma (6.2.1)
       nio4r (~> 2.0)
     rack (2.2.6.4)
@@ -21,6 +22,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  os
   puma
   sinatra
 
