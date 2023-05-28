@@ -1,5 +1,6 @@
 require 'sinatra'
 require 'config'
+require 'colorize'
 require './ruby/utils.rb'
 set :root, File.dirname(__FILE__)
 set :uvPath, File.join(settings.root, 'node_modules', '@titaniumnetwork-dev', 'ultraviolet', 'dist')

@@ -1,3 +1,3 @@
 def generateConfigs
-  puts "Generating Proxy Configs..."
+  puts "Generating Proxy Configs...".colorize(:red)
 end
