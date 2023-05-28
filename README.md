@@ -21,7 +21,7 @@ $ npm i
 
 ### Configuration
 
-Most of the config is done in [config/settings.yml](./config/settings.yml)
+Most of the config is done in [config/settings.yml](./config/settings.yml.example)
 
 Here is a basic config:
 
