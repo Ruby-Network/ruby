@@ -3,7 +3,7 @@ require 'os'
 if OS.windows?
   puts "You are using Windows. Not multi-threading...".colorize(:red)
   puts "Starting Bare Server Node...".colorize(:blue)
-  system("node bare.js &")
+  system("node bare.js --cpu-count=1 &")
 else
   workers Etc.nprocessors
   before_fork do
