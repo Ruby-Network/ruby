@@ -12,8 +12,11 @@ const httpServer = http.createServer();
 
 const app = express();
 
+let rubyPort = process.argv.find((arg) => arg.startsWith('--ruby-port')).split('=')[1] || 9292;
+let nodePort = process.argv.find((arg) => arg.startsWith('--node-port')).split('=')[1] || 9293;
+
 app.use('/', createProxyMiddleware({
-    target: 'http://localhost:9292',
+    target: `http://localhost:${rubyPort}/`,
     changeOrigin: false,
     logLevel: 'silent',
 }));

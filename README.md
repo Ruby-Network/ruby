@@ -65,11 +65,7 @@ An example with all of them would be:
 bundle exec puma -e production -w 3 -p 8080
 ```
 
-To change the port on the Node.JS side simply edit the [settings.yml](./config/settings.yml.example) or 
-
-```bash
-bundle exex puma -e production --node-port=your=port-here
-```
+To change the port on the Node.JS side simply edit the [settings.yml](./config/settings.yml.example)
 
 
 ### FAQ

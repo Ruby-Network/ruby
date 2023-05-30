@@ -3,13 +3,17 @@ require 'os'
 if OS.windows?
   puts "You are using Windows. Not multi-threading...".colorize(:red)
   puts "Starting Server...".colorize(:green)
-  system("npm start &")
+  rubyPort = 9292
+  rubyPort = ARGV[ARGV.index('-p') + 1] || ARGV[ARGV.index('--port') + 1] if ARGV.include?('-p') || ARGV.include?('--port')
+  system("node index.js --ruby-port=#{rubyPort} --node-port=9293 &")
 else
   workers Etc.nprocessors
   before_fork do
     puts "Master Process ID: #{Process.pid}".colorize(:green)
     puts "Starting Server...".colorize(:green)
-    system("npm start &")
+    rubyPort = 9292
+    rubyPort = ARGV[ARGV.index('-p') + 1] || ARGV[ARGV.index('--port') + 1] if ARGV.include?('-p') || ARGV.include?('--port')
+    system("node index.js --ruby-port=#{rubyPort} --node-port=9293 &")
   end
 end
 preload_app!
