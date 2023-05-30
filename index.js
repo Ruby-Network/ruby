@@ -15,6 +15,7 @@ const app = express();
 app.use('/', createProxyMiddleware({
     target: 'http://localhost:9292',
     changeOrigin: false,
+    logLevel: 'silent',
 }));
 
 const bareServer = createBareServer('/bare/');
