@@ -1,10 +1,10 @@
 class BareServer < Rack::Proxy
   def perform_request(env)
     request = Rack::Request.new(env)
-    if (request.path.start_with?('/bare/'))
-      env["HTTP_HOST"] = "localhost:9293"
-      env["PATH_INFO"] = request.path.gsub('/bare', '')
-      super(env)
+    if (request.path.start_with?('/bare/')) 
+        env["HTTP_HOST"] = "localhost:9293"
+        env["PATH_INFO"] = request.path.gsub('/bare', '')
+        super(env)
     else 
       @app.call(env)
     end
