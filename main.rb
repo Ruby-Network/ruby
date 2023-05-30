@@ -21,5 +21,3 @@ uvPath()
 get '/' do 
   erb :index
 end
-
-
