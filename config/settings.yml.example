@@ -1,2 +1,2 @@
-barePort: 9293
+port: 9293
 verboseLogging: false

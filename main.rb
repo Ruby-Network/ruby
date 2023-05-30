@@ -1,9 +1,7 @@
 require 'sinatra'
 require 'config'
 require 'colorize'
-require 'rack-proxy'
 require './ruby/utils.rb'
-require './ruby/bare.rb'
 require './ruby/uv.rb'
 
 set :root, File.dirname(__FILE__)
@@ -13,8 +11,6 @@ set :views, File.join(settings.root, 'src', 'views')
 register Config
 set :logging, Settings.verboseLogging
 set :show_exceptions, Settings.verboseLogging
-# Setup BareServer reverse proxy, and UV file routes
-use BareServer
 uvPath()
 
 # Other routes
