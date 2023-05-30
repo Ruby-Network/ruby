@@ -34,7 +34,7 @@ You will need to setup a basic config for this to work
 
 - If you are lazy simply run 
 ```bash
-$ cp config/settings.yml.example config/settings.yml
+$ cp config/settings.example.yml config/settings.yml
 ```
 
 - If you aren't lazy and want more configuration options run the command above and then check [#options](#options)
@@ -65,7 +65,7 @@ An example with all of them would be:
 bundle exec puma -e production -w 3 -p 8080
 ```
 
-To change the port on the Node.JS side simply edit the [settings.yml](./config/settings.yml.example)
+To change the port on the Node.JS side simply edit the [settings.yml](./config/settings.example.yml)
 
 
 ### FAQ
