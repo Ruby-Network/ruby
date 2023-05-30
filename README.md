@@ -1,76 +1,116 @@
-# Ruby (V3)
+<div align="center">
+         
+<img src="https://socialify.git.ci/ruby-network/ruby/image?description=1&font=Inter&forks=1&issues=1&language=1&name=1&owner=1&pattern=Circuit%20Board&pulls=1&stargazers=1&theme=Dark" alt="ruby" width="640" height="320" />
 
-## This version of Ruby focuses on customization whilst also trying to be fast
+<img alt="build" src="https://img.shields.io/github/actions/workflow/status/ruby-network/ruby/docker-build.yml?style=for-the-badge"></img>
+<img alt="repo size" src="https://img.shields.io/github/repo-size/ruby-network/ruby?style=for-the-badge"></img>
+<img alt="website status" src="https://img.shields.io/website?down_color=red&down_message=Offline&style=for-the-badge&up_color=green&up_message=Online&url=https%3A%2F%2Frubynetwork.tech"></img>
+<img alt="commit a week" src="https://img.shields.io/github/commit-activity/w/ruby-network/ruby?style=for-the-badge"></img>
 
-## Setup
+</div>
 
-### Prerequisites
-- Make sure you have [NODE and NPM](https://nodejs.org) installed
-- Make sure you have the [Ruby](https://ruby-lang.org) programming language installed
-- Make sure you have [Bundler](https://bundler.io) installed
+<div align="center">
+  <h2>Get Started</h2>
+  <a>To get started, press one of the buttons below to deploy Ruby</a>
+  <br />
+  <br />
+  <a href="https://render.com/deploy?repo=https://github.com/Ruby-Network/ruby">
+    <img
+      height="30px"
+      src="https://raw.githubusercontent.com/BinBashBanana/deploy-buttons/main/buttons/remade/render.svg"
+    />
+  </a>
+</a>
+  <a href="https://railway.app/new/template/hnVkIQ">
+    <img
+      height="30px"
+      src="https://raw.githubusercontent.com/BinBashBanana/deploy-buttons/main/buttons/remade/railway.svg"
+    />
+  </a>
+  <a href="https://glitch.com/edit/#!/import/github/Ruby-Network/ruby">
+  <img height="30px" 
+  src="https://raw.githubusercontent.com/BinBashBanana/deploy-buttons/main/buttons/remade/glitch.svg">
+  </img>
+  </a>
+  <br />
+  <br />
+    <a>Or</a>
+    <br>
+    <br>
+    <a href="https://github.com/Ruby-Network/ruby/wiki/selfhosting#self-hosting">
+    <img src="https://img.shields.io/badge/terminal-%23121011.svg?style=for-the-badge&logo=gnu-bash&logoColor=white" alt="Terminal">
+    </img>
+    </a>
+    <a href="https://github.com/Ruby-Network/ruby/wiki/selfhosting#docker-installation">
+    <img src="https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white" alt="Docker">
+    </img>
+    </a>
+</div>
 
-### Install dependencies
+## NOTE:
 
-```bash
-$ bundle 
-```
+-   For Cyclic users this will **not** work as it is too big
+-   This will **NOT** deploy on Github Pages, Netlify, Vercel, Gitlab Pages or any other _static_ host
 
-```bash
-$ npm i
-```
+---
 
-### Configuration
+This is our second edition of [Ruby](https://github.com/ruby-network/ruby-v1). This edition focuses on speed and more features.
 
-Most of the config is done in [config/settings.yml](./config/settings.example.yml)
+[![Ruby Network Discord](https://invidget.switchblade.xyz/hzCjSFQeeZ?theme=dark)](https://discord.gg/hzCjSFQeeZ)
 
-Here is a basic config:
+## Features
 
-```yml
-port: 9293
-verboseLogging: false
-```
+-   Tons of themes
 
-You will need to setup a basic config for this to work
+-   We prefetch everything to speed up your experience
 
-- If you are lazy simply run 
-```bash
-$ cp config/settings.example.yml config/settings.yml
-```
+-   Multiple Proxy Backends:
 
-- If you aren't lazy and want more configuration options run the command above and then check [#options](#options)
+    -   [Ultraviolet](https://github.com/titaniumnetwork-dev/ultraviolet)
+    -   [Dynamic Interception Proxy (DIP)](https://github.com/Dynamic-Interception-Proxy/DIP)
+    -   [Osana](https://github.com/nebulaservices/osana)
+    -   [aero](https://github.com/nebulaservices/aero) **NOTE: aero is unstable and may cause issues** (We currently use our own [fork](https://github.com/ruby-network/aero))
 
-### Starting
+---
 
-To start the application simply run 
+-   Basic Password protection for the website (you can set a password in the settings page)
 
-```bash
-bundle exec puma -e production
-```
+-   Customizable apps and games
 
-To change the default port on the Ruby server run:
+-   Almost 100% mobile friendly (only a few pages are not mobile friendly)
 
-```bash
-bundle exec puma -e production -p yourporthere
-```
+-   about:blank cloaking
 
-If you are on linux/macos you can also customize the amount of workers/threads you have
+-   Easy to use clean UI/UX
 
-```bash 
-bundle exec puma -e production -w amount-of-threads
-```
+-   Easy to self host
 
-An example with all of them would be:
+-   Tab cloaking
 
-```bash 
-bundle exec puma -e production -w 3 -p 8080
-```
+-   Multithreading for performance
 
-To change the port on the Node.JS side simply edit the [settings.yml](./config/settings.example.yml)
+-   **NEW:** Off click cloaking (make the tab look like a Google search when you are doing something else)
 
+-   And more!
 
-### FAQ
+---
 
-- Why do I need to run `npm i`?
-    - Due to us depending on [Ultraviolet](https://github.com/titaniumnetwork-dev/ultraviolet) and [Bare Server Node](https://github.com/tomphttp/bare-server-node) we need to run the inital app with express, and some middleware
-- Why use Ruby?
-   - Because why not!
+## Tech Stack
+
+-   [Astro](https://astro.build/) (Server Side Rendered)
+-   [React](https://reactjs.org/)
+-   [TailwindCSS](https://tailwindcss.com/)
+-   [TypeScript](https://www.typescriptlang.org/)
+-   [Particles.js](https://vincentgarreau.com/particles.js/)
+-   [Express](https://expressjs.com/)
+-   [Bare Server Node](https://github.com/tomphttp/bare-server-node)
+-   [Ultraviolet](https://github.com/titaniumnetwork-dev/ultraviolet)
+-   [Dynamic Interception Proxy (DIP)](https://github.com/Dynamic-Interception-Proxy/DIP)
+-   [Osana](https://github.com/nebulaservices/osana)
+-   HTML, CSS, and JavaScript
+
+---
+
+## Commit Activity
+
+![Alt](https://repobeats.axiom.co/api/embed/ebe65662fb02989a2be94c965f41301cd8306047.svg 'Repobeats analytics image')
