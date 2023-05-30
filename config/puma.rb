@@ -12,6 +12,7 @@ else
     puts "Master Process ID: #{Process.pid}".colorize(:green)
     puts "Starting Server...".colorize(:green)
     rubyPort = 9292
+    cpuCount = Etc.nprocessors
     rubyPort = ARGV[ARGV.index('-p') + 1] || ARGV[ARGV.index('--port') + 1] if ARGV.include?('-p') || ARGV.include?('--port')
     system("node index.js --ruby-port=#{rubyPort} --node-port=9293 &")
   end

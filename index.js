@@ -4,16 +4,16 @@ import http from 'node:http';
 import YAML from 'yaml';
 import fs from 'fs';
 import path from 'path';
+import os from 'os';
+import cluster from 'cluster';
 import { createProxyMiddleware } from 'http-proxy-middleware';
 const __dirname = path.resolve();
 const settings = YAML.parse(fs.readFileSync(path.join(__dirname, '/config/settings.yml'), 'utf8'));
 
-const httpServer = http.createServer();
-
-const app = express();
-
 let rubyPort = process.argv.find((arg) => arg.startsWith('--ruby-port')).split('=')[1] || 9292;
 let nodePort = process.argv.find((arg) => arg.startsWith('--node-port')).split('=')[1] || 9293;
+const httpServer = http.createServer();
+const app = express();
 
 app.use('/', createProxyMiddleware({
     target: `http://localhost:${rubyPort}/`,
@@ -40,9 +40,10 @@ httpServer.on('upgrade', (req, socket, head) => {
 });
 
 httpServer.on('listening', () => {
-	console.log('Server listening on port ' + settings.port);
+	console.log(`Server listening on port ${settings.port}, With PID: ${process.pid}`);
 });
 
 httpServer.listen({
 	port: settings.port,
 });
+
