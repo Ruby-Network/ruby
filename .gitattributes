@@ -1,0 +1,6 @@
+*.rb linguist-language=Ruby
+*.ru linguist-language=Ruby
+*.js linguist-language=JavaScript
+*.html linguist-language=html
+*.css linguist-language=CSS 
+*.erb linguist-language=Erb
