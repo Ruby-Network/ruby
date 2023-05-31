@@ -37,11 +37,11 @@
     <a>Or</a>
     <br>
     <br>
-    <a href="https://github.com/Ruby-Network/ruby/wiki/selfhosting#self-hosting">
+    <a href="./docs/terminal.md">
     <img src="https://img.shields.io/badge/terminal-%23121011.svg?style=for-the-badge&logo=gnu-bash&logoColor=white" alt="Terminal">
     </img>
     </a>
-    <a href="https://github.com/Ruby-Network/ruby/wiki/selfhosting#docker-installation">
+    <a href="./docs/docker.md">
     <img src="https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white" alt="Docker">
     </img>
     </a>
@@ -49,20 +49,18 @@
 
 ## NOTE:
 
--   For Cyclic users this will **not** work as it is too big
+-   For Cyclic users this will unfortunatley *not* work due to Cyclic supporting very little languages
 -   This will **NOT** deploy on Github Pages, Netlify, Vercel, Gitlab Pages or any other _static_ host
 
 ---
 
-This is our second edition of [Ruby](https://github.com/ruby-network/ruby-v1). This edition focuses on speed and more features.
+This is our third edition of [Ruby](https://github.com/ruby-network/ruby-v1). This edition primarily uses the Ruby programming language whilst also adding more features
 
 [![Ruby Network Discord](https://invidget.switchblade.xyz/hzCjSFQeeZ?theme=dark)](https://discord.gg/hzCjSFQeeZ)
 
 ## Features
 
 -   Tons of themes
-
--   We prefetch everything to speed up your experience
 
 -   Multiple Proxy Backends:
 
@@ -77,13 +75,11 @@ This is our second edition of [Ruby](https://github.com/ruby-network/ruby-v1). T
 
 -   Customizable apps and games
 
--   Almost 100% mobile friendly (only a few pages are not mobile friendly)
-
 -   about:blank cloaking
 
 -   Easy to use clean UI/UX
 
--   Easy to self host
+-   Semi-easy to self host
 
 -   Tab cloaking
 
@@ -97,16 +93,15 @@ This is our second edition of [Ruby](https://github.com/ruby-network/ruby-v1). T
 
 ## Tech Stack
 
--   [Astro](https://astro.build/) (Server Side Rendered)
--   [React](https://reactjs.org/)
--   [TailwindCSS](https://tailwindcss.com/)
--   [TypeScript](https://www.typescriptlang.org/)
+-   [Ruby](https://ruby-lang.org) (the programming lang)
+-   [Sinatra](https://sinatrarb.com) (The routes for the ruby server)
 -   [Particles.js](https://vincentgarreau.com/particles.js/)
 -   [Express](https://expressjs.com/)
 -   [Bare Server Node](https://github.com/tomphttp/bare-server-node)
 -   [Ultraviolet](https://github.com/titaniumnetwork-dev/ultraviolet)
 -   [Dynamic Interception Proxy (DIP)](https://github.com/Dynamic-Interception-Proxy/DIP)
 -   [Osana](https://github.com/nebulaservices/osana)
+-   Erb
 -   HTML, CSS, and JavaScript
 
 ---
