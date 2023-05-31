@@ -1,0 +1,11 @@
+version: '2'
+services:
+     ruby:
+          restart: unless-stopped
+          image: 'ghcr.io/ruby-network/ruby:main'
+          ports:
+               - <your port here>:9293
+#networks:
+#  default:
+#    external:
+#      name: default_net
