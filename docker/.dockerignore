@@ -1,0 +1,7 @@
+node_modules/
+.obsidian
+.vscode
+npm-debug.log
+yarn-error.log
+.github/
+settings.yml

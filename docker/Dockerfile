@@ -10,6 +10,8 @@ RUN gem install bundler
 RUN npm install 
 # Install Ruby dependencies
 RUN bundle install 
+# Setup a basic configuration
+RUN cp config/settings.example.yml config/settings.yml
 # Run the app
 EXPOSE 9293
 CMD bundle exec puma -e production
