@@ -11,7 +11,7 @@
 ## Options
 
 1. Docker Compose [here](#docker-compose)
-2. Docker Compose (build) [here](#docker-compose-(build))
+2. Docker Compose (build) [here](#docker-compose-build)
 3. Standalone Docker (not recommended) [here](#standalone)
 
 ## Docker Compose
