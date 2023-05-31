@@ -101,7 +101,6 @@ This is our third edition of [Ruby](https://github.com/ruby-network/ruby-v1). Th
 -   [Ultraviolet](https://github.com/titaniumnetwork-dev/ultraviolet)
 -   [Dynamic Interception Proxy (DIP)](https://github.com/Dynamic-Interception-Proxy/DIP)
 -   [Osana](https://github.com/nebulaservices/osana)
--   Erb
 -   HTML, CSS, and JavaScript
 
 ---
