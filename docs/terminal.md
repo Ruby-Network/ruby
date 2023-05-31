@@ -35,7 +35,7 @@ For a more advanced config visit the [Advanced Config](./advanced-config.yml) pa
 
 2. Run the command below to start the app
 ```bash
-bundle exec puma
+bundle exec puma -e production
 ```
 
 After this you should only need to run step 2
