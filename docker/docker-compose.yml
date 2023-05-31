@@ -4,7 +4,8 @@ services:
           restart: unless-stopped
           image: 'ghcr.io/ruby-network/ruby:main'
           ports:
-               - <your port here>:9293
+            #DO NOT CHANGE 9293!
+               - your port here:9293
 #networks:
 #  default:
 #    external:

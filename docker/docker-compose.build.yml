@@ -1,0 +1,14 @@
+version: "3"
+services:
+  ruby:
+    image: ruby:latest
+    build: .
+    container_name: ruby
+    restart: unless-stopped
+    ports:
+      # DO NOT CHANGE 9293!
+      - your port here:9293
+#networks:
+#  default:
+#    external:
+#      name: default_net
