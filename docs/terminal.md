@@ -3,8 +3,8 @@
 ## Prerequisites
 
 - [Node.JS](https://nodejs.org)
-- [Ruby](https://ruby-lang.org) - Not Sure How to install? Follow our [guide](./install-ruby.md)
-- [Bundler](https://bundler.io) - Not Sure How to install? Follow our [guide](./install-ruby.md)
+- [Ruby](https://ruby-lang.org) v3.0 or higher - Not Sure How to install? Follow our [guide](./install-ruby.md#ruby-installation)
+- [Bundler](https://bundler.io) - Not Sure How to install? Follow our [guide](./install-ruby.md#bundler-installation)
 
 ##  Dependency setup
 
