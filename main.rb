@@ -6,6 +6,7 @@ require 'encrypted_cookie'
 require 'rack/csrf'
 require './ruby/utils.rb'
 require './ruby/uv.rb'
+require './ruby/auth.rb'
 
 set :root, File.dirname(__FILE__)
 set :public_folder, File.join(settings.root, 'src', 'public')
@@ -32,14 +33,7 @@ uvPath()
 
 # Other routes
 get '/?:unlock?' do
-  if session[:auth] == true
-    erb :index
-  elsif params[:unlock] == "" || params[:unlock] == "unlock" || params[:unlock] == "true" || params[:unlock] == " "
-    session[:auth] = true
-    redirect '/'
-  else
-    erb :"edu/index"
-  end
+  auth('/', 'index')
 end
 
 #Auth to login to the site
