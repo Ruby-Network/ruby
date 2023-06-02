@@ -1,7 +1,7 @@
 # How it works
 
 ## Jump to
-- [Node.JS](#node.js)
+- [Node.JS](#nodejs)
 - [Ruby](#ruby)
 
 ## Node.JS 
