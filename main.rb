@@ -4,9 +4,12 @@ require 'colorize'
 require 'securerandom'
 require 'encrypted_cookie'
 require 'rack/csrf'
+require 'dry/schema'
+require 'yaml'
 require './ruby/utils.rb'
 require './ruby/uv.rb'
 require './ruby/auth.rb'
+require './ruby/yamlValidator.rb' 
 
 set :root, File.dirname(__FILE__)
 set :public_folder, File.join(settings.root, 'src', 'public')
@@ -23,6 +26,8 @@ cookie_options = {
   :secure => true,
   :httponly => true
 }
+#Validate the YML file 
+validateYML()
 #Encrypted cookies
 use Rack::Session::EncryptedCookie, cookie_options
 #csrf 

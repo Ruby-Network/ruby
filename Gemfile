@@ -9,3 +9,5 @@ gem "config"
 gem "colorize"
 gem "encrypted_cookie"
 gem 'rack_csrf'
+gem 'dry-schema'
+gem 'yaml'
