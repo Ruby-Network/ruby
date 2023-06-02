@@ -7,3 +7,5 @@ gem "puma"
 gem "os"
 gem "config"
 gem "colorize"
+gem "encrypted_cookie"
+gem 'rack_csrf'

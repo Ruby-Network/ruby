@@ -1,21 +1,53 @@
 require 'sinatra'
 require 'config'
 require 'colorize'
+require 'securerandom'
+require 'encrypted_cookie'
+require 'rack/csrf'
 require './ruby/utils.rb'
 require './ruby/uv.rb'
 
 set :root, File.dirname(__FILE__)
 set :public_folder, File.join(settings.root, 'src', 'public')
 set :views, File.join(settings.root, 'src', 'views')
-set :template, File.join(settings.root, 'src', 'templates') 
+set :template, File.join(settings.root, 'src', 'templates')
 register Config
 set :logging, Settings.verboseLogging
 set :show_exceptions, Settings.verboseLogging
+cookie_options = {
+  :key => 'UserAllowed',
+  :path => '/',
+  :expire_after => 86400, # In seconds (1 day)
+  :secret => SecureRandom.alphanumeric(2048),
+  :secure => true,
+  :httponly => true
+}
+#Encrypted cookies
+use Rack::Session::EncryptedCookie, cookie_options
+#csrf 
+use Rack::Csrf, :raise => true
 # UV "middleware"
 set :uvPath, File.join(settings.root, 'node_modules', '@titaniumnetwork-dev', 'ultraviolet', 'dist')
 uvPath()
 
 # Other routes
-get '/' do 
-  erb :index
+get '/?:unlock?' do
+  if session[:auth] == true
+    erb :index
+  elsif params[:unlock] == "" || params[:unlock] == "unlock" || params[:unlock] == "true" || params[:unlock] == " "
+    session[:auth] = true
+    redirect '/'
+  else
+    erb :"edu/index"
+  end
+end
+
+#Auth to login to the site
+post '/auth' do 
+  if params[:password] == Settings.password && params[:username] == Settings.username
+    session[:auth] = true
+    redirect '/'
+  else
+    redirect '/'
+  end
 end

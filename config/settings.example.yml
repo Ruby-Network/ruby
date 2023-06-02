@@ -1,2 +1,4 @@
 port: 9293
 verboseLogging: false
+username: "ruby"
+password: "ruby"
