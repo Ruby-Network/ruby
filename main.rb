@@ -1,4 +1,5 @@
 require 'sinatra'
+require 'sinatra/content_for'
 require 'config'
 require 'colorize'
 require 'securerandom'
@@ -38,7 +39,7 @@ uvPath()
 
 # Other routes
 get '/?:unlock?' do
-  auth('/', 'index')
+  auth('/', 'index', 'layouts/index')
 end
 
 #Auth to login to the site
