@@ -1,5 +1,6 @@
 port: 9293
-verboseLogging: false
-private: false
+verboseLogging: "false"
+private: "false"
 username: "ruby"
 password: "ruby"
+mainURL: ""

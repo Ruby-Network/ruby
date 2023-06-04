@@ -11,4 +11,8 @@ gem "colorize"
 gem "encrypted_cookie"
 gem 'rack_csrf'
 gem 'dry-schema'
+gem 'dry-validation'
 gem 'yaml'
+group :development, :test do
+  gem "rerun"
+end
