@@ -47,6 +47,7 @@ end
 post '/auth' do 
   if params[:password] == Settings.password && params[:username] == Settings.username
     session[:auth] = true
+    session[:uid] = SecureRandom.alphanumeric(2048)
     redirect '/'
   else
     redirect '/'

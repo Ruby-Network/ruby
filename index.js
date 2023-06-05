@@ -60,3 +60,11 @@ httpServer.listen({
 	port: settings.port,
 });
 
+process.on("SIGINT", shutdown);
+process.on("SIGTERM", shutdown);
+
+function shutdown() {
+  console.log("SIGTERM signal received: closing HTTP server");
+  httpServer.close();
+  bareServer.close();
+}

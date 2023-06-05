@@ -5,3 +5,9 @@ def addHeader(content)
     end
   end
 end
+
+def addTitle(content)
+  content_for :title do 
+    content
+  end
+end
