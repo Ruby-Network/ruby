@@ -1,36 +1,38 @@
 "use strict";
+let iframe = document.getElementById("uv-iframe");
 /**
- * @type {HTMLFormElement}
- */
-const form = document.getElementById("uv-form");
+    * @type {HTMLFormElement}
+    */
+    const form = document.getElementById("uv-form");
 /**
- * @type {HTMLInputElement}
- */
-const address = document.getElementById("uv-address");
+    * @type {HTMLInputElement}
+    */
+    const address = document.getElementById("uv-address");
 /**
- * @type {HTMLInputElement}
- */
-const searchEngine = document.getElementById("uv-search-engine");
+    * @type {HTMLInputElement}
+    */
+    const searchEngine = document.getElementById("uv-search-engine");
 /**
- * @type {HTMLParagraphElement}
- */
-const error = document.getElementById("uv-error");
+    * @type {HTMLParagraphElement}
+    */
+    const error = document.getElementById("uv-error");
 /**
- * @type {HTMLPreElement}
- */
-const errorCode = document.getElementById("uv-error-code");
+    * @type {HTMLPreElement}
+    */
+    const errorCode = document.getElementById("uv-error-code");
 
 form.addEventListener("submit", async (event) => {
-  event.preventDefault();
+    event.preventDefault();
 
-  try {
-    await registerSW();
-  } catch (err) {
-    error.textContent = "Failed to register service worker.";
-    errorCode.textContent = err.toString();
-    throw err;
-  }
+    try {
+        await registerSW();
+    } catch (err) {
+        error.textContent = "Failed to register service worker.";
+        errorCode.textContent = err.toString();
+        throw err;
+    }
 
-  const url = search(address.value, searchEngine.value);
-  location.href = __uv$config.prefix + __uv$config.encodeUrl(url);
+    const url = search(address.value, searchEngine.value);
+    iframe.classList.remove("dnone");
+    iframe.src = __uv$config.prefix + __uv$config.encodeUrl(url);
 });

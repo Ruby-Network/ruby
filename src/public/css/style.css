@@ -1,3 +1,28 @@
-h1 {
-  color: pink;
+.dnone {
+  display: none !important;
+  visibility: hidden !important;
+  width: 0 !important;
+  height: 0 !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  position: absolute !important;
+  top: -9999px !important;
+  left: -9999px !important;
+}
+
+#add-tab {
+  color: var(--text-color);
+  width: 16px;
+  height: 16px;
+  font-size: 16px;
+  position: absolute;
+  top: 38%;
+  right: 10px;
+}
+
+#add-tab:hover {
+  background: var(--hover-color);
+  border-radius: 50%;
+  transition: 0.3s;
+  opacity: 0.5;
 }

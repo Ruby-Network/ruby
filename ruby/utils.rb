@@ -1,7 +1,11 @@
 def addHeader(content)
   content.each do |key, value|
-    content_for :head do 
-      value
+    content_for :head do
+      if key != 1
+        "    " + value + "\n"
+      else
+        value + "\n"
+      end
     end
   end
 end

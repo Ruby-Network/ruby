@@ -28,3 +28,11 @@ def auth(path, page, layout)
     end
   end
 end
+
+def auth2(page)
+  if session[:auth] == true
+    erb :"#{page}"
+  else
+    erb :"edu/index"
+  end
+end
