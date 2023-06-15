@@ -1,5 +1,4 @@
 "use strict";
-let iframe = document.getElementById("uv-iframe");
 /**
     * @type {HTMLFormElement}
     */
@@ -33,6 +32,6 @@ form.addEventListener("submit", async (event) => {
     }
 
     const url = search(address.value, searchEngine.value);
-    iframe.classList.remove("dnone");
-    iframe.src = __uv$config.prefix + __uv$config.encodeUrl(url);
+    address.value = "";
+    handoffToTABS(__uv$config.prefix + __uv$config.encodeUrl(url));
 });

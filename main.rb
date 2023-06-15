@@ -11,7 +11,7 @@ require 'yaml'
 require './ruby/utils.rb'
 require './ruby/uv.rb'
 require './ruby/auth.rb'
-require './ruby/yamlValidator.rb' 
+require './ruby/yamlValidator.rb'
 
 set :root, File.dirname(__FILE__)
 set :public_folder, File.join(settings.root, 'src', 'public')
@@ -20,6 +20,7 @@ set :template, File.join(settings.root, 'src', 'templates')
 register Config
 set :logging, Settings.verboseLogging
 set :show_exceptions, Settings.verboseLogging
+set :components, File.join(settings.root, 'src', 'views', 'components')
 cookie_options = {
   :key => 'UserAllowed',
   :path => '/',
@@ -34,14 +35,24 @@ validateYML()
 use Rack::Session::EncryptedCookie, cookie_options
 #csrf 
 use Rack::Csrf, :raise => true
+#Auth 
+use Auth
+before do
+  if request.path_info == '/auth'
+    return
+  else
+    auth()
+  end
+end
 # UV "middleware"
 set :uvPath, File.join(settings.root, 'node_modules', '@titaniumnetwork-dev', 'ultraviolet', 'dist')
 uvPath()
 
 # Other routes
 get '/?:unlock?' do
-  auth('/', 'index', 'layouts/index')
+  erb :index, :layout => :"layouts/index"
 end
+
 
 #Auth to login to the site
 post '/auth' do 

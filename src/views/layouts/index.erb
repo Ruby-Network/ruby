@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title><%= yield_content :title %></title>
+    <%= yield_content :head %>
     <link rel="stylesheet" href="css/globals.css">
     <script src="/uv/uv.bundle.js" defer></script>
     <script src="/uv/uv.config.js" defer></script>
@@ -10,9 +11,9 @@
     <script src="js/search.js" defer></script>
     <script src="js/index.js" defer></script>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <%= yield_content :head %>
   </head>
  <body>
-    <%= yield %>
-  </body>
+   <%= yield %>
+   <%= yield_content :component %>
+ </body>
 </html>

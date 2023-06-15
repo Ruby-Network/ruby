@@ -1,38 +1,29 @@
-def auth(path, page, layout)
-  url = request.url
-  if url == Settings.mainURL
-    if session[:auth] != true
-      session[:auth] = true
-      session[:uid] = SecureRandom.alphanumeric(2048)
-    end
+class Auth 
+  def initialize(app)
+    @app = app
   end
-  if layout != false
-    if session[:auth] == true
-      erb :"#{page}", :layout => :"#{layout}"
-    elsif Settings.private == "false" && params[:unlock] == "" || params[:unlock] == "unlock" || params[:unlock] == "true" || params[:unlock] == " "
-      session[:auth] = true
-      session[:uid] = SecureRandom.alphanumeric(2048)
-      redirect path
-    else
-      erb :"edu/index"
+  def call(env)
+    request = Rack::Request.new(env)
+    url = request.url
+    session = env['rack.session']
+    params = request.params
+    puts params
+    if session[:auth] != true
+      if url == Settings.mainURL
+        session[:auth] = true
+        session[:uid] = SecureRandom.alphanumeric(2048)
+        return [302, {'Location' => '/'}, []]
+      elsif Settings.private == "false" && params['unlock'] == '' || params['unlock'] == 'unlock' || params['unlock'] == 'true' || params['unlock'] == ' '
+        session[:auth] = true
+        session[:uid] = SecureRandom.alphanumeric(2048)
+        return [302, {'Location' => '/'}, []]
+      end
     end
-  else
-    if session[:auth] == true
-      erb :"#{page}"
-    elsif Settings.private == "false" && params[:unlock] == "" || params[:unlock] == "unlock" || params[:unlock] == "true" || params[:unlock] == " "
-      session[:auth] = true
-      session[:uid] = SecureRandom.alphanumeric(2048)
-      redirect path
-    else
-      erb :"edu/index"
-    end
+    @app.call(env)
   end
 end
-
-def auth2(page)
-  if session[:auth] == true
-    erb :"#{page}"
-  else
-    erb :"edu/index"
+def auth 
+  if session[:auth] != true
+    halt erb :"edu/index"
   end
 end

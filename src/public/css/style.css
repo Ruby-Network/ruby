@@ -10,6 +10,22 @@
   left: -9999px !important;
 }
 
+body {
+  overflow: hidden;
+}
+
+#iframe {
+  width: 100%;
+  height: calc(100% - 86px);
+  border: none;
+  position: fixed;
+  top: 86px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--bg-color);
+}
+
 #add-tab {
   color: var(--text-color);
   width: 16px;
@@ -25,4 +41,104 @@
   border-radius: 50%;
   transition: 0.3s;
   opacity: 0.5;
+  cursor: pointer;
+}
+
+#menu {
+  width: 100%;
+  background: var(--text-bg-color);
+  height: 40px;
+}
+#menu #search {
+  position: relative;
+  left: 50%;
+  right: 50%;
+  transform: translate(-50%, -50%);
+  width: 75%;
+  top: 17px;
+}
+#menu #search #search-input {
+  width: 100%;
+  text-align: center;
+  height: 30px;
+  margin-top: 4px;
+  border-radius: 5px;
+  border: none;
+  background: var(--text-bg-color);
+  filter: brightness(150%);
+  color: var(--text-color);
+  padding: 0 10px;
+  font-size: 16px;
+}
+#menu #search #search-input:focus {
+  outline: none;
+}
+#menu #menu-buttons-left {
+  position: absolute;
+  top: 3.2rem;
+  left: 30px;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+#menu #menu-buttons-left #menu-button {
+  height: 30px;
+  border-radius: 50%;
+  background: var(--text-bg-color);
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#menu #menu-buttons-left #menu-button:hover {
+  background: var(--hover-color);
+  cursor: pointer;
+  opacity: 0.5;
+  transition: 0.3s;
+}
+#menu #menu-buttons-right {
+  position: absolute;
+  top: 3.2rem;
+  right: 30px;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+#menu #menu-buttons-right #menu-button {
+  height: 30px;
+  border-radius: 50%;
+  background: var(--text-bg-color);
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#menu #menu-buttons-right #menu-button:hover {
+  background: var(--hover-color);
+  cursor: pointer;
+  opacity: 0.5;
+  transition: 0.3s;
+}
+#menu .tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+  z-index: 4;
+}
+#menu .tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  top: 100%;
+  left: 50%;
+  margin-left: -60px;
+}
+#menu .tooltip:hover .tooltiptext {
+  visibility: visible;
 }

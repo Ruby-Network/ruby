@@ -15,3 +15,8 @@ def addTitle(content)
     content
   end
 end
+def showComponent(component)
+  content_for :component do
+    File.read(File.join(settings.components, component + '.erb'))
+  end
+end
