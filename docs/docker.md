@@ -22,7 +22,11 @@
 
     Or alternatively `curl` the file
     ```bash
-    command here when repo goes public
+    curl https://raw.githubusercontent.com/Ruby-Network/ruby/main/docker/docker-compose.yml > docker-compose.yml
+    ```
+    Or with `wget`
+    ```bash
+    wget https://raw.githubusercontent.com/Ruby-Network/ruby/main/docker/docker-compose.yml
     ```
 
     Or just copy this config:
