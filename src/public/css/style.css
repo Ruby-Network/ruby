@@ -142,3 +142,12 @@ body {
 #menu .tooltip:hover .tooltiptext {
   visibility: visible;
 }
+
+@media (max-width: 860px) {
+  #menu #menu-buttons-left {
+    display: none;
+  }
+  #menu #menu-buttons-right {
+    display: none;
+  }
+}

@@ -28,6 +28,14 @@ await logger(compileSCSS(), 'Compiling SCSS');
 const httpServer = http.createServer();
 const app = express();
 
+app.use('/gms', createProxyMiddleware({
+    target: `https://rawcdn.githack.com/`,
+    changeOrigin: true,
+    logLevel: 'silent',
+    pathRewrite: {
+        '^/gms' : '',
+    },
+}));
 app.use('/', createProxyMiddleware({
     target: `http://localhost:${rubyPort}/`,
     changeOrigin: false,

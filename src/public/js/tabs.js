@@ -130,8 +130,4 @@ function init() {
         favicon: 'favicon.ico',
     });
 }
-if (localStorage.getItem('tabs')) {
-    restoreTabs();
-} else {
-    init();
-}
+init();

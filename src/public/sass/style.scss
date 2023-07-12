@@ -137,3 +137,14 @@ body {
           }
      }
 }
+
+@media (max-width: 860px) {
+    #menu {
+        #menu-buttons-left {
+            display: none;
+        }
+        #menu-buttons-right {
+            display: none;
+        }
+    }
+}
