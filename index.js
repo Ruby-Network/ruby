@@ -1,11 +1,11 @@
-import createBareServer from '@tomphttp/bare-server-node';
+import { createBareServer } from '@tomphttp/bare-server-node';
 import express from 'express';
 import http from 'node:http';
 import YAML from 'yaml';
 import fs from 'fs';
 import path from 'path';
 import os from 'os';
-import sass from 'sass';
+import * as sass from 'sass';
 import cluster from 'cluster';
 import chalk from 'chalk';
 import createLogger from 'progress-estimator';
