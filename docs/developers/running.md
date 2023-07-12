@@ -1,7 +1,7 @@
 # Running the app 
 
 ## Prerequisites 
-- The setup process is complete. If not, follow the [setup guide](../setup.md)
+- The setup process is complete. If not, follow the [setup guide](./setup.md)
 
 ## Running the app 
 1. Run the Dev Server
