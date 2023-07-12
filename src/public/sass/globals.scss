@@ -1,15 +1,14 @@
 :root {
-    --bg-color: #4a0f0f;
-    --text-color: #ffff;
-    --border-color: #e3784d;
-    --text-bg-color: rgb(37, 0, 0);
-    --scroll-bar-track-color: #4a0f0f;
-    --scroll-bar-thumb-color: #e3784d;
-    --scroll-bar-thumb-hover-color: #ffff;
-    --input-bg-color: rgb(37, 0, 0);
-    --brightness-filter: brightness(80%);
-    --font: 'Exo 2', sans-serif;
-}
+    --bg-color: hsl(209 50% 10%);
+    --text-color: hsl(209 50% 90%);
+    --border-color: hsl(209 50% 80%);
+    --text-bg-color: hsl(209 50% 5%);
+    --scroll-bar-track-color: hsl(209 50% 10%);
+    --scroll-bar-thumb-color: hsl(209 50% 80%);
+    --scroll-bar-thumb-hover-color: hsl(209 50% 90%);
+    --input-bg-color: hsl(209 50% 10%);
+    --font: 'Exo 2', sans-serif;  
+} 
 .pink {
     --bg-color: hsl(310 50% 90%);
     --text-color: hsl(310 50% 15%);
@@ -52,15 +51,16 @@
     --scroll-bar-thumb-hover-color: rgb(172, 172, 0);
     --input-bg-color: rgb(255, 255, 81);
 }
-.dark {
-    --bg-color: hsl(209 50% 10%);
-    --text-color: hsl(209 50% 90%);
-    --border-color: hsl(209 50% 80%);
-    --text-bg-color: hsl(209 50% 5%);
-    --scroll-bar-track-color: hsl(209 50% 10%);
-    --scroll-bar-thumb-color: hsl(209 50% 80%);
-    --scroll-bar-thumb-hover-color: hsl(209 50% 90%);
-    --input-bg-color: hsl(209 50% 10%);
+.ruby {
+    --bg-color: #4a0f0f;
+    --text-color: #ffff;
+    --border-color: #e3784d;
+    --text-bg-color: rgb(37, 0, 0);
+    --scroll-bar-track-color: #4a0f0f;
+    --scroll-bar-thumb-color: #e3784d;
+    --scroll-bar-thumb-hover-color: #ffff;
+    --input-bg-color: rgb(37, 0, 0);
+    --brightness-filter: brightness(80%);
 }
 .purple {
     --bg-color: hsl(310 50% 10%);

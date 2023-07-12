@@ -104,25 +104,25 @@ function restoreTabs() {
         chromeTabs.removeTab(chromeTabs.activeTabEl);
     });
 }
-window.addEventListener('beforeunload', function (e) {
-    e.preventDefault();
-    e.returnValue = '';
-    if (tabs.length > 0) {
-        localStorage.setItem('tabs', JSON.stringify(tabs));
-    }
+//window.addEventListener('beforeunload', function (e) {
+   // e.preventDefault();
+ //   e.returnValue = '';
+   // if (tabs.length > 0) {
+  //      localStorage.setItem('tabs', JSON.stringify(tabs));
+ //   }
     //get all iframe 
-    let iframeJSON = [];
-    let iframes = document.querySelectorAll('[data-iframe-id]');
-    iframes.forEach((iframe) => {
-        iframeJSON.push({
-            id: iframe.getAttribute('data-iframe-id'),
-            src: iframe.contentWindow.location.href,
-        });
-    });
-    if (iframeJSON.length > 0) {
-        localStorage.setItem('iframes', JSON.stringify(iframeJSON));
-    }
-});
+    //let iframeJSON = [];
+  //  let iframes = document.querySelectorAll('[data-iframe-id]');
+  //  iframes.forEach((iframe) => {
+   //     iframeJSON.push({
+         //   id: iframe.getAttribute('data-iframe-id'),
+       //  src: iframe.contentWindow.location.href,
+     //   });
+ //   });
+   // if (iframeJSON.length > 0) {
+   //     localStorage.setItem('iframes', JSON.stringify(iframeJSON));
+  //  }
+//});
 function init() {
     chromeTabs.removeTab(chromeTabs.activeTabEl);
     chromeTabs.addTab({
