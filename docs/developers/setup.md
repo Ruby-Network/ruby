@@ -30,6 +30,10 @@ bundle install
 ```bash
 npm install
 ```
+6. Make the config file
+```bash 
+cp config/settings.example.yml config/settings.yml
+```
 
 ## Running the app
 1. Run the Dev Server
