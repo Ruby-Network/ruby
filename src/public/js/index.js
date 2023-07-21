@@ -20,17 +20,8 @@
     */
     const errorCode = document.getElementById("uv-error-code");
 
-form.addEventListener("submit", async (event) => {
+form.addEventListener("submit", (event) => {
     event.preventDefault();
-
-    try {
-        await registerSW();
-    } catch (err) {
-        //error.textContent = "Failed to register service worker.";
-        //errorCode.textContent = err.toString();
-        throw err;
-    }
-
     const url = search(address.value, searchEngine.value);
     address.value = "";
     handoffToTABS(__uv$config.prefix + __uv$config.encodeUrl(url));

@@ -1,15 +1,15 @@
-importScripts('uv.bundle.js');
-importScripts('uv.config.js');
-importScripts('/js/localforage.js');
-importScripts(__uv$config.sw || 'uv.sw.js');
+//all Ultraviolet realted stuff goes here
+importScripts('/uv/uv.bundle.js');
+importScripts('/uv/uv.config.js');
+importScripts('/js/lib/localforage.js');
+importScripts(__uv$config.sw || '/uv/uv.sw.js');
 localforage.config({
-    driver      : localforage.INDEXEDDB,
-    name        : 'Ruby',
-    version     : 1.0,
-    storeName   : 'ruby_config',
-    description : 'Ruby Config for things in sw'
+    driver: localforage.INDEXEDDB,
+    name: 'Ruby',
+    version : 1.0,
+    storeName: 'ruby_config',
+    description: 'Ruby Config for things in sw'
 });
-
 const promise = new Promise(async (resolve) => {
     try {
         const bare = await localforage.getItem('bare');
@@ -21,7 +21,6 @@ const promise = new Promise(async (resolve) => {
     }
     resolve();
 });
-
 self.addEventListener('fetch', function (event) {
     event.respondWith((async function() {
         try {

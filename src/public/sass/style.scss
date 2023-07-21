@@ -59,17 +59,17 @@ body {
         left: 50%;
         right: 50%;
         transform: translate(-50%, -50%);
-        width: 220px;
-        height: 30px;
+        width: 100%;
+        height: 40px;
         border-radius: 5px;
         outline: none;
         border: 1px solid var(--border-color);
         background: var(--text-bg-color);
         color: var(--text-color);
         padding: 0 10px;
-        font-size: 16px;
+        font-size: 18px;
         text-align: center;
-        top: 17px;
+        top: 25px;
     }
 }
 #menu {
