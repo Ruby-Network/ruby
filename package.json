@@ -2,7 +2,8 @@
     "type": "module",
     "scripts": {
         "dev": "bundle exec rerun --ignore 'src/public/css/*' --signal 'TERM' -c -w 5 --no-notify -- puma",
-        "start": "bundle exec puma -e production"
+        "start": "bundle exec puma -e production",
+        "install": "bundle install"
     },
     "dependencies": {
         "@titaniumnetwork-dev/ultraviolet": "^2.0.0",
