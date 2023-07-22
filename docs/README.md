@@ -11,6 +11,7 @@
 ## Getting Started
 - Local setup (no docker) [here](./terminal.md)
 - Local setup (with docker)(*recommended*) [here](./docker.md)
+- Private instance setup [here](./private.md) (both docker and non-docker)
 - Ruby and Bundler installation [here](./install-ruby.md)
 - Docker Installation [here](./docker-install.md)
 

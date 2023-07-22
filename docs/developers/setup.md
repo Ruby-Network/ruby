@@ -48,6 +48,14 @@ npm install
 ```bash 
 cp config/settings.example.yml config/settings.yml
 ```
+7. Edit the config file
+```bash 
+nano config/settings.yml
+```
+- Change the `mainURL` to `http://localhost:9293/`
+```yaml
+mainURL: "http://localhost:9293/"
+```
 
 ## Running the app
 1. Run the Dev Server
