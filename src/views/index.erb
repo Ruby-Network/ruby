@@ -1,11 +1,15 @@
-<% addTitle("Ruby | Home") %>
+<% addTitle("Ruby") %>
 <% addHeader({
     1 => '<link rel="stylesheet" href="css/style.css">',
     2 => '<link rel="stylesheet" href="css/chrome-tabs/chrome-tabs.css">',
     3 => '<script src="js/chrome-tabs/draggabilly.pkgd.min.js" defer></script>',
     4 => '<script src="js/chrome-tabs/chrome-tabs.js" defer></script>',
     5 => '<script src="js/tabs.js" defer></script>',
-    6 => '<link rel="stylesheet" href="font-awesome/icons/css/all.css">'
+    6 => '<link rel="stylesheet" href="font-awesome/icons/css/all.css">',
+    7 => '<script src="js/utils.js" defer></script>',
+    8 => '<script src="js/pages.js" defer></script>',
+    9 => '<script src="js/controls.js" defer></script>',
+    10 => '<script src="js/settings.js" defer></script>',
   })
 %>
 <div class="chrome-tabs" style="--tab-content-margin: 9px">
@@ -45,6 +49,7 @@
       <div id="menu-button"><i class="fa-solid fa-redo"></i></div>
       <div id="menu-button"><i class="fa-solid fa-arrow-left"></i></div>
       <div id="menu-button"><i class="fa-solid fa-arrow-right"></i></div>
+      <div id="menu-button"><i class="fa-solid fa-gamepad"></i></div>
     </div>
     <div id="menu-buttons-right">
       <div id="menu-button" class="tooltip">
@@ -55,10 +60,7 @@
         <span class="tooltiptext">Open in a new window</span>
         <i class="fa-solid fa-copy"></i>
       </div>
-      <div id="menu-button" class="tooltip">
-        <span class="tooltiptext">More</span>
-        <i class="fa-solid fa-ellipsis-v"></i>
-      </div>
+      <div id="menu-button" onclick="settingsPage(true)"><i class="fa-solid fa-gear"></i></div>
     </div>
   </div>
 </div>
@@ -69,3 +71,4 @@
     <input id="uv-address" type="text" class="dipinput" placeholder="Privately Search the Web...">
   </div>
 </form>
+<% showComponent("settings") %>

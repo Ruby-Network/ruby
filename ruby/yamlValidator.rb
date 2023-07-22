@@ -21,7 +21,7 @@ class YamlValidator < Dry::Validation::Contract
       key.failure('must have a url') if value !~ /\A#{URI::regexp(['http', 'https'])}\z/
       key.failure('must have a / at the end') if value !~ /\/\z/
     else
-      key.failure('must have no url') if value != ""
+      key.failure('must have no url') if value != "NA"
     end
   end
 end

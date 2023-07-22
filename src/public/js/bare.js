@@ -1,5 +1,13 @@
 function bareInit() {
-    bareChange('/bare/');
+    localforage.config({
+        driver      : localforage.INDEXEDDB,
+        name        : 'Ruby',
+        version     : 1.0,
+        storeName   : 'ruby_config', // Should be alphanumeric, with underscores.
+        description : 'Ruby Config for things in sw'
+    });
+    localforage.setItem('bare', '/bare/');
+    uninstallAllSW2();
 }
 
 function bareChange(value) {
@@ -20,6 +28,15 @@ function bareChange(value) {
 }
 
 function uninstallAllSW() {
+    navigator.serviceWorker.getRegistrations().then(function(registrations) {
+        for(let registration of registrations) {
+            registration.unregister();
+        }
+    }).then(function() {
+        window.location.reload();
+    });
+}
+function uninstallAllSW2() {
     navigator.serviceWorker.getRegistrations().then(function(registrations) {
         for(let registration of registrations) {
             registration.unregister();

@@ -1,25 +1,20 @@
-require 'sinatra'
-require 'sinatra/content_for'
-require 'config'
-require 'colorize'
-require 'securerandom'
-require 'encrypted_cookie'
-require 'rack/csrf'
-require 'dry/schema'
-require 'dry/validation'
-require 'yaml'
-require './ruby/utils.rb'
-require './ruby/uv.rb'
-require './ruby/auth.rb'
-require './ruby/yamlValidator.rb'
+require './require.rb'
 
 set :root, File.dirname(__FILE__)
 set :public_folder, File.join(settings.root, 'src', 'public')
 set :views, File.join(settings.root, 'src', 'views')
 set :template, File.join(settings.root, 'src', 'templates')
 register Config
-set :logging, Settings.verboseLogging
-set :show_exceptions, Settings.verboseLogging
+logging = Settings.verboseLogging
+if logging == "true"
+  puts "Verbose logging is enabled".green
+  logging = true
+else
+  puts "Verbose logging is disabled".red
+  logging = false
+end
+set :logging, logging
+set :show_exceptions, logging
 set :components, File.join(settings.root, 'src', 'views', 'components')
 cookie_options = {
   :key => 'UserAllowed',

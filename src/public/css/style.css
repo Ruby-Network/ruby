@@ -10,10 +10,6 @@
   left: -9999px !important;
 }
 
-body {
-  overflow: hidden;
-}
-
 #iframe {
   width: 100%;
   height: calc(100% - 86px);
@@ -89,7 +85,7 @@ body {
   left: 50%;
   right: 50%;
   transform: translate(-50%, -50%);
-  width: 75%;
+  width: 65%;
   top: 17px;
 }
 #menu #search #search-input {
@@ -111,7 +107,7 @@ body {
 #menu #menu-buttons-left {
   position: absolute;
   top: 3.2rem;
-  left: 30px;
+  left: 20px;
   display: flex;
   align-items: center;
   gap: 0.25rem;
@@ -178,11 +174,98 @@ body {
   visibility: visible;
 }
 
-@media (max-width: 860px) {
+#homeBar {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  background: var(--text-bg-color);
+  height: 60px;
+  text-align: center;
+  cursor: pointer;
+  padding-top: 10px;
+}
+#homeBar i {
+  font-size: 30px;
+  color: var(--text-color);
+  position: absolute;
+  top: 25%;
+  left: 4%;
+}
+#homeBar i:hover {
+  opacity: 0.5;
+  transition: 0.3s;
+}
+
+@media (max-width: 722px) {
   #menu #menu-buttons-left {
     display: none;
   }
   #menu #menu-buttons-right {
     display: none;
   }
+}
+@media (max-width: 419px) {
+  #tile {
+    margin-top: 40px;
+  }
+}
+#settings-container {
+  position: absolute;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--bg-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 20px;
+  flex: 0 1 calc(25% - 20px);
+}
+#settings-container #tile {
+  background: var(--text-bg-color);
+  width: 200px;
+  height: 200px;
+  border-radius: 15%;
+}
+#settings-container #tile h2 {
+  color: var(--text-color);
+  text-align: center;
+  margin-top: 50px;
+}
+#settings-container #tile input {
+  width: 90%;
+  height: 40px;
+  margin-top: 20px;
+  margin-left: 5%;
+  text-align: center;
+  color: var(--text-color);
+  font-size: 20px;
+  border-radius: 5px;
+  border: none;
+  background: var(--text-bg-color);
+  filter: brightness(150%);
+}
+#settings-container #tile button {
+  width: 50%;
+  height: 35px;
+  border-radius: 5px;
+  border: none;
+  background: var(--text-bg-color);
+  text-align: center;
+  font-size: 20px;
+  color: var(--text-color);
+  margin-top: 10px;
+  margin-left: 25%;
+  filter: brightness(150%);
+}
+#settings-container #tile button:hover {
+  cursor: pointer;
+  border: 1px solid var(--border-color);
+}
+#settings-container #tile button:active {
+  opacity: 0.5;
 }

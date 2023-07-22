@@ -13,6 +13,7 @@ gem 'rack_csrf'
 gem 'dry-schema'
 gem 'dry-validation'
 gem 'yaml'
+gem "rack-reverse-proxy", require: "rack/reverse_proxy"
 group :development, :test do
   gem "rerun"
 end
