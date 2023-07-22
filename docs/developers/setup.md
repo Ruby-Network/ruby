@@ -18,11 +18,25 @@ git clone https://github.com/ruby-network/ruby
 ```bash 
 git update-index --assume-unchanged .bundle/config
 ```
-3. Remove the .bundle directory
-```bash
-rm -rf .bundle
+3. Edit the Bundler config file
+```bash 
+nano .bundle/config
 ```
-4. Install the Ruby dependencies
+- Remove the line that says `BUNDLE_WITHOUT: "test:development"`
+- EXAMPLE WITH THE LINE IN THE FILE
+```config
+---
+BUNDLE_PATH: "vendor/"
+BUNDLE_WITHOUT: "test:development"
+```
+- EXAMPLE WITH THE LINE REMOVED (the one we want)
+```config
+---
+BUNDLE_PATH: "vendor/"
+```
+
+4. (Optional) Install the Ruby dependencies
+    - NPM i *should* automatically install the Ruby dependencies, but if it doesn't, run this command
 ```bash
 bundle install 
 ```
