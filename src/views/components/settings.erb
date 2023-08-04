@@ -5,17 +5,47 @@
   </div>
   <div id="tile">
     <h2> Title Setting </h2>
-    <input type="text" id="titleInput" name="title" class="input" placeholder="Title"></input>
+    <input type="text" id="titleInput" name="title" class="input" placeholder="Title" onchange="setTitle(this.value)"></input>
     <button id="titleButton" class="button">Set</button>
   </div>
   <div id="tile">
     <h2> Favicon Setting </h2>
-    <input type="text" id="faviconInput" name="favicon" class="input" placeholder="Favicon URL"></input>
+    <input type="text" id="faviconInput" name="favicon" class="input" placeholder="Favicon URL" onchange="favicon(this.value)"></input>
     <button id="faviconButton" class="button">Set</button>
   </div>
   <div id="tile">
     <h2> Bare Server </h2>
-    <input type="text" id="bareInput" name="bare" class="input" placeholder="Bare Server URL"></input>
+    <input type="text" id="bareInput" name="bare" class="input" placeholder="Bare Server URL" onchange="bare(this.value)"></input>
     <button id="bareButton" class="button">Set</button>
+  </div>
+  <div id="tile">
+    <h2> Theme </h2>
+    <select id="themeSelect" class="select" onchange="theme(this.value)">
+        <option value="default">Default</option>
+        <option value="pink">Pink</option>
+        <option value="blue">Blue</option>
+        <option value="green">Green</option>
+        <option value="yellow">Yellow</option>
+        <option value="dark">Dark</option>
+        <option value="purple">Purple</option>
+        <option value="violet">Violet</option>
+        <option value="red">Red</option>
+        <option value="orange">Orange</option>
+        <option value="midnight">Midnight</option>
+        <option value="space">Space</option>
+        <option value="marsh">Marsh</option>
+        <option value="basic">Basic</option>
+        <option value="pastel">Pastel</option>
+        <option value="teal">Teal</option>
+        <option value="pinkish-purple">Pinkish Purple</option>
+        <option value="pink-and-gray">Pink And Gray</option>
+        <option value="nord">Nord</option>
+        <option value="scoria">Scoria</option>
+        <option value="winter">Winter</option>
+        <option value="earth">Earth</option>
+        <option value="connected">Connected</option>
+        <option value="terminal">Terminal</option>
+        <option value="rainbow">Rainbow</option>
+    </select>
   </div>
 </div>

@@ -244,6 +244,20 @@
             background: var(--text-bg-color);
             filter: brightness(150%);
         }
+        select {
+            width: 90%;
+            height: 40px;
+            margin-top: 30px;
+            margin-left: 5%;
+            text-align: center;
+            color: var(--text-color);
+            font-size: 20px;
+            border-radius: 5px;
+            border: none;
+            background: var(--text-bg-color);
+            filter: brightness(150%);
+            cursor: pointer;
+        }
         button {
             width: 50%;
             height: 35px;
