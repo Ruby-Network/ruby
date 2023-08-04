@@ -21,6 +21,7 @@ function bareChange(value) {
     localforage.setItem('bare', value).then(function (value) {
         if (!value.endsWith('/')) { value += '/'; localforage.setItem('bare', value); }
         if (!value.startsWith('http://') && !value.startsWith('https://') && value !== '/bare/' && value !== '/bare') { value = 'https://' + value; localforage.setItem('bare', value); }
+        if (value === '/bare/' || value === '/bare') { value = window.location.origin + value; localforage.setItem('bare', value); }
     }).catch(function(err) {
         console.log(err);
     });

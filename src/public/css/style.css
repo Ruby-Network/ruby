@@ -204,11 +204,6 @@
     display: none;
   }
 }
-@media (max-width: 419px) {
-  #tile {
-    margin-top: 40px;
-  }
-}
 #settings-container {
   position: absolute;
   z-index: 9999;
@@ -223,7 +218,15 @@
   flex-direction: row;
   flex-wrap: wrap;
   gap: 20px;
-  flex: 0 1 calc(25% - 20px);
+}
+#settings-container #tile-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 20px;
+  flex-wrap: wrap;
+  width: 80%;
 }
 #settings-container #tile {
   background: var(--text-bg-color);
@@ -282,4 +285,10 @@
 }
 #settings-container #tile button:active {
   opacity: 0.5;
+}
+
+@media (max-width: 810px) {
+  #settings-container #tile-container {
+    margin-top: 80px;
+  }
 }

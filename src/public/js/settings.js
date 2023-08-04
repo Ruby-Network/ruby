@@ -36,9 +36,13 @@ function theme(value) {
 function searchSettings(value) {
     localStorage.setItem('searchEngine', value);
 }
+function proxyChange(value) {
+    localStorage.setItem('proxy', value);
+}
 
 function setItems() {
     localforage.getItem('bare').then(function(value) {
+        if ( value === window.location.origin + '/bare/' ) { value = '/bare/'; }
         document.getElementById('bareInput').value = value;
     }).catch(function(err) {
         console.log(err);
@@ -47,14 +51,17 @@ function setItems() {
     let faviconInput = document.getElementById('faviconInput');
     let themeSelect = document.getElementById('themeSelect');
     let searchInput = document.getElementById('searchInput');
+    let proxySelect = document.getElementById('proxySelect');
     let title = localStorage.getItem('title');
     let favicon = localStorage.getItem('favicon');
     let theme = localStorage.getItem('theme');
     let search = localStorage.getItem('searchEngine');
+    let proxy = localStorage.getItem('proxy');
     titleInput.value = title;
     faviconInput.value = favicon;
     themeSelect.value = theme;
     searchInput.value = search;
+    proxySelect.value = proxy;
     document.documentElement.className = localStorage.getItem('theme');
     document.title = title;
     document.getElementById('favicon').href = favicon;

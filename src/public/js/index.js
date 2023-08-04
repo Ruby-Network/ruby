@@ -20,5 +20,14 @@ form.addEventListener("submit", (event) => {
     event.preventDefault();
     const url = search(address.value, localStorage.getItem("searchEngine"));
     address.value = "";
-    handoffToTABS(__uv$config.prefix + __uv$config.encodeUrl(url));
+    switch (localStorage.getItem("proxy")) {
+        case "uv":
+            handoffToTABS(__uv$config.prefix + __uv$config.encodeUrl(url));
+            break;
+        case "dip":
+            handoffToTABS(window.__DIP.config.prefix + window.__DIP.encodeURL(url));
+            break;
+        default:
+            handoffToTABS(__uv$config.prefix + __uv$config.encodeUrl(url));
+        }
 });
