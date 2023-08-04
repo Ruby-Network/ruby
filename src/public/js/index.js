@@ -8,10 +8,6 @@
     */
     const address = document.getElementById("uv-address");
 /**
-    * @type {HTMLInputElement}
-    */
-    const searchEngine = document.getElementById("uv-search-engine");
-/**
     * @type {HTMLParagraphElement}
     */
     const error = document.getElementById("uv-error");
@@ -22,7 +18,7 @@
 
 form.addEventListener("submit", (event) => {
     event.preventDefault();
-    const url = search(address.value, searchEngine.value);
+    const url = search(address.value, localStorage.getItem("searchEngine"));
     address.value = "";
     handoffToTABS(__uv$config.prefix + __uv$config.encodeUrl(url));
 });

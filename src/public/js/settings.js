@@ -33,6 +33,9 @@ function theme(value) {
     localStorage.setItem('theme', value);
     document.documentElement.className = value;
 }
+function searchSettings(value) {
+    localStorage.setItem('searchEngine', value);
+}
 
 function setItems() {
     localforage.getItem('bare').then(function(value) {
@@ -43,12 +46,15 @@ function setItems() {
     let titleInput = document.getElementById('titleInput');
     let faviconInput = document.getElementById('faviconInput');
     let themeSelect = document.getElementById('themeSelect');
+    let searchInput = document.getElementById('searchInput');
     let title = localStorage.getItem('title');
     let favicon = localStorage.getItem('favicon');
     let theme = localStorage.getItem('theme');
+    let search = localStorage.getItem('searchEngine');
     titleInput.value = title;
     faviconInput.value = favicon;
     themeSelect.value = theme;
+    searchInput.value = search;
     document.documentElement.className = localStorage.getItem('theme');
     document.title = title;
     document.getElementById('favicon').href = favicon;
@@ -62,8 +68,7 @@ function init() {
         localStorage.setItem('title', 'Ruby');
         localStorage.setItem('favicon', '/favicon.ico');
         localStorage.setItem('theme', 'default');
-
-
+        localStorage.setItem('searchEngine', 'https://www.google.com/search?q=%s');
 
         setItems();
     }

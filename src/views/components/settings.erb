@@ -19,6 +19,17 @@
     <button id="bareButton" class="button">Set</button>
   </div>
   <div id="tile">
+    <h2> Search Engine </h2>
+    <select id="searchInput" class="select" onchange="searchSettings(this.value)">
+        <option value="https://www.google.com/search?q=%s">Google</option>
+        <option value="https://duckduckgo.com/?q=%s">DuckDuckGo</option>
+        <option value="https://www.bing.com/search?q=%s">Bing</option>
+        <option value="https://search.yahoo.com/search?p=%s">Yahoo</option>
+        <option value="https://brave.com/search?q=%s">Brave</option>
+        <option value="https://qwant.com/?q=%s">Qwant</option>
+    </select>
+  </div>
+  <div id="tile">
     <h2> Theme </h2>
     <select id="themeSelect" class="select" onchange="theme(this.value)">
         <option value="default">Default</option>
