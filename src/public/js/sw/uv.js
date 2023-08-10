@@ -28,7 +28,7 @@ self.addEventListener('fetch', function (event) {
             return await self.uv.fetch(event);
         }
         catch (err) {
-            console.error(err);
+            //console.error(err);
         }
     })());
 });

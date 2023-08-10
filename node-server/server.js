@@ -38,6 +38,7 @@ await app
         replyOptions: {
             rewriteRequestHeaders: (originalReq, headers) => {
                 headers['host'] = originalReq.headers['host'];
+                headers['origin'] = originalReq.headers['origin'];
                 return headers;
             }
         }

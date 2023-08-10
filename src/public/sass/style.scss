@@ -207,6 +207,7 @@
     left: 0;
     right: 0;
     bottom: 0;
+    width: 100%;
     background: var(--bg-color);
     display: flex;
     align-items: center;
@@ -221,7 +222,8 @@
         flex-direction: row;
         gap: 20px;
         flex-wrap: wrap;
-        width: 80%;
+        width: 900px;
+        position: relative;
     }
     #tile {
         background: var(--text-bg-color);
@@ -284,7 +286,9 @@
 }
 @media (max-width: 810px) {
     #settings-container {
+        bottom: unset;
         #tile-container {
+            width: 80%;
             margin-top: 80px;
         }
     }

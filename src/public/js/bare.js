@@ -6,7 +6,8 @@ function bareInit() {
         storeName   : 'ruby_config', // Should be alphanumeric, with underscores.
         description : 'Ruby Config for things in sw'
     });
-    localforage.setItem('bare', '/bare/');
+    localforage.setItem('bare', window.location.origin + '/bare/');
+    localStorage.setItem('bare', '/bare/');
     uninstallAllSW2();
 }
 
@@ -19,9 +20,9 @@ function bareChange(value) {
         description : 'Ruby Config for things in sw'
     });
     localforage.setItem('bare', value).then(function (value) {
-        if (!value.endsWith('/')) { value += '/'; localforage.setItem('bare', value); }
-        if (!value.startsWith('http://') && !value.startsWith('https://') && value !== '/bare/' && value !== '/bare') { value = 'https://' + value; localforage.setItem('bare', value); }
-        if (value === '/bare/' || value === '/bare') { value = window.location.origin + value; localforage.setItem('bare', value); }
+        if (!value.endsWith('/')) { value += '/'; localforage.setItem('bare', value); localStorage.setItem('bare', value); }
+        if (!value.startsWith('http://') && !value.startsWith('https://') && value !== '/bare/' && value !== '/bare') { value = 'https://' + value; localforage.setItem('bare', value); localStorage.setItem('bare', value); }
+        if (value === '/bare/' || value === '/bare') { value = window.location.origin + value; localforage.setItem('bare', value); localStorage.setItem('bare', value); }
     }).catch(function(err) {
         console.log(err);
     });
