@@ -31,3 +31,13 @@ form.addEventListener("submit", (event) => {
             handoffToTABS(__uv$config.prefix + __uv$config.encodeUrl(url));
         }
 });
+function proxyOtherStuff(url) {
+    switch (localStorage.getItem("proxy")) {
+        case "uv":
+            return __uv$config.prefix + __uv$config.encodeUrl(url);
+        case "dynamic":
+            return __dynamic$config.prefix + "route/?url=" + encodeURIComponent(url);
+        default:
+            return __uv$config.prefix + __uv$config.encodeUrl(url);
+        }
+}

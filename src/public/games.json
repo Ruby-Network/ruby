@@ -4,7 +4,7 @@
         "baseFile": "index.html",
         "name": "Tanuki Sunset",
         "tags": ["arcade", "platformer", "static"],
-        "cdn": "false",
+        "cdn": "true",
         "proxy": "false",
         "url": ""
     },
@@ -13,7 +13,7 @@
         "baseFile": "index.html",
         "name": "Tunnel Rush",
         "tags": ["arcade", "platformer", "static"],
-        "cdn": "false",
+        "cdn": "true",
         "proxy": "false",
         "url": ""
     },
@@ -22,7 +22,7 @@
         "baseFile": "index.html",
         "name": "Madalin Stunt Cars 2",
         "tags": ["racing", "static"],
-        "cdn": "false",
+        "cdn": "true",
         "proxy": "false",
         "url": ""
     },
@@ -31,7 +31,7 @@
         "baseFile": "index.html",
         "name": "Spank The Monkey",
         "tags": ["arcade", "flash", "static"],
-        "cdn": "false",
+        "cdn": "true",
         "proxy": "false",
         "url": ""
     },
@@ -40,7 +40,7 @@
         "baseFile": "index.html",
         "name": "Slope",
         "tags": ["arcade", "platformer", "static"],
-        "cdn": "false",
+        "cdn": "true",
         "proxy": "false",
         "url": ""
     },
@@ -49,7 +49,7 @@
         "baseFile": "index.html",
         "name": "Run 3",
         "tags": ["arcade", "adventure", "platformer", "static"],
-        "cdn": "false",
+        "cdn": "true",
         "proxy": "false",
         "url": ""
     },
@@ -58,7 +58,7 @@
         "baseFile": "index.html",
         "name": "Pacman",
         "tags": ["arcade", "multiplayer", "static"],
-        "cdn": "false",
+        "cdn": "true",
         "proxy": "false",
         "url": ""
     },
@@ -67,7 +67,7 @@
         "baseFile": "index.html",
         "name": "HexGL",
         "tags": ["racing", "static"],
-        "cdn": "false",
+        "cdn": "true",
         "proxy": "false",
         "url": ""
     },
@@ -76,7 +76,7 @@
         "baseFile": "index.html",
         "name": "Google Snake",
         "tags": ["arcade", "static"],
-        "cdn": "false",
+        "cdn": "true",
         "proxy": "false",
         "url": ""
     },
@@ -85,7 +85,7 @@
         "baseFile": "index.html",
         "name": "Google Pacman",
         "tags": ["arcade", "static"],
-        "cdn": "false",
+        "cdn": "true",
         "proxy": "false",
         "url": ""
     },
@@ -94,7 +94,7 @@
         "baseFile": "index.html",
         "name": "Super Mario Bros.",
         "tags": ["arcade", "adventure", "retro", "platformer", "emulation"],
-        "cdn": "false",
+        "cdn": "true",
         "proxy": "false",
         "url": ""
     },
@@ -103,7 +103,7 @@
         "baseFile": "index.html",
         "name": "DuckLife",
         "tags": ["arcade", "static"],
-        "cdn": "false",
+        "cdn": "tru",
         "proxy": "false",
         "url": ""
     },
@@ -112,7 +112,7 @@
         "baseFile": "index.html",
         "name": "DuckLife 2",
         "tags": ["arcade", "static"],
-        "cdn": "false",
+        "cdn": "true",
         "proxy": "false",
         "url": ""
     },
@@ -121,7 +121,7 @@
         "baseFile": "index.html",
         "name": "DuckLife 3",
         "tags": ["arcade", "static"],
-        "cdn": "false",
+        "cdn": "true",
         "proxy": "false",
         "url": ""
     },
@@ -130,7 +130,7 @@
         "baseFile": "index.html",
         "name": "Google Dino Game",
         "tags": ["arcade", "static"],
-        "cdn": "false",
+        "cdn": "true",
         "proxy": "false",
         "url": ""
     },
@@ -139,7 +139,7 @@
         "baseFile": "index.html",
         "name": "Cookie Clicker",
         "tags": ["arcade", "static"],
-        "cdn": "false",
+        "cdn": "true",
         "proxy": "false",
         "url": ""
     },
@@ -148,7 +148,7 @@
         "baseFile": "index.html",
         "name": "Retro Bowl",
         "tags": ["arcade", "sports", "static"],
-        "cdn": "false",
+        "cdn": "true",
         "proxy": "false",
         "url": ""
     },
@@ -157,7 +157,7 @@
         "baseFile": "index.html",
         "name": "Riddle School",
         "tags": ["arcade", "adventure", "strategy", "static"],
-        "cdn": "false",
+        "cdn": "true",
         "proxy": "false",
         "url": ""
     },
@@ -166,7 +166,7 @@
         "baseFile": "index.html",
         "name": "Riddle School 2",
         "tags": ["arcade", "adventure", "strategy", "static"],
-        "cdn": "false",
+        "cdn": "true",
         "proxy": "false",
         "url": ""
     },
@@ -175,7 +175,7 @@
         "baseFile": "index.html",
         "name": "Riddle School 3",
         "tags": ["arcade", "adventure", "strategy", "static"],
-        "cdn": "false",
+        "cdn": "true",
         "proxy": "false",
         "url": ""
     },
@@ -184,7 +184,7 @@
         "baseFile": "index.html",
         "name": "Riddle School 4",
         "tags": ["arcade", "adventure", "strategy", "static"],
-        "cdn": "false",
+        "cdn": "true",
         "proxy": "false",
         "url": ""
     },
@@ -193,7 +193,7 @@
         "baseFile": "index.html",
         "name": "Riddle School 5",
         "tags": ["arcade", "adventure", "strategy", "static"],
-        "cdn": "false",
+        "cdn": "true",
         "proxy": "false",
         "url": ""
     },
@@ -202,7 +202,7 @@
         "baseFile": "index.html",
         "name": "SuperHot",
         "tags": ["arcade", "shooter", "static"],
-        "cdn": "false",
+        "cdn": "true",
         "proxy": "false",
         "url": ""
     },
@@ -211,7 +211,7 @@
         "baseFile": "index.html",
         "name": "Tank Trouble 2",
         "tags": ["arcade", "shooter", "strategy", "static"],
-        "cdn": "false",
+        "cdn": "true",
         "proxy": "false",
         "url": ""
     },
@@ -220,7 +220,7 @@
         "baseFile": "index.html",
         "name": "Temple Run 2",
         "tags": ["arcade", "adventure", "static"],
-        "cdn": "false",
+        "cdn": "true",
         "proxy": "false",
         "url": ""
     },
@@ -229,7 +229,7 @@
         "baseFile": "index.html",
         "name": "Flash Tetris",
         "tags": ["arcade", "strategy", "retro", "static"],
-        "cdn": "false",
+        "cdn": "true",
         "proxy": "false",
         "url": ""
     },
@@ -238,7 +238,7 @@
         "baseFile": "index.html",
         "name": "EmulatorJS",
         "tags": ["arcade", "strategy", "retro", "emulation"],
-        "cdn": "false",
+        "cdn": "true",
         "proxy": "false",
         "url": ""
     },
@@ -247,7 +247,7 @@
         "baseFile": "index.html",
         "name": "WebRetro",
         "tags": ["arcade", "strategy", "retro", "emulation"],
-        "cdn": "false",
+        "cdn": "true",
         "proxy": "false",
         "url": ""
     },
@@ -256,7 +256,7 @@
         "baseFile": "index.html",
         "name": "Bloons",
         "tags": ["arcade", "strategy", "static"],
-        "cdn": "false",
+        "cdn": "true",
         "proxy": "false",
         "url": ""
     },
@@ -265,7 +265,7 @@
         "baseFile": "index.html",
         "name": "Bloons TD",
         "tags": ["arcade", "strategy", "static"],
-        "cdn": "false",
+        "cdn": "true",
         "proxy": "false",
         "url": ""
     },
@@ -274,7 +274,7 @@
         "baseFile": "index.html",
         "name": "Bloons TD 2",
         "tags": ["arcade", "strategy", "static"],
-        "cdn": "false",
+        "cdn": "true",
         "proxy": "false",
         "url": ""
     },
@@ -283,7 +283,7 @@
         "baseFile": "index.html",
         "name": "2048",
         "tags": ["arcade", "strategy", "static"],
-        "cdn": "false",
+        "cdn": "true",
         "proxy": "false",
         "url": ""
     },
@@ -292,7 +292,7 @@
         "baseFile": "index.html",
         "name": "Bloxors",
         "tags": ["arcade", "strategy", "static"],
-        "cdn": "false",
+        "cdn": "true",
         "proxy": "false",
         "url": ""
     },
@@ -301,7 +301,7 @@
         "baseFile": "index.html",
         "name": "Geometry Dash",
         "tags": ["arcade", "static"],
-        "cdn": "false",
+        "cdn": "true",
         "proxy": "false",
         "url": ""
     },
@@ -310,7 +310,7 @@
         "baseFile": "index.html",
         "name": "Stickman Hook",
         "tags": ["arcade", "platformer", "static"],
-        "cdn": "false",
+        "cdn": "true",
         "proxy": "false",
         "url": ""
     },
@@ -319,7 +319,7 @@
         "baseFile": "index.html",
         "name": "Vex 3",
         "tags": ["arcade", "platformer", "static"],
-        "cdn": "false",
+        "cdn": "true",
         "proxy": "false",
         "url": ""
     },
@@ -328,7 +328,7 @@
         "baseFile": "index.html",
         "name": "Vex 4",
         "tags": ["arcade", "platformer", "static"],
-        "cdn": "false",
+        "cdn": "true",
         "proxy": "false",
         "url": ""
     },
@@ -337,7 +337,7 @@
         "baseFile": "index.html",
         "name": "Vex 5",
         "tags": ["arcade", "platformer", "static"],
-        "cdn": "false",
+        "cdn": "true",
         "proxy": "false",
         "url": ""
     },
@@ -346,7 +346,7 @@
         "baseFile": "index.html",
         "name": "Vex 6",
         "tags": ["arcade", "platformer", "static"],
-        "cdn": "false",
+        "cdn": "true",
         "proxy": "false",
         "url": ""
     },
@@ -355,7 +355,7 @@
         "baseFile": "index.html",
         "name": "Vex 7",
         "tags": ["arcade", "platformer", "static"],
-        "cdn": "false",
+        "cdn": "true",
         "proxy": "false",
         "url": ""
     },
@@ -364,7 +364,7 @@
         "baseFile": "index.html",
         "name": "Madalin Stunt Cars 3",
         "tags": ["arcade", "racing", "static"],
-        "cdn": "false",
+        "cdn": "true",
         "proxy": "false",
         "url": ""
     },
@@ -373,7 +373,7 @@
         "baseFile": "index.html",
         "name": "Worlds Hardest Game",
         "tags": ["arcade", "strategy", "static"],
-        "cdn": "false",
+        "cdn": "true",
         "proxy": "false",
         "url": ""
     },
@@ -382,7 +382,7 @@
         "baseFile": "index.html",
         "name": "Portal Flash",
         "tags": ["arcade", "strategy", "static"],
-        "cdn": "false",
+        "cdn": "true",
         "proxy": "false",
         "url": ""
     },
@@ -391,7 +391,7 @@
         "baseFile": "index.html",
         "name": "Crossy Road",
         "tags": ["arcade", "platformer", "static"],
-        "cdn": "false",
+        "cdn": "true",
         "proxy": "false",
         "url": ""
     },
@@ -400,7 +400,7 @@
         "baseFile": "index.html",
         "name": "Subway Surfers",
         "tags": ["arcade", "platformer", "static"],
-        "cdn": "false",
+        "cdn": "true",
         "proxy": "false",
         "url": ""
     },
@@ -409,7 +409,7 @@
         "baseFile": "index.html",
         "name": "Dadish",
         "tags": ["arcade", "platformer", "static"],
-        "cdn": "false",
+        "cdn": "true",
         "proxy": "false",
         "url": ""
     },
@@ -418,7 +418,7 @@
         "baseFile": "index.html",
         "name": "Dadish 2",
         "tags": ["arcade", "platformer", "static"],
-        "cdn": "false",
+        "cdn": "true",
         "proxy": "false",
         "url": ""
     },
@@ -427,7 +427,7 @@
         "baseFile": "index.html",
         "name": "Doodle Jump",
         "tags": ["arcade", "platformer", "static"],
-        "cdn": "false",
+        "cdn": "true",
         "proxy": "false",
         "url": ""
     },
@@ -436,7 +436,7 @@
         "baseFile": "index.html",
         "name": "Fruit Ninja",
         "tags": ["arcade", "static"],
-        "cdn": "false",
+        "cdn": "true",
         "proxy": "false",
         "url": ""
     },
@@ -445,7 +445,7 @@
         "baseFile": "index.html",
         "name": "Basketball Stars",
         "tags": ["arcade", "static"],
-        "cdn": "false",
+        "cdn": "true",
         "proxy": "false",
         "url": ""
     },
@@ -454,7 +454,7 @@
         "baseFile": "index.html",
         "name": "Slope 2",
         "tags": ["arcade", "platformer", "multiplayer", "static"],
-        "cdn": "false",
+        "cdn": "true",
         "proxy": "false",
         "url": ""
     },
@@ -463,7 +463,7 @@
         "baseFile": "index.html",
         "name": "Stack",
         "tags": ["static", "strategy"],
-        "cdn": "false",
+        "cdn": "true",
         "proxy": "false",
         "url": ""
     },
@@ -490,7 +490,7 @@
         "baseFile": "index.html",
         "name": "The Binding of Isaac",
         "tags": ["arcade", "strategy", "shooter", "flash", "static"],
-        "cdn": "false",
+        "cdn": "true",
         "proxy": "false",
         "url": ""
     },
@@ -499,7 +499,7 @@
         "baseFile": "index.html",
         "name": "EaglerCraft X",
         "tags": ["static", "sandbox", "multiplayer"],
-        "cdn": "false",
+        "cdn": "true",
         "proxy": "false",
         "url": ""
     },
@@ -508,7 +508,7 @@
         "baseFile": "dots.html",
         "name": "Mini Agario",
         "tags": ["static", "arcade", "strategy"],
-        "cdn": "false",
+        "cdn": "true",
         "proxy": "false",
         "url": ""
     },
@@ -535,7 +535,7 @@
         "baseFile": "index.html",
         "name": "Frogger",
         "tags": ["arcade", "platformer", "retro", "static"],
-        "cdn": "false",
+        "cdn": "true",
         "proxy": "false",
         "url": ""
     },
@@ -544,7 +544,7 @@
         "baseFile": "index.html",
         "name": "Super Mario 64",
         "tags": ["arcade", "platformer", "retro", "emulation"],
-        "cdn": "false",
+        "cdn": "true",
         "proxy": "false",
         "url": ""
     },
@@ -571,7 +571,7 @@
         "baseFile": "index.html",
         "name": "Cat Ninja",
         "tags": ["arcade", "static"],
-        "cdn": "false",
+        "cdn": "true",
         "proxy": "false",
         "url": ""
     },
@@ -580,7 +580,7 @@
         "baseFile": "index.html",
         "name": "Gun Mayhem 2",
         "tags": ["arcade", "shooter", "static"],
-        "cdn": "false",
+        "cdn": "true",
         "proxy": "false",
         "url": ""
     },
@@ -589,7 +589,7 @@
         "baseFile": "index.html",
         "name": "Super Smash Flash",
         "tags": ["arcade", "shooter", "static"],
-        "cdn": "false",
+        "cdn": "true",
         "proxy": "false",
         "url": ""
     }

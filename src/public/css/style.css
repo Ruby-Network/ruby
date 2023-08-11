@@ -326,6 +326,45 @@
   margin-top: 80px;
   margin-bottom: 10px;
 }
+#games-container #game-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  background: var(--bg-color);
+  height: 100vh;
+  z-index: 10000;
+  border: none;
+}
+#games-container #exit-game {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(--text-bg-color);
+  border: none;
+  opacity: 0.5;
+  z-index: 10001;
+}
+#games-container #exit-game:hover {
+  cursor: pointer;
+  opacity: 1;
+}
+#games-container #exit-game:active {
+  opacity: 0.5;
+}
+#games-container #exit-game i {
+  font-size: 30px;
+  color: var(--text-color);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 #games-container #tile {
   background: var(--text-bg-color);
   width: 200px;
