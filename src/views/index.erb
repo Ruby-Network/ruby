@@ -10,6 +10,7 @@
     8 => '<script src="js/pages.js" defer></script>',
     9 => '<script src="js/controls.js" defer></script>',
     10 => '<script src="js/settings.js" defer></script>',
+    11 => '<script src="js/games.js" defer></script>',
   })
 %>
 <div class="chrome-tabs" style="--tab-content-margin: 9px">
@@ -43,13 +44,13 @@
 <div class="chrome-tabs-bottom-bar">
   <div id="menu">
     <div id="search">
-      <input id="search-input" type="text" placeholder="Search">
+      <input id="search-input" type="text" placeholder="Search" onchange="searchBar(this.value)">
     </div>
     <div id="menu-buttons-left">
       <div id="menu-button" onclick="refreshPage()"><i class="fa-solid fa-redo"></i></div>
       <div id="menu-button" onclick="previousPage()"><i class="fa-solid fa-arrow-left"></i></div>
       <div id="menu-button" onclick="nextPage()"><i class="fa-solid fa-arrow-right"></i></div>
-      <div id="menu-button"><i class="fa-solid fa-gamepad"></i></div>
+      <div id="menu-button" onclick="gamesPage(true)"><i class="fa-solid fa-gamepad"></i></div>
     </div>
     <div id="menu-buttons-right">
       <div id="menu-button" class="tooltip" onclick="fullscreen()">
@@ -72,3 +73,4 @@
   </div>
 </form>
 <% showComponent("settings") %>
+<% showComponent("games") %>

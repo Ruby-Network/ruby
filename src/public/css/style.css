@@ -296,5 +296,94 @@
   #settings-container #tile-container {
     width: 80%;
     margin-top: 80px;
+    margin-bottom: 10px;
+  }
+}
+#games-container {
+  position: absolute;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background: var(--bg-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+#games-container #tile-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 20px;
+  flex-wrap: wrap;
+  width: 80%;
+  position: relative;
+  margin-top: 80px;
+  margin-bottom: 10px;
+}
+#games-container #tile {
+  background: var(--text-bg-color);
+  width: 200px;
+  height: 200px;
+  border-radius: 7%;
+}
+#games-container #tile:hover {
+  cursor: pointer;
+  border: 2px solid var(--border-color);
+}
+#games-container #tile:active {
+  opacity: 0.5;
+}
+#games-container #tile h2 {
+  color: var(--text-color);
+  text-align: center;
+  margin-top: -1px;
+  font-size: 20px;
+}
+#games-container #tile #seperator {
+  background: var(--text-color);
+  width: 100%;
+  height: 2px;
+  margin-top: -2px;
+}
+#games-container #tile img {
+  width: 100%;
+  height: 85%;
+  object-fit: cover;
+  border-radius: 7% 7% 0 0;
+  margin: 0;
+}
+#games-container #tile button {
+  width: 50%;
+  height: 35px;
+  border-radius: 5px;
+  border: none;
+  background: var(--text-bg-color);
+  text-align: center;
+  font-size: 20px;
+  color: var(--text-color);
+  margin-top: 10px;
+  margin-left: 25%;
+  filter: brightness(150%);
+}
+#games-container #tile button:hover {
+  cursor: pointer;
+  border: 1px solid var(--border-color);
+}
+#games-container #tile button:active {
+  opacity: 0.5;
+}
+
+@media (max-width: 810px) {
+  #games-container {
+    bottom: unset;
+  }
+  #games-container #tile-container {
+    width: 80%;
   }
 }

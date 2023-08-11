@@ -7,6 +7,16 @@ function settingsPage(value) {
         document.getElementById('settings-container').classList.add('dnone');
     }
 }
+function gamesPage(value) {
+    if (value === true) {
+        document.getElementById('games-container').classList.remove('dnone');
+        setPage('games');
+        fetchGames();
+    }
+    if (value === false) {
+        document.getElementById('games-container').classList.add('dnone');
+    }
+}
 function refreshPage() {
     let currentTab = getCurrentTab();
     let iframe = document.querySelector(`[data-iframe-id="${currentTab}"]`);
@@ -44,4 +54,10 @@ function fullscreen() {
     try {
         iframe.contentWindow.document.documentElement.requestFullscreen();
     } catch (err) {};
+}
+function searchBar(value) {
+    const f = document.getElementById('uv-form');
+    const i = document.getElementById('uv-address');
+    i.value = value;
+    f.dispatchEvent(new Event('submit'));
 }
