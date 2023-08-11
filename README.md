@@ -71,8 +71,7 @@ This is our third edition of [Ruby](https://github.com/ruby-network/ruby-v1). Th
 -   Multiple Proxy Backends:
 
     -   [Ultraviolet](https://github.com/titaniumnetwork-dev/ultraviolet)
-    -   [Dynamic Interception Proxy (DIP)](https://github.com/Dynamic-Interception-Proxy/DIP)
-    -   More to be added!
+    -   [Dynamic](https://github.com/nebulaservices/dynamic)
 ---
 
 -   Basic Password protection for the website (you can set a password in the settings page)
