@@ -46,17 +46,17 @@
       <input id="search-input" type="text" placeholder="Search">
     </div>
     <div id="menu-buttons-left">
-      <div id="menu-button"><i class="fa-solid fa-redo"></i></div>
-      <div id="menu-button"><i class="fa-solid fa-arrow-left"></i></div>
-      <div id="menu-button"><i class="fa-solid fa-arrow-right"></i></div>
+      <div id="menu-button" onclick="refreshPage()"><i class="fa-solid fa-redo"></i></div>
+      <div id="menu-button" onclick="previousPage()"><i class="fa-solid fa-arrow-left"></i></div>
+      <div id="menu-button" onclick="nextPage()"><i class="fa-solid fa-arrow-right"></i></div>
       <div id="menu-button"><i class="fa-solid fa-gamepad"></i></div>
     </div>
     <div id="menu-buttons-right">
-      <div id="menu-button" class="tooltip">
+      <div id="menu-button" class="tooltip" onclick="fullscreen()">
         <span class="tooltiptext">Full Screen</span>
         <i class="fa-solid fa-expand"></i>
       </div>
-      <div id="menu-button" class="tooltip">
+      <div id="menu-button" class="tooltip" onclick="popout()">
         <span class="tooltiptext">Open in a new window</span>
         <i class="fa-solid fa-copy"></i>
       </div>
@@ -65,7 +65,7 @@
   </div>
 </div>
 <h1 id="title">Ruby</h1>
-<form action="submit" id="uv-form">
+<form action="submit" method="POST" id="uv-form">
   <div class="search">
     <%= Rack::Csrf.tag(env) %>
     <input id="uv-address" type="text" class="dipinput" placeholder="Privately Search the Web...">
