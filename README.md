@@ -74,9 +74,6 @@ This is our third edition of [Ruby](https://github.com/ruby-network/ruby-v1). Th
     -   [Dynamic](https://github.com/nebulaservices/dynamic)
 ---
 
--   Basic Password protection for the website (you can set a password in the settings page)
-
--   Customizable apps and games
 
 -   about:blank cloaking
 
@@ -86,9 +83,15 @@ This is our third edition of [Ruby](https://github.com/ruby-network/ruby-v1). Th
 
 -   Tab cloaking
 
+---
+### FEATURES COMING SOON
+---
+
+-   Basic Password protection for the website (you can set a password in the settings page)
+
 -   Multithreading for performance
 
--   And more!
+-   Customizable apps and games
 
 ---
 
