@@ -71,15 +71,9 @@ This is our third edition of [Ruby](https://github.com/ruby-network/ruby-v1). Th
 -   Multiple Proxy Backends:
 
     -   [Ultraviolet](https://github.com/titaniumnetwork-dev/ultraviolet)
-    -   [Dynamic Interception Proxy (DIP)](https://github.com/Dynamic-Interception-Proxy/DIP)
-    -   [Osana](https://github.com/nebulaservices/osana)
-    -   [aero](https://github.com/nebulaservices/aero) **NOTE: aero is unstable and may cause issues** (We currently use our own [fork](https://github.com/ruby-network/aero))
-
+    -   [Dynamic](https://github.com/nebulaservices/dynamic)
 ---
 
--   Basic Password protection for the website (you can set a password in the settings page)
-
--   Customizable apps and games
 
 -   about:blank cloaking
 
@@ -89,11 +83,15 @@ This is our third edition of [Ruby](https://github.com/ruby-network/ruby-v1). Th
 
 -   Tab cloaking
 
+---
+### FEATURES COMING SOON
+---
+
+-   Basic Password protection for the website (you can set a password in the settings page)
+
 -   Multithreading for performance
 
--   **NEW:** Off click cloaking (make the tab look like a Google search when you are doing something else)
-
--   And more!
+-   Customizable apps and games
 
 ---
 

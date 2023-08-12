@@ -3,7 +3,8 @@
     "scripts": {
         "dev": "bundle exec rerun --ignore 'src/public/css/*' --signal 'TERM' -c -w 5 --no-notify -- puma",
         "start": "bundle exec puma -e production",
-        "install": "bundle install"
+        "install": "bundle install && npm run build",
+        "build": "node ./build.js"
     },
     "dependencies": {
         "@fastify/http-proxy": "^9.2.1",

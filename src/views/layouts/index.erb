@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title><%= yield_content :title %></title> 
     <link rel="stylesheet" href="css/globals.css">
+    <script src="js/dynamic/dynamic.config.js" defer></script>
     <script src="uv/uv.bundle.js" defer></script>
     <script src="uv/uv.config.js" defer></script>
     <script src="js/search.js" defer></script>
@@ -11,7 +12,8 @@
     <script src="js/lib/localforage.js" defer></script>
     <script src="js/register.js" defer></script>
     <script src="js/bare.js" defer></script>
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <script src="js/lib/sweetalert2.js" defer></script>
+    <link rel="icon" href="favicon.ico" type="image/x-icon" id="favicon">
     <%= yield_content :head %>
   </head>
  <body>

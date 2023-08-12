@@ -38,11 +38,27 @@ await app
         replyOptions: {
             rewriteRequestHeaders: (originalReq, headers) => {
                 headers['host'] = originalReq.headers['host'];
+                headers['origin'] = originalReq.headers['origin'];
                 return headers;
             }
         }
     })
+    .register(fastifyHttpProxy, {
+        upstream: 'https://rawcdn.githack.com/',
+        prefix: '/gms/',
+        http2: false,
+    })
     .register(fastifyMiddie)
+app.get('/search=:query', async (req, res) => {
+    const { query } = req.params;
+    try {
+        const resp = await fetch(`https://search.brave.com/api/suggest?q=${query}&format=json`).then((res) => res.json());
+        res.send(resp);
+    }
+    catch (err) {
+        reply.code(500).send({ error: "Internal Server Error" });
+    }
+});
 
 app.listen({ port: nodePort });
 console.log(chalk.green(`Server listening on port ${chalk.red(nodePort)}`));

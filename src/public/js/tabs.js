@@ -29,6 +29,10 @@ function showIframe(tabId) {
     let iframe = document.querySelector(`[data-iframe-id="${tabId}"]`);
     iframe.classList.remove('dnone');
 }
+function getCurrentTab() {
+    let tabId = chromeTabs.activeTabEl.getAttribute('data-tab-id');
+    return tabId;
+}
 function hideIframe(tabId) {
     let previousTabID;
     if (tabId) {

@@ -5,6 +5,9 @@ window.addEventListener('load', () => {
         case 'settings':
             settingsPage(true);
             break;
+        case 'games':
+            gamesPage(true);
+            break;
     }
 });
 
