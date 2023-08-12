@@ -52,7 +52,36 @@ function fullscreen() {
     let currentTab = getCurrentTab();
     let iframe = document.querySelector(`[data-iframe-id="${currentTab}"]`);
     try {
-        iframe.contentWindow.document.documentElement.requestFullscreen();
+        if (localStorage.getItem('fullScreen') === 'full') {
+            iframe.requestFullscreen();
+        }
+        if (localStorage.getItem('fullScreen') === 'page') {
+            //set to position absolute
+            iframe.style.position = 'absolute';
+            //set to top left corner
+            iframe.style.top = '0';
+            iframe.style.left = '0';
+            //set to full width and height
+            iframe.style.width = '100%';
+            iframe.style.height = '100%';
+            //set z-index to 9999
+            iframe.style.zIndex = '9998';
+            //add a transition
+            iframe.style.transition = 'all 0.5s ease-in-out';
+            //listen for escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    //reset all styles
+                    iframe.style.position = '';
+                    iframe.style.top = '';
+                    iframe.style.left = '';
+                    iframe.style.width = '';
+                    iframe.style.height = '';
+                    iframe.style.zIndex = '';
+                    iframe.style.transition = '';
+                }
+            });
+        }
     } catch (err) {};
 }
 function searchBar(value) {

@@ -54,31 +54,32 @@ function aboutBlank() {
     win.document.body.appendChild(iframe);
 }
 
+function fullScreenChange(value) {
+    localStorage.setItem('fullScreen', value);
+}
+
 function setItems() {
-    localforage.getItem('bare').then(function(value) {
-        if ( value === window.location.origin + '/bare/' ) { value = '/bare/'; }
-        document.getElementById('bareInput').value = value;
-    }).catch(function(err) {
-        console.log(err);
-    });
     let titleInput = document.getElementById('titleInput');
     let faviconInput = document.getElementById('faviconInput');
     let themeSelect = document.getElementById('themeSelect');
     let searchInput = document.getElementById('searchInput');
     let proxySelect = document.getElementById('proxySelect');
+    let fullscreenSelect = document.getElementById('fullscreenSelect');
     let bareInput = document.getElementById('bareInput');
     let title = localStorage.getItem('title');
     let favicon = localStorage.getItem('favicon');
     let theme = localStorage.getItem('theme');
     let search = localStorage.getItem('searchEngine');
     let proxy = localStorage.getItem('proxy');
+    let fullscreen = localStorage.getItem('fullScreen');
     let bare = localStorage.getItem('bare');
     titleInput.value = title;
     faviconInput.value = favicon;
     themeSelect.value = theme;
     searchInput.value = search;
     proxySelect.value = proxy;
-    bareInput.value = bare;
+    fullscreenSelect.value = fullscreen;
+    if (bare === window.location.origin + '/bare/') { bareInput.value = '/bare/'; } else { bareInput.value = bare; }
     document.documentElement.className = localStorage.getItem('theme');
     document.title = title;
     document.getElementById('favicon').href = favicon;
@@ -95,6 +96,7 @@ function init() {
         localStorage.setItem('searchEngine', 'https://www.google.com/search?q=%s');
         localStorage.setItem('proxy', 'uv');
         localStorage.setItem('bare', window.location.origin + '/bare/');
+        localStorage.setItem('fullScreen', 'page');
         setItems();
     }
     else { 

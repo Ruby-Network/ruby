@@ -233,7 +233,7 @@
     top: 0;
     left: 0;
     right: 0;
-    bottom: 0;
+    //bottom: 0;
     width: 100%;
     background: var(--bg-color);
     display: flex;
@@ -251,6 +251,8 @@
         flex-wrap: wrap;
         width: 900px;
         position: relative;
+        margin-top: 80px;
+        margin-bottom: 10px;
     } 
     #tile {
         background: var(--text-bg-color);
@@ -316,8 +318,6 @@
         bottom: unset;
         #tile-container {
             width: 80%;
-            margin-top: 80px;
-            margin-bottom: 10px;
         }
     }
 }

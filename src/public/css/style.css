@@ -236,7 +236,6 @@
   top: 0;
   left: 0;
   right: 0;
-  bottom: 0;
   width: 100%;
   background: var(--bg-color);
   display: flex;
@@ -255,6 +254,8 @@
   flex-wrap: wrap;
   width: 900px;
   position: relative;
+  margin-top: 80px;
+  margin-bottom: 10px;
 }
 #settings-container #tile {
   background: var(--text-bg-color);
@@ -321,8 +322,6 @@
   }
   #settings-container #tile-container {
     width: 80%;
-    margin-top: 80px;
-    margin-bottom: 10px;
   }
 }
 #games-container {
