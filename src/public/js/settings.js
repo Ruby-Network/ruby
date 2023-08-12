@@ -84,6 +84,17 @@ function setItems() {
     document.title = title;
     document.getElementById('favicon').href = favicon;
 }
+function reset() {
+    localStorage.clear();
+    bareChange(window.location.origin + '/bare/');
+    setTitle('Ruby');
+    favicon('/favicon.ico');
+    theme('default');
+    searchSettings('https://www.google.com/search?q=%s');
+    proxyChange('uv');
+    fullScreenChange('page');
+    setItems();
+}
 
 function init() {
     let init = localStorage.getItem('init');
