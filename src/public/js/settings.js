@@ -37,7 +37,18 @@ function searchSettings(value) {
     localStorage.setItem('searchEngine', value);
 }
 function proxyChange(value) {
-    localStorage.setItem('proxy', value);
+    const setValue = function() {
+        localStorage.setItem('proxy', value);
+    }
+    const defaultFUNC = function() {
+        setItems();
+    }
+    if (value === 'dynamic') {
+        notifyBeta('Dynamic', setValue, defaultFUNC);
+    }
+    else {
+        setValue();
+    }
 }
 function aboutBlank() {
     window.location.replace('https://google.com');

@@ -451,3 +451,6 @@
     width: 80%;
   }
 }
+.swal2-container {
+  z-index: 100000;
+}
