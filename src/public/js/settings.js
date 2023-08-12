@@ -39,6 +39,20 @@ function searchSettings(value) {
 function proxyChange(value) {
     localStorage.setItem('proxy', value);
 }
+function aboutBlank() {
+    window.location.replace('https://google.com');
+    const win = window.open();
+    win.document.body.style.margin = '0';
+    win.document.body.style.height = '100vh';
+    const iframe = win.document.createElement('iframe');
+    iframe.style.border = 'none';
+    iframe.style.width = '100%';
+    iframe.style.height = '100%';
+    iframe.style.margin = '0';
+    const url = window.location.href;
+    iframe.src = url;
+    win.document.body.appendChild(iframe);
+}
 
 function setItems() {
     localforage.getItem('bare').then(function(value) {
