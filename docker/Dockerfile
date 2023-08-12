@@ -10,7 +10,7 @@ RUN gem install bundler
 RUN npm install
 # Install Ruby dependencies
 RUN bundle install 
-# Build the Dynamic
+# Build Dynamic
 RUN npm run build
 # Setup a basic configuration
 RUN cp config/settings.example.yml config/settings.yml
