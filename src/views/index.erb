@@ -11,6 +11,7 @@
     9 => '<script src="js/controls.js" defer></script>',
     10 => '<script src="js/settings.js" defer></script>',
     11 => '<script src="js/games.js" defer></script>',
+    12 => '<script src="js/omnibox.js" defer></script>',
   })
 %>
 <div class="chrome-tabs" style="--tab-content-margin: 9px">
@@ -69,7 +70,10 @@
 <form action="submit" method="POST" id="uv-form">
   <div class="search">
     <%= Rack::Csrf.tag(env) %>
-    <input id="uv-address" type="text" class="dipinput" placeholder="Privately Search the Web...">
+    <input id="uv-address" type="text" class="dipinput" placeholder="Privately Search the Web..." oninput="omniBox(this.value)" />
+    <div id="omnibox" class="dnone">
+      <ul id="omnibox-list"></ul>
+    </div>
   </div>
 </form>
 <% showComponent("settings") %>

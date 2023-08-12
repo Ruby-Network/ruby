@@ -49,6 +49,16 @@ await app
         http2: false,
     })
     .register(fastifyMiddie)
+app.get('/search=:query', async (req, res) => {
+    const { query } = req.params;
+    try {
+        const resp = await fetch(`https://search.brave.com/api/suggest?q=${query}&format=json`).then((res) => res.json());
+        res.send(resp);
+    }
+    catch (err) {
+        reply.code(500).send({ error: "Internal Server Error" });
+    }
+});
 
 app.listen({ port: nodePort });
 console.log(chalk.green(`Server listening on port ${chalk.red(nodePort)}`));
