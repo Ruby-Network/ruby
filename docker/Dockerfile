@@ -8,12 +8,10 @@ RUN apt update && apt install -y ruby-full
 RUN gem install bundler 
 # Install Node.js dependencies
 RUN npm install
-# Install Ruby dependencies
-RUN bundle install 
-# Build Dynamic
-RUN npm run build
 # Setup a basic configuration
 RUN cp config/settings.example.yml config/settings.yml
+# Mount the config file so the user can edit it
+VOLUME /usr/src/app/config
 # Run the app
 EXPOSE 9293
 CMD npm start

@@ -6,6 +6,9 @@ services:
           ports:
             #DO NOT CHANGE 9293!
                - your port here:9293
+volumes:
+  - ./config:/usr/src/app/config
+
 #networks:
 #  default:
 #    external:
