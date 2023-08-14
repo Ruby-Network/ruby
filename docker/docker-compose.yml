@@ -2,7 +2,7 @@ version: '2'
 services:
   ruby:
     restart: unless-stopped
-    image: 'ghcr.io/ruby-network/ruby:main'
+    image: 'ghcr.io/ruby-network/ruby'
     ports:
       #DO NOT CHANGE 9293!
       - 9293:9293
