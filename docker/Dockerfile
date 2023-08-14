@@ -7,7 +7,6 @@ RUN apt update && apt install -y ruby-full
 # Installing Bundler
 RUN gem install bundler 
 RUN yarn install
-RUN yarn build
 # Setup a basic configuration
 RUN cp config/settings.example.yml config/settings.yml
 # Mount config/settings.yml as a volume
