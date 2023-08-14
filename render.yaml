@@ -3,5 +3,5 @@ services:
       name: ruby
       plan: free
       env: ruby
-      buildCommand: gem install bundler && yarn
+      buildCommand: yarn
       startCommand: yarn start
