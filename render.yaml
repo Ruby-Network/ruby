@@ -3,5 +3,5 @@ services:
       name: ruby
       plan: free
       env: ruby
-      buildCommand: yarn
+      buildCommand: yarn && cp config/settings.yml.example config/settings.yml
       startCommand: yarn start
