@@ -113,7 +113,7 @@ cp config/settings.example.yml ./config.yml
 
 1. After setting up the repo properly run 
 ```bash 
-docker compose up -d
+docker build && docker compose up -d
 ```
 
 2. It should build the docker image and execute it starting the app!
