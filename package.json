@@ -6,6 +6,9 @@
         "install": "bundle install && npm run build",
         "build": "node ./build.js"
     },
+     "engines": {
+        "node": ">=18.0.0 <20.0.0"
+    },
     "dependencies": {
         "@fastify/http-proxy": "^9.2.1",
         "@fastify/middie": "^8.3.0",
