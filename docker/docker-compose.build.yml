@@ -8,6 +8,8 @@ services:
     ports:
       # DO NOT CHANGE 9293!
       - your port here:9293
+    volumes:
+      - ./config.yml:/usr/src/app/config/settings.yml
 #networks:
 #  default:
 #    external:
