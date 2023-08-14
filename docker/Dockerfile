@@ -9,6 +9,7 @@ RUN gem install bundler
 # Install Node.js dependencies
 RUN npm install -g yarn
 RUN yarn install
+RUN yarn build
 # Setup a basic configuration
 RUN cp config/settings.example.yml config/settings.yml
 # Mount config/settings.yml as a volume
