@@ -36,7 +36,7 @@ function proxyOtherStuff(url) {
         case "uv":
             return __uv$config.prefix + __uv$config.encodeUrl(url);
         case "dynamic":
-            return __dynamic$config.prefix + "route/?url=" + encodeURIComponent(url);
+            return __dynam$ic.prefix + "route/?url=" + __dynam$ic.encodeUrl(url);
         default:
             return __uv$config.prefix + __uv$config.encodeUrl(url);
         }
