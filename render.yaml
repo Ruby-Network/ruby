@@ -1,0 +1,7 @@
+services:
+    - type: web
+      name: ruby
+      env: node
+      plan: free
+      buildCommand: yarn
+      startCommand: yarn start
