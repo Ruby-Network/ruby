@@ -21,4 +21,4 @@
         - [lib/](../../src/public/js/lib/): This directory contains the libraries such as, localfoage and sweetalert2
         - [sw/](../../src/public/js/sw/): This directory contains both the UV service worker and the Dynamic service worker 
         - [uv/](../../src/public/js/uv/): This directory contains the UV config for ultraviolet
-        - [sass/](../../src/public/sass/): This directory contains the SASS for the project (compiled to CSS)
+      - [sass/](../../src/public/sass/): This directory contains the SASS for the project (compiled to CSS)

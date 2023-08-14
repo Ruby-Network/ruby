@@ -14,12 +14,17 @@ After you have all the [prerequisites](#prerequisites) you'll need to install so
 
 I am assuming you are using Linux
 
-1. (Optional) Run the command below to install the Ruby dependencies
+1. Clone the repo
+```bash
+git clone https://ruby-network/ruby --recursive
+```
+
+2. (Optional) Run the command below to install the Ruby dependencies
     - `npm i` *should* do this for you but if it doesn't you can run the command below
 ```bash
 bundler 
 ```
-2. Run the command below to install the Node.JS dependencies 
+3. Run the command below to install the Node.JS dependencies 
 ```bash 
 npm i
 ```

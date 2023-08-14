@@ -12,7 +12,7 @@
 ## Setup
 1. Clone the repository
 ```bash
-git clone https://github.com/ruby-network/ruby 
+git clone https://github.com/ruby-network/ruby --recursive 
 ```
 2. Setup Git 
 ```bash 

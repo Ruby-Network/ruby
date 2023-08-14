@@ -92,7 +92,7 @@ and voila it should be running!
 
 1. `git clone` the repo 
 ```bash 
-git clone https://github.com/ruby-network/ruby
+git clone https://github.com/ruby-network/ruby --recursive
 ```
 2. Copy docker-compose.build.yml to the main folder
 ```bash 

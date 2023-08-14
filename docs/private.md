@@ -13,7 +13,7 @@
 ### Setup
 1. Clone the repo
     ```bash
-    git clone https://github.com/ruby-network/ruby 
+    git clone https://github.com/ruby-network/ruby --recursive 
     ```
 2. Install dependencies
     ```bash
