@@ -2,6 +2,5 @@ services:
     - type: web
       name: ruby
       plan: free
-      env: ruby
-      buildCommand: yarn && cp config/settings.example.yml config/settings.yml
-      startCommand: yarn start
+      env: docker
+      image: ghcr.io/ruby-network/ruby:main
