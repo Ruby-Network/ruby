@@ -1,7 +1,7 @@
 services:
     - type: web
       name: ruby
-      env: node
+      env: node, ruby
       plan: free
-      buildCommand: yarn
+      buildCommand: gem install bundler && yarn
       startCommand: yarn start
