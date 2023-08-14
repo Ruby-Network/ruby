@@ -7,7 +7,7 @@ RUN apt update && apt install -y ruby-full
 # Installing Bundler
 RUN gem install bundler 
 # Install Node.js dependencies
-RUN npm install -g yarn --force
+RUN npm install -g yarn
 RUN yarn install
 RUN yarn build
 # Setup a basic configuration
