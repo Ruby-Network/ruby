@@ -60,5 +60,5 @@ app.get('/search=:query', async (req, res) => {
     }
 });
 
-app.listen({ port: nodePort });
+app.listen({ port: nodePort, host: '0.0.0.0' });
 console.log(chalk.green(`Server listening on port ${chalk.red(nodePort)}`));

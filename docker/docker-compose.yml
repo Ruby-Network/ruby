@@ -1,15 +1,14 @@
 version: '2'
 services:
-     ruby:
-          restart: unless-stopped
-          image: 'ghcr.io/ruby-network/ruby:main'
-          ports:
-            #DO NOT CHANGE 9293!
-               - your port here:9293
-volumes:
-  - ./config:/usr/src/app/config
-
+  ruby:
+    restart: unless-stopped
+    image: 'ghcr.io/ruby-network/ruby:main'
+    ports:
+      #DO NOT CHANGE 9293!
+      - 9293:9293
+    volumes:
+      - ./config.yml:/usr/src/app/config/settings.yml
 #networks:
-#  default:
-#    external:
-#      name: default_net
+  #  default:
+  #    external:
+  #      name: default_net

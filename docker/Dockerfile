@@ -10,8 +10,8 @@ RUN gem install bundler
 RUN npm install
 # Setup a basic configuration
 RUN cp config/settings.example.yml config/settings.yml
-# Mount the config file so the user can edit it
-VOLUME /usr/src/app/config
+# Mount config/settings.yml as a volume
+VOLUME /usr/src/app/config/settings.yml
 # Run the app
 EXPOSE 9293
 CMD npm start
