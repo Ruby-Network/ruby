@@ -26,13 +26,6 @@
       src="https://raw.githubusercontent.com/BinBashBanana/deploy-buttons/main/buttons/remade/render.svg"
     />
   </a>
-</a>
-  <a href="https://railway.app/new/template/hnVkIQ">
-    <img
-      height="30px"
-      src="https://raw.githubusercontent.com/BinBashBanana/deploy-buttons/main/buttons/remade/railway.svg"
-    />
-  </a>
   <a href="https://glitch.com/edit/#!/import/github/Ruby-Network/ruby">
   <img height="30px" 
   src="https://raw.githubusercontent.com/BinBashBanana/deploy-buttons/main/buttons/remade/glitch.svg">
