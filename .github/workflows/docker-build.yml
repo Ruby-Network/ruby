@@ -12,6 +12,10 @@ env:
 jobs:
   build-and-push-image:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      packages: write
+      metadata: read
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v3
