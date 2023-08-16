@@ -1,6 +1,8 @@
 node_modules/
 package-lock.json
 yarn.lock
+pnpm-lock.yaml
+Gemfile.lock
 .env
 settings.yml
 .bundle/
