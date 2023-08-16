@@ -14,3 +14,9 @@
 `password` - The password for use in either, private instances. If it is a normal instance, password will always be `ruby`
 
 `mainUrl` - The main URL for use in a normal instance. If you are trying to make a private instance set this value to `NA`
+
+---
+#### Options coming soon:
+`port` - Will be switched to `rubyPort` and will be the port the Ruby server will run on. Default is `9292`
+
+`nodePort` - Will be the port the Node server will run on. Default is `9293`
