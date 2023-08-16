@@ -2,6 +2,6 @@ services:
     - type: web
       name: ruby
       plan: free
-      env: image
+      runtime: image
       image: 
         url: ghcr.io/ruby-network/ruby:latest
