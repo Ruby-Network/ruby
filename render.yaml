@@ -3,4 +3,5 @@ services:
       name: ruby
       plan: free
       env: docker
-      image: https://ghcr.io/ruby-network/ruby:main
+      image: 
+        url: ghcr.io/ruby-network/ruby:main
