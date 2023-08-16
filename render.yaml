@@ -4,4 +4,4 @@ services:
       plan: free
       env: image
       image: 
-        url: ghcr.io/ruby-network/ruby:main
+        url: ghcr.io/ruby-network/ruby:latest
