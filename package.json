@@ -1,5 +1,9 @@
 {
     "type": "module",
+    "version": "1.0.0",
+    "description": "A Proxy that focuses on usability, performance and customizability.",
+    "license": "AGPL-3.0-only",
+    "author": "Ruby Network",
     "scripts": {
         "dev": "bundle exec rerun --ignore 'src/public/css/*' --signal 'TERM' -c -w 5 --no-notify -- puma",
         "start": "bundle exec puma -e production",
