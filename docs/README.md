@@ -16,7 +16,7 @@
 - Docker Installation [here](./docker-install.md)
 
 ## Configuration
-- Advanced Configuration [here](./advanced-config.yml)
+- Advanced Configuration [here](./advanced-config.md)
 
 ## FAQ and Misc
 - [FAQ](./faq.md)
