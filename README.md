@@ -1,10 +1,4 @@
 <div align="center">
-    <h2 style="font-size: 50px; color: red">NOTE: This is a work in progress and is not complete. If you want to see the current version check 
-        <a href="https://github.com/ruby-network/ruby-v2/">Here</a>
-    </h2>
-</div>
-
-<div align="center">
          
 <img src="https://socialify.git.ci/ruby-network/ruby/image?description=1&font=Inter&forks=1&issues=1&language=1&name=1&owner=1&pattern=Circuit%20Board&pulls=1&stargazers=1&theme=Dark" alt="ruby" width="640" height="320" />
 
@@ -65,6 +59,7 @@ This is our third edition of [Ruby](https://github.com/ruby-network/ruby-v1). Th
 
     -   [Ultraviolet](https://github.com/titaniumnetwork-dev/ultraviolet)
     -   [Dynamic](https://github.com/nebulaservices/dynamic)
+    -   [RammerHead](https://github.com/binary-person/rammerhead) **COMING SOON**
 ---
 
 
@@ -74,7 +69,6 @@ This is our third edition of [Ruby](https://github.com/ruby-network/ruby-v1). Th
 
 -   Semi-easy to self host
 
--   Tab cloaking
 
 ---
 ### FEATURES COMING SOON
@@ -82,9 +76,23 @@ This is our third edition of [Ruby](https://github.com/ruby-network/ruby-v1). Th
 
 -   Basic Password protection for the website (you can set a password in the settings page)
 
--   Multithreading for performance
+-   Multithreading for performance (Node.JS server, Ruby server already has this)
 
 -   Customizable apps and games
+
+-   Partners page for all of our wonderful partners 
+
+-   Themes such as Catppuccin, Rose Pine and more
+
+-   More proxy backends (RammerHead)
+
+-   Apps 
+
+-   History page
+
+-   Backgrounds, using Particles.js and other libraries
+
+-   And more!
 
 ---
 
@@ -92,12 +100,11 @@ This is our third edition of [Ruby](https://github.com/ruby-network/ruby-v1). Th
 
 -   [Ruby](https://ruby-lang.org) (the programming lang)
 -   [Sinatra](https://sinatrarb.com) (The routes for the ruby server)
--   [Particles.js](https://vincentgarreau.com/particles.js/)
--   [Express](https://expressjs.com/)
+<!-- [Particles.js](https://vincentgarreau.com/particles.js/) -->
+-   [Fastify](https://fastify.dev) (The routes for the node server)
 -   [Bare Server Node](https://github.com/tomphttp/bare-server-node)
 -   [Ultraviolet](https://github.com/titaniumnetwork-dev/ultraviolet)
--   [Dynamic Interception Proxy (DIP)](https://github.com/Dynamic-Interception-Proxy/DIP)
--   [Osana](https://github.com/nebulaservices/osana)
+-   [Dynamic](https://github.com/nebulaServices/dynamic)
 -   HTML, CSS, and JavaScript
 
 ---
