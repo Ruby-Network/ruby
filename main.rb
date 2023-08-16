@@ -30,6 +30,8 @@ validateYML()
 use Rack::Session::EncryptedCookie, cookie_options
 #csrf 
 use Rack::Csrf, :raise => true
+#Compression
+use Rack::Deflater
 #Auth 
 use Auth
 before do
