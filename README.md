@@ -14,12 +14,12 @@
   <a>To get started, press one of the buttons below to deploy Ruby</a>
   <br />
   <br />
-  <a href="https://render.com/deploy?repo=https://github.com/Ruby-Network/ruby">
+  <!-- a href="https://render.com/deploy?repo=https://github.com/Ruby-Network/ruby">
     <img
       height="30px"
       src="https://raw.githubusercontent.com/BinBashBanana/deploy-buttons/main/buttons/remade/render.svg"
     />
-  </a>
+  </a -->
   <a href="https://glitch.com/edit/#!/import/github/Ruby-Network/ruby">
   <img height="30px" 
   src="https://raw.githubusercontent.com/BinBashBanana/deploy-buttons/main/buttons/remade/glitch.svg">
@@ -44,6 +44,7 @@
 
 -   For Cyclic users this will unfortunatley *not* work due to Cyclic supporting very little languages
 -   This will **NOT** deploy on Github Pages, Netlify, Vercel, Gitlab Pages or any other _static_ host
+-   This *currently* does not work on Render, but we are working on it
 
 ---
 

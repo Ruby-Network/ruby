@@ -11,8 +11,6 @@ RUN yarn install
 RUN cp config/settings.example.yml config/settings.yml
 # Mount config/settings.yml as a volume
 VOLUME /usr/src/app/config/settings.yml
-# Special exec command to detect if settings.yml is mounted as a volume 
-ENTRYPOINT ["bash -c 'if [ ! -f config/settings.yml ]; then cp config/settings.example.yml config/settings.yml; fi;'"]
 # Run the app
 EXPOSE 9293
 CMD yarn start
