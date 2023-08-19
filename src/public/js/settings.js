@@ -12,6 +12,7 @@ function bare(value) {
         fetch(value).then(function(response) {
             if (response.status !== 200) { return false; }
             bareChange(value)
+            localStorage.setItem('bare', value);
         }).catch(function(err) {
             console.log('Fetch Error :-S', err);
             bareChange('/bare/');
