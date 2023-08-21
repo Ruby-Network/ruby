@@ -25,7 +25,7 @@ form.addEventListener("submit", (event) => {
             handoffToTABS(__uv$config.prefix + __uv$config.encodeUrl(url));
             break;
         case "dynamic":
-            handoffToTABS(__dynamic$config.prefix + "route/?url=" + encodeURIComponent(url));
+            handoffToTABS(__dynam$ic.prefix + "route/?url=" + __dynam$ic.encodeUrl(url));
             break;
         default:
             handoffToTABS(__uv$config.prefix + __uv$config.encodeUrl(url));
