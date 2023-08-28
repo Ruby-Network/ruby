@@ -1,7 +1,7 @@
 async function omniBox(query) {
     const results = await fetch(`/search=${query}`).then((res) => res.json());
     document.getElementById("omnibox-list").innerHTML = '';
-    document.getElementById("uv-form").style.top = "71%";
+    document.getElementById("uv-form").style.marginTop = "120px";
     document.getElementById("omnibox").removeAttribute("class", "dnone");
     await results[1].forEach((result) => {
         //the only issue is that this passes passed the height of the omnibox and so it needs to be fixed 
@@ -12,13 +12,13 @@ async function omniBox(query) {
     });
     if (results[1].length == 0) {
         document.getElementById("omnibox-list").innerHTML = ''
-        document.getElementById("uv-form").style.top = "55%";
+        document.getElementById("uv-form").style.marginTop = "20px";
         document.getElementById("omnibox").setAttribute("class", "dnone");
     }
 }
 function omniBoxSelect(value) {
     document.getElementById("uv-address").value = value;
-    document.getElementById("uv-form").style.top = "55%";
+    document.getElementById("uv-form").style.marginTop = "20px";
     document.getElementById("omnibox").setAttribute("class", "dnone");
     document.getElementById("omnibox-list").innerHTML = ''
     document.getElementById("uv-address").focus();
