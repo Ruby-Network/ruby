@@ -108,6 +108,21 @@ function restoreTabs() {
         chromeTabs.removeTab(chromeTabs.activeTabEl);
     });
 }
+function keybinds() {
+    console.log("keybinds initalized")
+    //override ctrl + t
+    document.addEventListener('keydown', function (e) {
+        if (e.altKey && e.key === 't') {
+            chromeTabs.addTab({
+                title: 'Search',
+                favicon: 'favicon.ico',
+            });
+        }
+        if (e.altKey && e.key === 'w') {
+            chromeTabs.removeTab(chromeTabs.activeTabEl);
+        }
+    });
+}
 //window.addEventListener('beforeunload', function (e) {
    // e.preventDefault();
  //   e.returnValue = '';
@@ -133,5 +148,6 @@ function init() {
         title: 'Search',
         favicon: 'favicon.ico',
     });
+    keybinds();
 }
 init();
