@@ -1,6 +1,7 @@
 let el = document.querySelector('.chrome-tabs');
 let chromeTabs = new ChromeTabs();
 let tabs = [];
+let deletedTabs = [];
 chromeTabs.init(el);
 document.getElementById('add-tab').addEventListener('click', function (e) {
     chromeTabs.addTab({
@@ -20,9 +21,12 @@ el.addEventListener('activeTabChange', function ({ detail }) {
     let iframes = document.querySelectorAll('[data-iframe-id]');
     iframes.forEach((iframe) => {
         iframe.classList.add('dnone');
+        updateURLBar("");
     })
     if (iframeID) {
         showIframe(tabId);
+        updateURLBar(iframeID.contentWindow.location.href);
+        updateTabDetail(iframeID.contentWindow.document.title, iframeID.contentWindow.document.querySelector('link[rel="favicon"]') ? iframeID.contentWindow.document.querySelector('link[rel="favicon"]').href : 'favicon.ico', tabId);
     }
 });
 function showIframe(tabId) {
@@ -58,7 +62,8 @@ function hideIframe(tabId) {
     }
 }
 function tabAdded(detail) {
-    let tabLength = tabs.length;
+    let tabLength = tabs.length + deletedTabs.length;
+    console.log(tabLength); 
     //add a id to the tab
     detail.tabEl.setAttribute('data-tab-id', tabLength);
     tabs.push({
@@ -71,25 +76,32 @@ function tabAdded(detail) {
 function tabRemoved(detail) {
     let tabId = detail.tabEl.getAttribute('data-tab-id');
     tabs = tabs.filter((tab) => tab.id != tabId);
+    let iframe = document.querySelector(`[data-iframe-id="${tabId}"]`);
+    if (iframe) {
+        iframe.remove();
+    }
+    deletedTabs.push(tabId);
 }
 function handoffToTABS(url) {
+    //if there is a current iframe, delete it
+    let i = chromeTabs.activeTabEl.getAttribute('data-tab-id');
+    let isCurentTabHaveIframe = document.querySelector(`[data-iframe-id="${i}"]`);
+    if (isCurentTabHaveIframe) {
+        isCurentTabHaveIframe.remove();
+    }
     let iframe = document.createElement('iframe');
     iframe.setAttribute('src', url);
     iframe.setAttribute('id', 'iframe');
     let tabId = chromeTabs.activeTabEl.getAttribute('data-tab-id');
     iframe.setAttribute('data-iframe-id', tabId);
     document.body.appendChild(iframe);
-    pageLoaded();
-}
-function changeTabDetail(title, favicon) {
-    let tabId = chromeTabs.activeTabEl 
-    //get the div chrome-tab-content
-    let tabContent = tabId.querySelector('.chrome-tab-content');
-    let tabTitle = tabContent.querySelector('.chrome-tab-title');
-    let tabFavicon = tabContent.querySelector('.chrome-tab-favicon');
-    tabTitle.innerHTML = title;
-    //the tab favicon is set with a background image
-    tabFavicon.style.backgroundImage = `url(${favicon})`;
+    isIframeLoaded()
+    function resetOmniBox() {
+        document.getElementById("uv-form").style.marginTop = "20px";
+        document.getElementById("omnibox").setAttribute("class", "dnone");
+        document.getElementById("omnibox-list").innerHTML = ''
+    }
+    resetOmniBox();
 }
 
 function restoreTabs() {
@@ -153,6 +165,20 @@ function keybinds() {
    //     localStorage.setItem('iframes', JSON.stringify(iframeJSON));
   //  }
 //});
+function updateTabDetail(title, favicon, tabID) {
+    let previousTabID = tabID || chromeTabs.activeTabEl.getAttribute('data-tab-id');
+    const tabTitle = document.querySelector(`.chrome-tab[data-tab-id="${previousTabID}"] .chrome-tab-title`);
+    const tabFavicon = document.querySelector(`.chrome-tab[data-tab-id="${previousTabID}"] .chrome-tab-favicon`);
+    if (title == "" || title == null) { title = "Search"; }
+    if (favicon == "" || favicon == null) { favicon = "favicon.ico"; }
+    if (tabTitle && tabFavicon) {
+        tabTitle.innerHTML = title;
+        tabFavicon.style.backgroundImage = `url(${favicon})`;
+    }
+    else {
+        console.log('tabTitle is null');
+    }
+}
 function init() {
     chromeTabs.removeTab(chromeTabs.activeTabEl);
     chromeTabs.addTab({

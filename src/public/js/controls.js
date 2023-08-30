@@ -47,24 +47,24 @@ function popout() {
         win.focus();
     } catch (err) {};
 }
-function pageLoaded() {
+function updateURLBar(val) {
     let currentTab = getCurrentTab();
     let iframe = document.querySelector(`[data-iframe-id="${currentTab}"]`);
-    iframe.addEventListener('load', function() {
-        let val = iframe.contentWindow.location.href;
-        let currentProx = localStorage.getItem('proxy');
-        //remove the https:// or http:// and the prefix
-        val = val.replace(window.location.origin, '');
-        if (currentProx === 'uv') {
-            val = val.replace(__uv$config.prefix, '');
-            val = __uv$config.decodeUrl(val);
-        }
-        if (currentProx === 'dynamic') {
-            val = val.replace(__dynam$ic.prefix + 'route/?url=', '');
-            val = __dynam$ic.decodeUrl(val);
-        }
-        updateSearch(val);
-    });
+    let currentProx = localStorage.getItem('proxy');
+    //remove the https:// or http:// and the prefix
+    val = val.replace(window.location.origin, '');
+    if (currentProx === 'uv') {
+        val = val.replace(__uv$config.prefix, '');
+        val = __uv$config.decodeUrl(val);
+    }
+    if (currentProx === 'dynamic') {
+        val = val.replace(__dynam$ic.prefix + 'route/?url=', '');
+        val = __dynam$ic.decodeUrl(val);
+    }
+    if (val === "a`owt8bnalk") {
+        val = "";
+    }
+    updateSearch(val);
 }
 function fullscreen() {
     //this has two options, fullscreen the page, and fullscreen the tab to the window (add later)
@@ -108,8 +108,18 @@ function searchBar(value) {
     const i = document.getElementById('uv-address');
     i.value = value;
     f.dispatchEvent(new Event('submit'));
+    resetOmniBox();
 }
 function updateSearch(value) {
     const s = document.getElementById('search-input');
+    //update the placeholder
     s.value = value;
+}
+function isIframeLoaded() {
+    let currentTab = getCurrentTab();
+    let iframe = document.querySelector(`[data-iframe-id="${currentTab}"]`);
+    updateTabDetail("Loading...", "loading.gif");
+    iframe.addEventListener('load', function() {
+        updateTabDetail(iframe.contentWindow.document.title,  iframe.contentWindow.document.querySelector('link[rel="favicon"]') ? iframe.contentWindow.document.querySelector('link[rel="favicon"]').href : "favicon.ico", currentTab);
+    });
 }

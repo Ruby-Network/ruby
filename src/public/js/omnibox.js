@@ -35,3 +35,8 @@ function omniBoxSelect(value) {
     document.getElementById("uv-address").focus();
     document.getElementById("uv-form").dispatchEvent(new Event('submit'));
 }
+function resetOmniBox() {
+    document.getElementById("uv-form").style.marginTop = "20px";
+    document.getElementById("omnibox").setAttribute("class", "dnone");
+    document.getElementById("omnibox-list").innerHTML = ''
+}
