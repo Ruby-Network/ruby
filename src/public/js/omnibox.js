@@ -1,15 +1,26 @@
 async function omniBox(query) {
-    const results = await fetch(`/search=${query}`).then((res) => res.json());
+    let results;
+    if (query.startsWith("http:") || query.startsWith("https:")) {
+        results = [[], []];
+    }
+    else {
+        results = await fetch(`/search=${query}`).then((res) => res.json()).catch((err) => console.log("OmniBox Error ignoring..."));
+    }
     document.getElementById("omnibox-list").innerHTML = '';
     document.getElementById("uv-form").style.marginTop = "120px";
     document.getElementById("omnibox").removeAttribute("class", "dnone");
-    await results[1].forEach((result) => {
-        //the only issue is that this passes passed the height of the omnibox and so it needs to be fixed 
-        document.getElementById("omnibox-list").innerHTML += `
-            <li class="omniBoxResult" onclick="omniBoxSelect('${result}')">${result}</li> 
-            <div id="seperator"></div>
-        `
-    });
+    try {
+        await results[1].forEach((result) => {
+            //the only issue is that this passes passed the height of the omnibox and so it needs to be fixed 
+            document.getElementById("omnibox-list").innerHTML += `
+                <li class="omniBoxResult" onclick="omniBoxSelect('${result}')">${result}</li> 
+                <div id="seperator"></div>
+            `
+        });
+    }
+    catch (err) {
+        results = [[], []];
+    }
     if (results[1].length == 0) {
         document.getElementById("omnibox-list").innerHTML = ''
         document.getElementById("uv-form").style.marginTop = "20px";
