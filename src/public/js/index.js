@@ -19,6 +19,7 @@
 form.addEventListener("submit", (event) => {
     event.preventDefault();
     const url = search(address.value, localStorage.getItem("searchEngine"));
+    updateSearch(url);
     address.value = "";
     switch (localStorage.getItem("proxy")) {
         case "uv":

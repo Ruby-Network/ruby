@@ -79,6 +79,17 @@ function handoffToTABS(url) {
     let tabId = chromeTabs.activeTabEl.getAttribute('data-tab-id');
     iframe.setAttribute('data-iframe-id', tabId);
     document.body.appendChild(iframe);
+    pageLoaded();
+}
+function changeTabDetail(title, favicon) {
+    let tabId = chromeTabs.activeTabEl 
+    //get the div chrome-tab-content
+    let tabContent = tabId.querySelector('.chrome-tab-content');
+    let tabTitle = tabContent.querySelector('.chrome-tab-title');
+    let tabFavicon = tabContent.querySelector('.chrome-tab-favicon');
+    tabTitle.innerHTML = title;
+    //the tab favicon is set with a background image
+    tabFavicon.style.backgroundImage = `url(${favicon})`;
 }
 
 function restoreTabs() {
