@@ -249,6 +249,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   gap: 20px;
+  height: calc(100vh + 20%);
 }
 #settings-container #tile-container {
   display: flex;

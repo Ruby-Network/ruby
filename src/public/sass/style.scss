@@ -237,7 +237,6 @@
     top: 0;
     left: 0;
     right: 0;
-    //bottom: 0;
     width: 100%;
     background: var(--bg-color);
     display: flex;
@@ -246,6 +245,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     gap: 20px;
+    height: calc(100vh + 20%);
     #tile-container {
         display: flex;
         align-items: center;
