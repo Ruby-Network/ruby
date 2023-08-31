@@ -70,6 +70,10 @@ This is our third edition of [Ruby](https://github.com/ruby-network/ruby-v1). Th
 
 -   Semi-easy to self host
 
+-   Tons of Themes 
+
+-   Bare Server Switching
+
 
 ---
 ### FEATURES COMING SOON
@@ -77,13 +81,9 @@ This is our third edition of [Ruby](https://github.com/ruby-network/ruby-v1). Th
 
 -   Basic Password protection for the website (you can set a password in the settings page)
 
--   Multithreading for performance (Node.JS server, Ruby server already has this)
-
 -   Customizable apps and games
 
--   Partners page for all of our wonderful partners 
-
--   Themes such as Catppuccin, Rose Pine and more
+-   Partners page for all of our wonderful partners
 
 -   More proxy backends (RammerHead)
 
@@ -101,12 +101,19 @@ This is our third edition of [Ruby](https://github.com/ruby-network/ruby-v1). Th
 
 -   [Ruby](https://ruby-lang.org) (the programming lang)
 -   [Sinatra](https://sinatrarb.com) (The routes for the ruby server)
-<!-- [Particles.js](https://vincentgarreau.com/particles.js/) -->
 -   [Fastify](https://fastify.dev) (The routes for the node server)
 -   [Bare Server Node](https://github.com/tomphttp/bare-server-node)
 -   [Ultraviolet](https://github.com/titaniumnetwork-dev/ultraviolet)
 -   [Dynamic](https://github.com/nebulaServices/dynamic)
 -   HTML, CSS, and JavaScript
+<!-- [Particles.js](https://vincentgarreau.com/particles.js/) -->
+
+---
+
+## Themes Used
+
+- [Rose Pine](https://rosepinetheme.com)
+- [Catppuccin](https://github.com/catppuccin/)
 
 ---
 
