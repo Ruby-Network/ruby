@@ -130,7 +130,7 @@ function isIframeLoaded() {
     let iframe = document.querySelector(`[data-iframe-id="${currentTab}"]`);
     updateTabDetail("Loading...", "loading.gif");
     iframe.addEventListener('load', function() {
-        updateTabDetail(iframe.contentWindow.document.title,  iframe.contentWindow.document.querySelector('link[rel="favicon"]') ? iframe.contentWindow.document.querySelector('link[rel="favicon"]').href : "favicon.ico", currentTab);
+        updateTabDetail(iframe.contentWindow.document.title,  iframe.contentWindow.document.querySelector('link[rel="icon"]') ? iframe.contentWindow.document.querySelector('link[rel="icon"]').href : "favicon.ico", currentTab);
         updateURLBar(iframe.contentWindow.location.href);
     });
 }

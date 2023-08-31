@@ -26,7 +26,7 @@ el.addEventListener('activeTabChange', function ({ detail }) {
     if (iframeID) {
         showIframe(tabId);
         updateURLBar(iframeID.contentWindow.location.href);
-        updateTabDetail(iframeID.contentWindow.document.title, iframeID.contentWindow.document.querySelector('link[rel="favicon"]') ? iframeID.contentWindow.document.querySelector('link[rel="favicon"]').href : 'favicon.ico', tabId);
+        updateTabDetail(iframeID.contentWindow.document.title, iframeID.contentWindow.document.querySelector('link[rel="icon"]') ? iframeID.contentWindow.document.querySelector('link[rel="icon"]').href : 'favicon.ico', tabId);
     }
 });
 function showIframe(tabId) {
