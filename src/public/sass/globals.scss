@@ -194,6 +194,76 @@
     --scroll-bar-thumb-hover-color: #ffffff;
     --input-bg-color: #242933;
 }
+.rose-pine {
+    --bg-color: #191724;
+    --text-color: #e9e1dd;
+    --border-color: #eb6f92;
+    --text-bg-color: #1f1d2e;
+    --scroll-bar-track-color: #191724;
+    --scroll-bar-thumb-color: #e9e1dd;
+    --scroll-bar-thumb-hover-color: #e9e1dd;
+    --input-bg-color: #191724;
+}
+.rose-pine-moon {
+    --bg-color: #191724;
+    --text-color: #e9e1dd;
+    --border-color: #eb6f92;
+    --text-bg-color: #1f1d2e;
+    --scroll-bar-track-color: #191724;
+    --scroll-bar-thumb-color: #e9e1dd;
+    --scroll-bar-thumb-hover-color: #e9e1dd;
+    --input-bg-color: #191724;
+}
+.rose-pine-dawn {
+    --bg-color: #faf4ed;
+    --text-color: #575279;
+    --border-color: #eb6f92;
+    --text-bg-color: #f2e9e1;
+    --scroll-bar-track-color: #faf4ed;
+    --scroll-bar-thumb-color: #575279;
+    --scroll-bar-thumb-hover-color: #575279;
+    --input-bg-color: #faf4ed;
+}
+.catppuccin-mocha {
+    --bg-color: #1e1e2e;
+    --text-color: #cdd6f4;
+    --border-color: #f2cdcd;
+    --text-bg-color: #313244;
+    --scroll-bar-track-color: #1e1e2e;
+    --scroll-bar-thumb-color: #cdd6f4;
+    --scroll-bar-thumb-hover-color: #cdd6f4;
+    --input-bg-color: #1e1e2e;
+}
+.catppuccin-macchiato {
+    --bg-color: #24273a;
+    --text-color: #cad3f5;
+    --border-color: #ed8796;
+    --text-bg-color: #363a4f;
+    --scroll-bar-track-color: #24273a;
+    --scroll-bar-thumb-color: #cad3f5;
+    --scroll-bar-thumb-hover-color: #cad3f5;
+    --input-bg-color: #24273a;
+}
+.catppuccin-latte {
+    --bg-color: #eff1f5;
+    --text-color: #4c4f69;
+    --border-color: #209fb5;
+    --text-bg-color: #ccd0da;
+    --scroll-bar-track-color: #eff1f5;
+    --scroll-bar-thumb-color: #4c4f69;
+    --scroll-bar-thumb-hover-color: #4c4f69;
+    --input-bg-color: #eff1f5;
+}
+.catppuccin-frappe {
+    --bg-color: #303446;
+    --text-color: #c6d0f5;
+    --border-color: #ef9f76;
+    --text-bg-color: #414559;
+    --scroll-bar-track-color: #303446;
+    --scroll-bar-thumb-color: #c6d0f5;
+    --scroll-bar-thumb-hover-color: #c6d0f5;
+    --input-bg-color: #303446;
+}
 .scoria {
     --bg-color: linear-gradient(180deg, #10001b, #1d0003) no-repeat center
         center fixed;

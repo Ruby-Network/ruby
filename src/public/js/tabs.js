@@ -95,7 +95,7 @@ function handoffToTABS(url) {
     let tabId = chromeTabs.activeTabEl.getAttribute('data-tab-id');
     iframe.setAttribute('data-iframe-id', tabId);
     document.body.appendChild(iframe);
-    isIframeLoaded()
+    isIframeLoaded();
     function resetOmniBox() {
         document.getElementById("uv-form").style.marginTop = "20px";
         document.getElementById("omnibox").setAttribute("class", "dnone");
@@ -103,7 +103,6 @@ function handoffToTABS(url) {
     }
     resetOmniBox();
 }
-
 function restoreTabs() {
     chromeTabs.removeTab(chromeTabs.activeTabEl);
     let tabLocal = localStorage.getItem('tabs');

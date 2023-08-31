@@ -121,5 +121,6 @@ function isIframeLoaded() {
     updateTabDetail("Loading...", "loading.gif");
     iframe.addEventListener('load', function() {
         updateTabDetail(iframe.contentWindow.document.title,  iframe.contentWindow.document.querySelector('link[rel="favicon"]') ? iframe.contentWindow.document.querySelector('link[rel="favicon"]').href : "favicon.ico", currentTab);
+        updateURLBar(iframe.contentWindow.location.href);
     });
 }
