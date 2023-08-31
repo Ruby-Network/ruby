@@ -99,6 +99,16 @@ function fullscreen() {
                     iframe.style.zIndex = '';
                     iframe.style.transition = '';
                 }
+                else if (e.key === 'Escape' && e.altKey) {
+                    //reset all styles
+                    iframe.style.position = '';
+                    iframe.style.top = '';
+                    iframe.style.left = '';
+                    iframe.style.width = '';
+                    iframe.style.height = '';
+                    iframe.style.zIndex = '';
+                    iframe.style.transition = '';
+                }
             });
         }
     } catch (err) {};
