@@ -26,7 +26,7 @@ form.addEventListener("submit", (event) => {
             handoffToTABS(__uv$config.prefix + __uv$config.encodeUrl(url));
             break;
         case "dynamic":
-            handoffToTABS(__dynam$ic.prefix + "route/?url=" + __dynam$ic.encodeUrl(url));
+            handoffToTABS(__dynam$ic.prefix + __dynam$ic.encodeUrl(url));
             break;
         default:
             handoffToTABS(__uv$config.prefix + __uv$config.encodeUrl(url));
@@ -37,7 +37,7 @@ function proxyOtherStuff(url) {
         case "uv":
             return __uv$config.prefix + __uv$config.encodeUrl(url);
         case "dynamic":
-            return __dynam$ic.prefix + "route/?url=" + __dynam$ic.encodeUrl(url);
+            return __dynam$ic.prefix + __dynam$ic.encodeUrl(url);
         default:
             return __uv$config.prefix + __uv$config.encodeUrl(url);
         }
