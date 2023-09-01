@@ -58,7 +58,7 @@ function updateURLBar(val) {
         val = __uv$config.decodeUrl(val);
     }
     if (currentProx === 'dynamic') {
-        val = val.replace(__dynam$ic.prefix + 'route/?url=', '');
+        val = val.replace(__dynam$ic.prefix, '');
         val = __dynam$ic.decodeUrl(val);
     }
     if (val === "a`owt8bnalk") {
