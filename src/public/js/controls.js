@@ -61,6 +61,9 @@ function updateURLBar(val) {
         val = val.replace(__dynam$ic.prefix, '');
         val = __dynam$ic.decodeUrl(val);
     }
+    if (currentProx === 'rammerhead') {
+        val = '';
+    }
     if (val === "a`owt8bnalk") {
         val = "";
     }

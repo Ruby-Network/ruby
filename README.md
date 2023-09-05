@@ -60,7 +60,7 @@ This is our third edition of [Ruby](https://github.com/ruby-network/ruby-v1). Th
 
     -   [Ultraviolet](https://github.com/titaniumnetwork-dev/ultraviolet)
     -   [Dynamic](https://github.com/nebulaservices/dynamic)
-    -   [RammerHead](https://github.com/binary-person/rammerhead) **COMING SOON**
+    -   [RammerHead](https://github.com/binary-person/rammerhead)
 ---
 
 
@@ -85,8 +85,6 @@ This is our third edition of [Ruby](https://github.com/ruby-network/ruby-v1). Th
 
 -   Partners page for all of our wonderful partners
 
--   More proxy backends (RammerHead)
-
 -   Apps 
 
 -   History page
@@ -105,6 +103,7 @@ This is our third edition of [Ruby](https://github.com/ruby-network/ruby-v1). Th
 -   [Bare Server Node](https://github.com/tomphttp/bare-server-node)
 -   [Ultraviolet](https://github.com/titaniumnetwork-dev/ultraviolet)
 -   [Dynamic](https://github.com/nebulaServices/dynamic)
+-   [RammerHead](https://github.com/binary-person/rammerhead)
 -   HTML, CSS, and JavaScript
 <!-- [Particles.js](https://vincentgarreau.com/particles.js/) -->
 

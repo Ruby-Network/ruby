@@ -47,6 +47,9 @@ function proxyChange(value) {
     if (value === 'dynamic') {
         notifyBeta('Dynamic', setValue, defaultFUNC);
     }
+    if (value === 'rammerhead') {
+        notifyWithConfirm('Rammerhead', 'is a server based proxy so it MAY run slower, as well as breaking the URL bar of the browser. Are you sure you want to use Rammerhead?', setValue, defaultFUNC);
+    }
     else {
         setValue();
     }

@@ -3,6 +3,7 @@ import chalk from 'chalk';
 import fs from 'fs';
 import path from 'path';
 const __dirname = path.resolve();
+import buildRH from './buildFiles/rhbuild.js';
 console.log(chalk.green('Setting up Files and folders'));
 if (fs.existsSync('./src/public/js/dynamic/')) {
     if (fs.existsSync('./src/public/js/dynamic/dynamic.config.js')) {
@@ -25,3 +26,5 @@ fs.renameSync('./dynamic/dist/', './src/public/js/dynamic/');
 fs.renameSync('./tmp/dynamic.config.js', './src/public/js/dynamic/dynamic.config.js');
 fs.rmdirSync('./tmp');
 console.log(chalk.bgGreen.black('Dynamic build complete'));
+console.log(chalk.green('Starting RH Browser build'));
+buildRH();
