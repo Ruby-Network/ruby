@@ -41,8 +41,8 @@ const proxyHandler = (handler, opts) => {
         }
     })
     .on('upgrade', (req, socket, head) => {
-        if ( bareServer.shouldRoute(req) ) {
-            bareServer.routeUpgrade(req, socket, head);
+        if (bare.shouldRoute(req)) {
+            bare.routeUpgrade(req, socket, head);
         }
         else if (shouldRouteRh(req)) {
             routeRhUpgrade(req, socket, head);
