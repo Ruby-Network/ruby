@@ -28,6 +28,14 @@ form.addEventListener("submit", (event) => {
         case "dynamic":
             handoffToTABS(__dynam$ic.prefix + __dynam$ic.encodeUrl(url));
             break;
+        case "rammerhead":
+            const origin = window.location.origin;
+            async function proxy() {
+                const endURL = await window.rh.rhInteract(`${origin}`, `${url}`);
+                handoffToTABS(endURL);
+            };
+            proxy();
+            break;
         default:
             handoffToTABS(__uv$config.prefix + __uv$config.encodeUrl(url));
         }
@@ -38,6 +46,14 @@ function proxyOtherStuff(url) {
             return __uv$config.prefix + __uv$config.encodeUrl(url);
         case "dynamic":
             return __dynam$ic.prefix + __dynam$ic.encodeUrl(url);
+        case "rammerhead":
+            const origin = window.location.origin;
+            async function proxy() {
+                const endURL = await window.rh.rhInteract(`${origin}`, `${url}`);
+                return endURL;
+            };
+            proxy();
+            break;
         default:
             return __uv$config.prefix + __uv$config.encodeUrl(url);
         }
