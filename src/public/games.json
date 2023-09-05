@@ -592,5 +592,14 @@
         "cdn": "true",
         "proxy": "false",
         "url": ""
-    }
+    },
+    {
+        "img": "/game-thumb/monkey-mart.png".
+        "baseFile": "index.html",
+        "name": "Monkey Mart",
+        "tags": ["arcade"],
+        "cdn": "true",
+        "proxy": "false",
+        "url": ""
+    },
 ]
