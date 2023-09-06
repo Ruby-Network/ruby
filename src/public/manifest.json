@@ -1,0 +1,22 @@
+{
+    "name": "Ruby",
+    "short_name": "Ruby",
+    "icons": [
+        {
+            "src": "/apple-touch-icon-180x180.png",
+            "sizes": "180x180",
+            "type": "image/png",
+            "purpose": "maskable"
+        },
+        {
+            "src": "/apple-touch-icon-144x144.png",
+            "sizes": "144x144",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#171618",
+    "background_color": "#171618",
+    "start_url": "/",
+    "display": "standalone",
+    "oreintation": "portrait"
+}
