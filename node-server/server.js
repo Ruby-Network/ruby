@@ -12,9 +12,11 @@ const __dirname = path.resolve();
 const settings = YAML.parse(fs.readFileSync(path.join(__dirname, '/config/settings.yml'), 'utf8'));
 import chalk from 'chalk';
 import compile from './compile.js';
+import getLatestRelease from './version.js';
 let rubyPort = process.argv.find((arg) => arg.startsWith('--ruby-port')).split('=')[1] || 9292;
 let nodePort = process.argv.find((arg) => arg.startsWith('--node-port')).split('=')[1] || 9293;
 
+const latestRelease = await getLatestRelease();
 const bare = createBareServer('/bare/');
 const rh = createRammerhead();
 const rammerheadScopes = [ "/rammerhead.js", "/hammerhead.js", "/transport-worker.js", "/task.js", "/iframe-task.js", "/worker-hammerhead.js", "/messaging", "/sessionexists", "/deletesession", "/newsession", "/editsession", "/needpassword", "/syncLocalStorage", "/api/shuffleDict", "/mainport" ];
@@ -79,6 +81,9 @@ app.get('/search=:query', async (req, res) => {
     catch (err) {
         reply.code(500).send({ error: "Internal Server Error" });
     }
+});
+app.get('/version', async (req, res) => {
+    res.send({ version: latestRelease });
 });
 
 app.listen({ port: nodePort, host: '0.0.0.0' });

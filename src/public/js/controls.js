@@ -90,27 +90,11 @@ function fullscreen() {
             iframe.style.zIndex = '9998';
             //add a transition
             iframe.style.transition = 'all 0.5s ease-in-out';
+            document.getElementById('exit-iframe').classList.remove('dnone');
             //listen for escape key
             document.addEventListener('keydown', function(e) {
                 if (e.key === 'Escape') {
-                    //reset all styles
-                    iframe.style.position = '';
-                    iframe.style.top = '';
-                    iframe.style.left = '';
-                    iframe.style.width = '';
-                    iframe.style.height = '';
-                    iframe.style.zIndex = '';
-                    iframe.style.transition = '';
-                }
-                else if (e.key === 'Escape' && e.altKey) {
-                    //reset all styles
-                    iframe.style.position = '';
-                    iframe.style.top = '';
-                    iframe.style.left = '';
-                    iframe.style.width = '';
-                    iframe.style.height = '';
-                    iframe.style.zIndex = '';
-                    iframe.style.transition = '';
+                    exitIframe();
                 }
             });
         }
@@ -136,4 +120,14 @@ function isIframeLoaded() {
         updateTabDetail(iframe.contentWindow.document.title,  iframe.contentWindow.document.querySelector('link[rel="icon"]') ? proxyOtherStuff(iframe.contentWindow.document.querySelector('link[rel="icon"]').href) : "favicon.ico", currentTab);
         updateURLBar(iframe.contentWindow.location.href);
     });
+}
+function exitIframe() {
+    iframe.style.position = '';
+    iframe.style.top = '';
+    iframe.style.left = '';
+    iframe.style.width = '';
+    iframe.style.height = '';
+    iframe.style.zIndex = '';
+    iframe.style.transition = '';
+    document.getElementById('exit-iframe').classList.add('dnone');
 }

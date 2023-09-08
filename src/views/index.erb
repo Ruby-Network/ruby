@@ -13,6 +13,7 @@
     11 => '<script src="js/settings.js" defer></script>',
     12 => '<script src="js/games.js" defer></script>',
     13 => '<script src="js/omnibox.js" defer></script>',
+    14 => '<script src="js/updates.js" defer></script>',
   })
 %>
 <div class="chrome-tabs" style="--tab-content-margin: 9px">
@@ -79,5 +80,6 @@
     </div>
   </form>
 </div>
+<button id="exit-iframe" class="dnone" onclick="exitIframe()"><i class="fa-solid fa-circle-xmark"></i></button>
 <% showComponent("settings") %>
 <% showComponent("games") %>
