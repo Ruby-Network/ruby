@@ -1,0 +1,13 @@
+app = "ruby"
+primary_regions = "den"
+swap_size_mb = 512
+[build]
+    image = "ruby-network/ruby:latest"
+[deploy]
+    strategy = "rolling"
+[http_service]
+    internal_port = 9293
+    force_https = true
+    auto_stop_machines = true
+    auto_start_machines = true
+    min_machines_running = 0
