@@ -46,10 +46,9 @@ set :uvPath, File.join(settings.root, 'node_modules', '@titaniumnetwork-dev', 'u
 uvPath()
 
 # Other routes
-get '/?:unlock?' do
+get '/:unlock?' do
   erb :index, :layout => :"layouts/index"
 end
-
 
 #Auth to login to the site
 post '/auth' do 

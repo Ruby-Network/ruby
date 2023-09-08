@@ -24,6 +24,6 @@ class Auth
 end
 def auth 
   if session[:auth] != true
-    halt erb :'edu/v1/index'
+    halt erb :'edu/v1/index', :layout => :"layouts/index"
   end
 end
