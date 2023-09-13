@@ -510,3 +510,28 @@
 .swal2-container {
     z-index: 100000;
 }
+#credit {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 50px;
+    background: var(--bg-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 10px;
+    font-size: 15px;
+    color: var(--text-color);
+    p {
+        margin: 0;
+    }
+    a {
+        color: var(--text-color);
+        text-decoration: none;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
