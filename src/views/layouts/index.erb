@@ -36,7 +36,10 @@
     <!-- End Metadata -->
     <%= yield_content :head %>
   </head>
- <body>
+  <body>
+    <noscript>
+      <h1>JavaScript is required to use Ruby.</h1>
+    </noscript>
    <%= yield %>
    <%= yield_content :component %>
  </body>
