@@ -66,6 +66,8 @@ This is our third edition of [Ruby](https://github.com/ruby-network/ruby-v1). Th
 
 -   about:blank cloaking
 
+-   blob: cloaking
+
 -   Easy to use clean UI/UX
 
 -   Semi-easy to self host
@@ -74,6 +76,7 @@ This is our third edition of [Ruby](https://github.com/ruby-network/ruby-v1). Th
 
 -   Bare Server Switching
 
+-   Import/Export Settings
 
 ---
 ### FEATURES COMING SOON
