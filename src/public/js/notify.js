@@ -121,3 +121,46 @@ function promptCloakingNotify(defaulFunc, secFunc) {
         }
     })
 }
+
+function settingsImportExportChoice(exportFunc, importFunc) {
+    Swal.fire({
+        title: 'Import/Export',
+        text: `Select Between the two options`,
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        color: 'var(--text-color)',
+        background: 'var(--bg-color)',
+        confirmButtonText: 'Export',
+        cancelButtonText: 'Import',
+    }).then((result) => {
+        if (result.isConfirmed) {
+        Swal.fire({
+            title: 'Export',
+            text: `Exporting settings...`,
+            icon: 'success',
+            color: 'var(--text-color)',
+            background: 'var(--bg-color)',
+        }).then(() => {
+            exportFunc();
+        })
+        }
+        else {
+            Swal.fire({
+                title: 'Import',
+                text: 'Importing settings...',
+                color: 'var(--text-color)',
+                background: 'var(--bg-color)',
+                icon: 'success',
+            }).then(() => {
+                try {
+                    importFunc();
+                }
+                catch {
+                    console.log('No default function found');
+                }
+            })
+        }
+    })
+}
