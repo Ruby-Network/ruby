@@ -133,6 +133,59 @@ function reset() {
     fullScreenChange('page');
     setItems();
 }
+function exportSettings() {
+    let title = localStorage.getItem('title');
+    let favicon = localStorage.getItem('favicon');
+    let theme = localStorage.getItem('theme');
+    let search = localStorage.getItem('searchEngine');
+    let proxy = localStorage.getItem('proxy');
+    let fullscreen = localStorage.getItem('fullScreen');
+    let bare = localStorage.getItem('bare');
+    let settings = {
+        title: title,
+        favicon: favicon,
+        theme: theme,
+        search: search,
+        proxy: proxy,
+        fullscreen: fullscreen,
+        bare: bare
+    }
+    let a = document.createElement('a');
+    let file = new Blob([JSON.stringify(settings)], { type: 'text/plain' });
+    let url = URL.createObjectURL(file);
+    a.href = url;
+    a.download = 'ruby_settings.json';
+    a.click();
+    URL.revokeObjectURL(url);
+    a.remove();
+}
+function importSettings() {
+    let input = document.createElement('input');
+    input.type = 'file';
+    input.accept = '.json';
+    input.onchange = function() {
+        let file = input.files[0];
+        let reader = new FileReader();
+        reader.readAsText(file);
+        reader.onload = function() {
+            let settings = JSON.parse(reader.result);
+            localStorage.setItem('title', settings.title);
+            localStorage.setItem('favicon', settings.favicon);
+            localStorage.setItem('theme', settings.theme);
+            localStorage.setItem('searchEngine', settings.search);
+            localStorage.setItem('proxy', settings.proxy);
+            localStorage.setItem('fullScreen', settings.fullscreen);
+            localStorage.setItem('bare', settings.bare);
+            setItems();
+            console.log('Imported settings');
+            window.location.reload();
+        }
+    }
+    input.click();
+}
+function importExportSettings() {
+    settingsImportExportChoice(exportSettings, importSettings);
+}
 
 function init() {
     let init = localStorage.getItem('init');
