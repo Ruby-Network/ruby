@@ -78,3 +78,46 @@ function notifyWithConfirm(value, text, functionToRun, defaulFunction) {
         }
     })
 }
+
+function promptCloakingNotify(defaulFunc, secFunc) {
+    Swal.fire({
+        title: 'About Blank/Blob Cloaking',
+        text: `Select Between the two options`,
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        color: 'var(--text-color)',
+        background: 'var(--bg-color)',
+        confirmButtonText: 'About:Blank',
+        cancelButtonText: 'Blob',
+    }).then((result) => {
+        if (result.isConfirmed) {
+        Swal.fire({
+            title: 'About Blank',
+            text: `About Blank Cloaking is now enabled.`,
+            icon: 'success',
+            color: 'var(--text-color)',
+            background: 'var(--bg-color)',
+        }).then(() => {
+            defaulFunc();
+        })
+        }
+        else {
+            Swal.fire({
+                title: 'Blob',
+                text: 'Blob Cloaking is now enabled',
+                color: 'var(--text-color)',
+                background: 'var(--bg-color)',
+                icon: 'success',
+            }).then(() => {
+                try {
+                    secFunc();
+                }
+                catch {
+                    console.log('No default function found');
+                }
+            })
+        }
+    })
+}
