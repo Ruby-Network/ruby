@@ -127,7 +127,7 @@ function reset() {
     bareChange(window.location.origin + '/bare/');
     setTitle('Ruby');
     favicon('/favicon.ico');
-    theme('default');
+    theme('halloween');
     searchSettings('https://www.google.com/search?q=%s');
     proxyChange('uv');
     fullScreenChange('page');
@@ -194,7 +194,7 @@ function init() {
         localStorage.setItem('init', true);
         localStorage.setItem('title', 'Ruby');
         localStorage.setItem('favicon', '/favicon.ico');
-        localStorage.setItem('theme', 'default');
+        localStorage.setItem('theme', 'halloween');
         localStorage.setItem('searchEngine', 'https://www.google.com/search?q=%s');
         localStorage.setItem('proxy', 'uv');
         localStorage.setItem('bare', window.location.origin + '/bare/');
