@@ -317,17 +317,17 @@
     --input-bg-color: #2f2f2f;
     font-family: 'terminal';
 }
-.halloween {
-    --bg-color: #13171f;
-    --text-color: #e48500;
-    --border-color: #e48500;
-    --text-bg-color: #110013;
-    --scroll-bar-track-color: #13171f;
-    --scroll-bar-thumb-color: #e48500;
-    --scroll-bar-thumb-hover-color: #e48500;
-    --input-bg-color: #13171f;
-    font-family: 'halloween';
-}
+//.halloween {
+  //  --bg-color: #13171f;
+  //  --text-color: #e48500;
+  //  --border-color: #e48500;
+  //  --text-bg-color: #110013;
+  //  --scroll-bar-track-color: #13171f;
+  //  --scroll-bar-thumb-color: #e48500;
+  //  --scroll-bar-thumb-hover-color: #e48500;
+  //  --input-bg-color: #13171f;
+  //  font-family: 'halloween';
+//}
 .rainbow {
     --bg-color: linear-gradient(
         90deg,
@@ -430,8 +430,7 @@ body {
     font-display: swap;
     src: url('/fonts/Exo2-VariableFont_wght.ttf') format('truetype');
 }
-@font-face {
-    font-family: halloween;
-        src: url('/fonts/halloween-halloween-regular-400.ttf') format('truetype');
-
-}
+//@font-face {
+//    font-family: halloween;
+//    src: url('/fonts/halloween-halloween-regular-400.ttf') format('truetype');
+//}
