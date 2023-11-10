@@ -4,7 +4,7 @@
 
 <img alt="build" src="https://img.shields.io/github/actions/workflow/status/ruby-network/ruby/docker-build.yml?style=for-the-badge"></img>
 <img alt="repo size" src="https://img.shields.io/github/repo-size/ruby-network/ruby?style=for-the-badge"></img>
-<img alt="website status" src="https://img.shields.io/website?down_color=red&down_message=Offline&style=for-the-badge&up_color=green&up_message=Online&url=https://rubynetwork.tech"></img>
+<img alt="website status" src="https://img.shields.io/website?url=https%3A%2F%2Frubynetwork.tech"></img>
 <img alt="commit a week" src="https://img.shields.io/github/commit-activity/w/ruby-network/ruby?style=for-the-badge"></img>
 
 </div>
