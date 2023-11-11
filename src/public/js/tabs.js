@@ -131,7 +131,7 @@ function restoreTabs() {
     });
 }
 function keybinds() {
-    console.log("keybinds initalized")
+    console.log("tab keybinds initalized")
     //override ctrl + t
     document.addEventListener('keydown', function (e) {
         if (e.altKey && e.key === 't') {

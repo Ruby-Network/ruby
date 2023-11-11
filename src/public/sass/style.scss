@@ -371,22 +371,22 @@
         }
     }
 }
-@media (max-width: 860px) {
+@media (max-width: 867px) {
     #settings-container {
-        height: calc(100vh + 50%);
+        height: calc(100vh + 70%);
         #tile-container {
             width: 80%;
         }
     }
 }
-@media (max-width: 800px) {
+@media (max-width: 807px) {
     #settings-container {
-        height: calc(100vh + 80%);
+        height: calc(100vh + 140%);
     }
 }
-@media (max-width: 515px) {
+@media (max-width: 532px) {
     #settings-container {
-        height: 395%;
+        height: 460%;
     }
 }
 

@@ -141,6 +141,7 @@ function exportSettings() {
     let proxy = localStorage.getItem('proxy');
     let fullscreen = localStorage.getItem('fullScreen');
     let bare = localStorage.getItem('bare');
+    let password = localStorage.getItem('password');
     let settings = {
         title: title,
         favicon: favicon,
@@ -148,7 +149,8 @@ function exportSettings() {
         search: search,
         proxy: proxy,
         fullscreen: fullscreen,
-        bare: bare
+        bare: bare,
+        password: password,
     }
     let a = document.createElement('a');
     let file = new Blob([JSON.stringify(settings)], { type: 'text/plain' });
@@ -176,6 +178,7 @@ function importSettings() {
             localStorage.setItem('proxy', settings.proxy);
             localStorage.setItem('fullScreen', settings.fullscreen);
             localStorage.setItem('bare', settings.bare);
+            localStorage.setItem('password', settings.password);
             setItems();
             console.log('Imported settings');
             window.location.reload();
@@ -185,6 +188,25 @@ function importSettings() {
 }
 function importExportSettings() {
     settingsImportExportChoice(exportSettings, importSettings);
+}
+
+function password() {
+    if (!localStorage.getItem('password')) {
+        passwordPrompt();
+    }
+    else {
+        passwordIsThere();
+    }
+}
+
+function passwordKeybinds() {
+    document.addEventListener('keydown', function (e) {
+        //alt L
+        if (e.altKey && e.key === 'l') {
+            passwordLock();
+        }
+    }); 
+    console.log("Password Keybind initalized");
 }
 
 function init() {
@@ -200,9 +222,14 @@ function init() {
         localStorage.setItem('bare', window.location.origin + '/bare/');
         localStorage.setItem('fullScreen', 'page');
         setItems();
+        passwordKeybinds();
     }
-    else { 
+    else {
+        if (localStorage.getItem('unlocked') === "false") {
+            passwordLock();
+        }
         setItems();
+        passwordKeybinds();
     }
 }
 init();
