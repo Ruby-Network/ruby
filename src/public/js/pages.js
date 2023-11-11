@@ -8,6 +8,9 @@ window.addEventListener('load', () => {
         case 'games':
             gamesPage(true);
             break;
+        case 'history':
+            historySidebar();
+            break;
     }
 });
 

@@ -222,14 +222,12 @@ function init() {
         localStorage.setItem('bare', window.location.origin + '/bare/');
         localStorage.setItem('fullScreen', 'page');
         setItems();
-        passwordKeybinds();
     }
     else {
         if (localStorage.getItem('unlocked') === "false") {
             passwordLock();
         }
         setItems();
-        passwordKeybinds();
     }
 }
 init();

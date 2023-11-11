@@ -119,6 +119,7 @@ function isIframeLoaded() {
     iframe.addEventListener('load', function() {
         updateTabDetail(iframe.contentWindow.document.title,  iframe.contentWindow.document.querySelector('link[rel="icon"]') ? proxyOtherStuff(iframe.contentWindow.document.querySelector('link[rel="icon"]').href) : "favicon.ico", currentTab);
         updateURLBar(iframe.contentWindow.location.href);
+        addToHistory(iframe.contentWindow.location.href, iframe.contentWindow.document.title, iframe.contentWindow.document.querySelector('link[rel="icon"]') ? proxyOtherStuff(iframe.contentWindow.document.querySelector('link[rel="icon"]').href) : "favicon.ico");
     });
 }
 function exitIframe() {
@@ -130,4 +131,131 @@ function exitIframe() {
     iframe.style.zIndex = '';
     iframe.style.transition = '';
     document.getElementById('exit-iframe').classList.add('dnone');
+}
+
+function historySidebar() {
+    let history = document.getElementById('history');
+    history.classList.remove('dnone');
+    setPage('history');
+}
+
+function closeHistorySidebar() {
+    let history = document.getElementById('history');
+    history.classList.add('dnone');
+}
+
+function addToHistory(url, title, favicon) {
+    let history = document.getElementById('history');
+    let historyContent = document.getElementById('history-content');
+    let historyItem = document.createElement('div');
+
+    historyItem.setAttribute('id', 'history-item');
+
+    let historyLink = document.createElement('a');
+    historyLink.setAttribute('id', 'history-link');
+    historyLink.setAttribute('onclick', `handoffToTABS('${url}')`);
+
+    let historyTitle = document.createElement('p');
+    historyTitle.innerText = title;
+
+    let historyFavicon = document.createElement('img');
+    historyFavicon.setAttribute('src', favicon);
+
+    let historyDelete = document.createElement('li');
+    historyDelete.setAttribute('id', 'history-delete');
+    historyDelete.setAttribute('onclick', `deleteHistoryItem(${historyContent.childElementCount})`);
+    historyDelete.classList.add('fa-solid', 'fa-trash');
+
+    historyLink.appendChild(historyFavicon);
+    historyLink.appendChild(historyTitle);
+    historyItem.appendChild(historyLink);
+    historyContent.appendChild(historyItem);
+    historyItem.appendChild(historyDelete);
+    
+    if (localStorage.getItem('history') === null) {
+        let historyArray = [];
+        historyArray.push({
+            url: url,
+            title: title,
+            favicon: favicon,
+        });
+        localStorage.setItem('history', JSON.stringify({history: historyArray}));
+    }
+    else {
+        let historyJSON = JSON.parse(localStorage.getItem('history'));
+        let historyArray = historyJSON.history;
+        historyArray.push({
+            url: url,
+            title: title,
+            favicon: favicon,
+            id: historyArray.length,
+        });
+        localStorage.setItem('history', JSON.stringify({history: historyArray}));
+    }
+}
+
+function restoreHistory() {
+    let history = document.getElementById('history');
+    let historyContent = document.getElementById('history-content');
+    if (localStorage.getItem('history') === null) {
+        return;
+    }
+    let historyJSON = JSON.parse(localStorage.getItem('history'));
+    let historyArray = historyJSON.history;
+    historyArray.forEach(function(item) {
+        let historyItem = document.createElement('div');
+
+        historyItem.setAttribute('id', 'history-item');
+
+        let historyLink = document.createElement('a');
+        historyLink.setAttribute('id', 'history-link');
+        historyLink.setAttribute('onclick', `handoffToTABS('${item.url}')`);
+
+        let historyTitle = document.createElement('p');
+        historyTitle.innerText = item.title;
+
+        let historyFavicon = document.createElement('img');
+        historyFavicon.setAttribute('src', item.favicon);
+
+        let historyDelete = document.createElement('li');
+        historyDelete.setAttribute('id', 'history-delete');
+        historyDelete.setAttribute('onclick', `deleteHistoryItem(${item.id})`);
+        historyDelete.classList.add('fa-solid', 'fa-trash');
+
+        historyLink.appendChild(historyFavicon);
+        historyLink.appendChild(historyTitle);
+        historyItem.appendChild(historyLink);
+        historyItem.appendChild(historyDelete);
+        historyContent.appendChild(historyItem);
+    });
+}
+
+function deleteHistoryItem(id) {
+    if (localStorage.getItem('history') === null) {
+        return;
+    }
+    let historyJSON = JSON.parse(localStorage.getItem('history'));
+    let historyArray = historyJSON.history;
+    historyArray = historyArray.filter((item) => item.id != id);
+    localStorage.setItem('history', JSON.stringify({history: historyArray}));
+    let historyContent = document.getElementById('history-content');
+    historyContent.innerHTML = '';
+    restoreHistory();
+}
+    
+
+function historySidebarKeybinds() {
+    document.addEventListener('keydown', function(e) {
+        if (e.altKey && e.key === 'h') {
+            if (document.getElementById('history').classList.contains('dnone')) {
+                historySidebar();
+            }
+            else {
+                home(closeHistorySidebar());
+            }
+        }
+    });
+    console.log('history keybinds loaded');
+    restoreHistory();
+    console.log('history restored');
 }
