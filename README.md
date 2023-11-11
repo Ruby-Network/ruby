@@ -82,7 +82,7 @@ This is our third edition of [Ruby](https://github.com/ruby-network/ruby-v1). Th
 ### FEATURES COMING SOON
 ---
 
-- [ ]   Basic Password protection for the website (you can set a password in the settings page)
+- [x]   Basic Password protection for the website (you can set a password in the settings page)
 
 - [ ]  Customizable apps and games
 
@@ -95,8 +95,6 @@ This is our third edition of [Ruby](https://github.com/ruby-network/ruby-v1). Th
 - [ ]  Backgrounds, using Particles.js and other libraries
 
 - [ ]  Multiple Users when self hosting in private mode
-
-- [ ]  And more!
 
 ---
 
