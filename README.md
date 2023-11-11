@@ -90,7 +90,7 @@ This is our third edition of [Ruby](https://github.com/ruby-network/ruby-v1). Th
 
 - [ ]  Apps 
 
-- [ ]  History page
+-  [x]  History page
 
 - [ ]  Backgrounds, using Particles.js and other libraries
 
