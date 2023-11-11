@@ -130,7 +130,7 @@ function restoreTabs() {
         chromeTabs.removeTab(chromeTabs.activeTabEl);
     });
 }
-function keybinds() {
+function tabKeybinds() {
     console.log("tab keybinds initalized")
     //override ctrl + t
     document.addEventListener('keydown', function (e) {
@@ -184,6 +184,5 @@ function init() {
         title: 'Search',
         favicon: 'favicon.ico',
     });
-    keybinds();
 }
 init();

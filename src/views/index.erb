@@ -14,6 +14,7 @@
     12 => '<script src="js/games.js" defer></script>',
     13 => '<script src="js/omnibox.js" defer></script>',
     14 => '<script src="js/updates.js" defer></script>',
+    15 => '<script src="js/keyBinds.js" defer></script>',
   })
 %>
 <div class="chrome-tabs" style="--tab-content-margin: 9px">
@@ -56,6 +57,10 @@
       <div id="menu-button" onclick="gamesPage(true)"><i class="fa-solid fa-gamepad"></i></div>
     </div>
     <div id="menu-buttons-right">
+      <div id="menu-button" class="tooltip" onclick="historySidebar(true)">
+        <span class="tooltiptext">View History</span>
+        <i class="fa-solid fa-history"></i>
+      </div>
       <div id="menu-button" class="tooltip" onclick="fullscreen()">
         <span class="tooltiptext">Full Screen</span>
         <i class="fa-solid fa-expand"></i>
@@ -89,3 +94,4 @@
 <% showComponent("settings") %>
 <% showComponent("games") %>
 <% showComponent("credit") %>
+<% showComponent("history") %>
