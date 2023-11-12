@@ -10,7 +10,7 @@ RUN yarn install
 # Setup a basic configuration
 RUN cp config/settings.example.yml config/settings.yml
 # Mount config/settings.yml as a volume
-VOLUME /usr/src/app/config/settings.yml
+VOLUME /usr/src/app/config/
 # Run the app
 EXPOSE 9293
 CMD yarn start
