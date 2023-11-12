@@ -1,0 +1,15 @@
+name: Deploy to Hop
+on:
+  push:
+    tags:
+      - v*
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: hopinc/action@v1
+        with:
+          token: ${{ secrets.HOP_TOKEN }}
