@@ -601,5 +601,14 @@
         "cdn": "true",
         "proxy": "false",
         "url": ""
+    },
+    {
+        "img": "/games-thumb/watermelon.png",
+        "baseFile": "index.html",
+        "name": "Watermelon Game",
+        "tags": ["arcade"],
+        "cdn": "true",
+        "proxy": "false",
+        "url": ""
     }
 ]
