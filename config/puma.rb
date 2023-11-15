@@ -5,6 +5,26 @@ if OS.windows?
   puts "Starting Server...".colorize(:green)
   rubyPort = 9292
   rubyPort = ARGV[ARGV.index('-p') + 1] || ARGV[ARGV.index('--port') + 1] if ARGV.include?('-p') || ARGV.include?('--port')
+  if ENV['RACK_ENV'] == 'production'
+    system("node node-server/server.js --ruby-port=#{rubyPort} --node-port=9293 &")
+  else 
+    system("node node-server/server-dev.js --ruby-port=#{rubyPort} --node-port=9293 &")
+  end
+elsif ENV['SP'] == 'true'
+  workers 1
+  before_fork do
+    puts "Single Process Mode".colorize(:red)
+    puts "Master Process ID: #{Process.pid}".colorize(:green)
+    puts "Starting Server...".colorize(:green)
+    rubyPort = 9292
+    cpuCount = Etc.nprocessors
+    rubyPort = ARGV[ARGV.index('-p') + 1] || ARGV[ARGV.index('--port') + 1] if ARGV.include?('-p') || ARGV.include?('--port')
+    if ENV['RACK_ENV'] == 'production'
+      system("node node-server/server.js --ruby-port=#{rubyPort} --node-port=9293 &")
+    else 
+      system("node node-server/server-dev.js --ruby-port=#{rubyPort} --node-port=9293 &")
+    end
+  end
 else
   workers Etc.nprocessors
   before_fork do
@@ -13,13 +33,12 @@ else
     rubyPort = 9292
     cpuCount = Etc.nprocessors
     rubyPort = ARGV[ARGV.index('-p') + 1] || ARGV[ARGV.index('--port') + 1] if ARGV.include?('-p') || ARGV.include?('--port')
+    if ENV['RACK_ENV'] == 'production'
+      system("node node-server/server.js --ruby-port=#{rubyPort} --node-port=9293 &")
+    else 
+      system("node node-server/server-dev.js --ruby-port=#{rubyPort} --node-port=9293 &")
+    end
   end
-end
-
-if ENV['RACK_ENV'] == 'production'
-  system("node node-server/server.js --ruby-port=#{rubyPort} --node-port=9293 &")
-else 
-  system("node node-server/server-dev.js --ruby-port=#{rubyPort} --node-port=9293 &")
 end
 
 preload_app!
