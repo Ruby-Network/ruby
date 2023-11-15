@@ -93,7 +93,7 @@ app.get('/health', async (req, res) => {
     else {
         res.send({ status: 'error' });
     }
-}
+});
 
 app.listen({ port: nodePort, host: '0.0.0.0' });
 console.log(chalk.green(`Server listening on port ${chalk.red(nodePort)}`));
