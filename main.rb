@@ -49,6 +49,10 @@ set :uvPath, File.join(settings.root, 'node_modules', '@titaniumnetwork-dev', 'u
 uvPath()
 
 # Other routes
+get '/rubyHealth/?' do
+  return "OK"
+end
+
 get '/:unlock?' do
   erb :index, :layout => :"layouts/index"
 end

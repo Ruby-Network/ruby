@@ -85,6 +85,16 @@ app.get('/search=:query', async (req, res) => {
 app.get('/version', async (req, res) => {
     res.send({ version: latestRelease });
 });
+app.get('/health', async (req, res) => {
+    //get the /rubyHealth response
+    const resp = await fetch(`http://localhost:${rubyPort}/rubyHealth`);
+    if (resp.status === 200) {
+        res.send({ status: 'ok' });
+    }
+    else {
+        res.send({ status: 'error' });
+    }
+});
 
 app.listen({ port: nodePort, host: '0.0.0.0' });
 console.log(chalk.green(`Server listening on port ${chalk.red(nodePort)}`));
