@@ -26,6 +26,8 @@ cookie_options = {
 }
 #Validate the YML file 
 validateYML()
+#Validate the ENV variables
+validateEnv()
 #Encrypted cookies
 use Rack::Session::EncryptedCookie, cookie_options
 #csrf 
@@ -38,7 +40,7 @@ before do
   if request.path_info == '/auth'
     return
   #any route on the main domain
-  elsif request.url.include? Settings.mainURL
+  elsif request.url.include? ENV['DOMAIN'] || Settings.mainURL
     return
   else
     auth()

@@ -10,10 +10,10 @@ if OS.windows?
   else 
     system("node node-server/server-dev.js --ruby-port=#{rubyPort} --node-port=9293 &")
   end
-elsif ENV['SP'] == 'true'
-  workers 1
+elsif ENV['WP'] != nil
+  workers ENV['WP'].to_i
   before_fork do
-    puts "Single Process Mode".colorize(:red)
+    puts "The amount of proccesses is: #{ENV['WP']}".colorize(:green)
     puts "Master Process ID: #{Process.pid}".colorize(:green)
     puts "Starting Server...".colorize(:green)
     rubyPort = 9292

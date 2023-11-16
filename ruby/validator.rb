@@ -52,3 +52,15 @@ def validateYML
     exit
   end
 end
+
+def validateEnv
+  if ENV['DOMAIN'] != nil
+    if ENV['DOMAIN'] !~ /\A#{URI::regexp(['http', 'https'])}\z/
+      puts "Domain is not a valid URL".red
+      exit
+    elsif ENV['DOMAIN'] !~ /\/\z/ 
+      puts "Domain must end with a /".red 
+      exit
+    end
+  end
+end
