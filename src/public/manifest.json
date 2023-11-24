@@ -3,13 +3,13 @@
     "short_name": "Ruby",
     "icons": [
         {
-            "src": "/apple-touch-icon-180x180.png",
+            "src": "/apple-touch-icon.png",
             "sizes": "180x180",
             "type": "image/png",
             "purpose": "maskable"
         },
         {
-            "src": "/apple-touch-icon-144x144.png",
+            "src": "/apple-touch-icon.png",
             "sizes": "144x144",
             "type": "image/png"
         }
