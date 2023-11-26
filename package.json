@@ -19,6 +19,7 @@
         "@titaniumnetwork-dev/ultraviolet": "^2.0.0",
         "@tomphttp/bare-server-node": "^2.0.0",
         "chalk": "^5.2.0",
+        "chii": "^1.10.0",
         "esbuild": "^0.19.2",
         "fastify": "^4.21.0",
         "progress-estimator": "^0.3.1",

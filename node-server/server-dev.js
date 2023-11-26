@@ -71,6 +71,11 @@ await app
         prefix: '/gms/',
         http2: false,
     })
+    .register(fastifyHttpProxy, {
+        upstream: 'http://localhost:8080',
+        prefix: '/chi/',
+        http2: false,
+    })
     .register(fastifyMiddie)
 app.get('/search=:query', async (req, res) => {
     const { query } = req.params;
