@@ -115,8 +115,10 @@ function updateSearch(value) {
 function isIframeLoaded() {
     let currentTab = getCurrentTab();
     let iframe = document.querySelector(`[data-iframe-id="${currentTab}"]`);
+    addRightClickToIframe(currentTab);
     updateTabDetail("Loading...", "loading.gif");
     iframe.addEventListener('load', function() {
+        addRightClickToIframe(currentTab);
         updateTabDetail(iframe.contentWindow.document.title,  iframe.contentWindow.document.querySelector('link[rel="icon"]') ? proxyOtherStuff(iframe.contentWindow.document.querySelector('link[rel="icon"]').href) : "favicon.ico", currentTab);
         updateURLBar(iframe.contentWindow.location.href);
         addToHistory(iframe.contentWindow.location.href, iframe.contentWindow.document.title, iframe.contentWindow.document.querySelector('link[rel="icon"]') ? proxyOtherStuff(iframe.contentWindow.document.querySelector('link[rel="icon"]').href) : "favicon.ico");

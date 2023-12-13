@@ -9,3 +9,6 @@ historySidebarKeybinds();
 
 // keybind located in ./eruda/create.js
 devToolsKeybinds();
+
+//keybind located in ./eruda/rightClick.js
+initRightClick();

@@ -95,6 +95,7 @@ function handoffToTABS(url) {
     let tabId = chromeTabs.activeTabEl.getAttribute('data-tab-id');
     iframe.setAttribute('data-iframe-id', tabId);
     document.body.appendChild(iframe);
+    addRightClickToIframe(tabId);
     isIframeLoaded();
     function resetOmniBox() {
         document.getElementById("uv-form").style.marginTop = "20px";
