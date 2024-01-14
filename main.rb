@@ -28,6 +28,10 @@ cookie_options = {
 validateYML()
 #Validate the ENV variables
 validateEnv()
+#Setup DB when Private is true
+if Settings.private == "true"
+  dbSetup()
+end
 #Encrypted cookies
 use Rack::Session::EncryptedCookie, cookie_options
 #csrf 
@@ -61,11 +65,22 @@ end
 
 #Auth to login to the site
 post '/auth' do 
-  if params[:password] == Settings.password && params[:username] == Settings.username
-    session[:auth] = true
-    session[:uid] = SecureRandom.alphanumeric(2048)
-    redirect '/'
+  if Settings.private == "false"
+    if params[:password] == Settings.password && params[:username] == Settings.username
+      session[:auth] = true
+      session[:uid] = SecureRandom.alphanumeric(2048)
+      redirect '/'
+    else
+      redirect '/'
+    end
   else
-    redirect '/'
+    loggedIn = login(params[:username], params[:password])
+    if loggedIn == true
+      session[:auth] = true
+      session[:uid] = SecureRandom.alphanumeric(2048)
+      redirect '/'
+    else
+      redirect '/'
+    end
   end
 end
