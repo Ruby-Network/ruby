@@ -7,8 +7,8 @@
     "scripts": {
         "dev": "bundle exec rerun --ignore 'src/public/css/*' --signal 'TERM' -c -w 5 --no-notify -- puma",
         "start": "bundle exec puma -e production",
-        "install": "bundle install && npm run build",
-        "build": "node ./build.js",
+        "install": "bundle install",
+        "build:rh": "tsc -p ./rammerhead/tsconfig.json",
         "cli": "bundle exec ruby ./cli/cli.rb"
     },
     "engines": {
