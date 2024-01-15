@@ -43,7 +43,7 @@
         volumes:
           - ./config.yml:/usr/src/app/config/settings.yml
       
-      # Uncomment the following lines if you want to use adminer (database management)
+      # Uncomment the following lines if you want to use a database (multiuser mode)
       #db:
       #  image: postgres
       #  restart: unless-stopped
