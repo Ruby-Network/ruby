@@ -29,14 +29,14 @@ def login(username, password)
   username = username.gsub(/[^0-9A-Za-z]/, '')
   password = password.gsub(/[^0-9A-Za-z]/, '')
   db = Sequel.postgres(host: 'localhost', user: 'example', password: 'example', database: 'example')
-  ## we need to check for the password but it is hashed so we need to use bcrypt to check it
-  pass = db[:users].where(username: username).get(:password)
-  password = BCrypt::Password.new(pass)
-  if pass == password
-    db.disconnect
-    return true
-  else
-    db.disconnect
+  hashedPassword = db[:users].where(username: username).get(:password)
+  begin
+    if BCrypt::Password.new(hashedPassword) == password 
+      return true
+    else
+      return false
+    end
+  rescue BCrypt::Errors::InvalidHash
     return false
   end
 end

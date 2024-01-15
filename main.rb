@@ -29,7 +29,7 @@ validateYML()
 #Validate the ENV variables
 validateEnv()
 #Setup DB when Private is true
-if Settings.private == "true"
+if Settings.private == "true" && Settings.multiuser == "false"
   dbSetup()
 end
 #Encrypted cookies
@@ -65,7 +65,7 @@ end
 
 #Auth to login to the site
 post '/auth' do 
-  if Settings.private == "false"
+  if Settings.private == "false" && Settings.multiuser == "false"
     if params[:password] == Settings.password && params[:username] == Settings.username
       session[:auth] = true
       session[:uid] = SecureRandom.alphanumeric(2048)
