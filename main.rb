@@ -29,7 +29,7 @@ validateYML()
 #Validate the ENV variables
 validateEnv()
 #Setup DB when Private is true
-if Settings.private == "true" && Settings.multiuser == "false"
+if Settings.private == "true" && Settings.multiuser == "true"
   dbSetup()
 end
 #Encrypted cookies
@@ -44,8 +44,12 @@ before do
   if request.path_info == '/auth'
     return
   #any route on the main domain
-  elsif request.url.include? ENV['DOMAIN'] || Settings.mainURL
-    return
+  elsif Settings.private == "false"
+    if request.url.include? ENV['DOMAIN'] || Settings.mainURL
+      return
+    else
+      auth()
+    end
   else
     auth()
   end
@@ -65,8 +69,8 @@ end
 
 #Auth to login to the site
 post '/auth' do 
-  if Settings.private == "false" && Settings.multiuser == "false"
-    if params[:password] == Settings.password && params[:username] == Settings.username
+  if Settings.private == "false" || Settings.multiuser == "false"
+    if params[:password] == Settings.password && params[:username].downcase == Settings.username.downcase
       session[:auth] = true
       session[:uid] = SecureRandom.alphanumeric(2048)
       redirect '/'

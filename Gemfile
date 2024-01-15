@@ -17,6 +17,9 @@ gem 'yaml'
 gem 'sequel'
 gem 'pg'
 gem 'bcrypt'
+gem 'thor'
+gem 'readline'
+gem 'readline-ext'
 gem "rack-reverse-proxy", require: "rack/reverse_proxy"
 group :development, :test do
   gem "rerun"

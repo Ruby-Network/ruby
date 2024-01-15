@@ -5,7 +5,8 @@ class YamlValidator < Dry::Validation::Contract
     required(:private).filled(:string)
     required(:username).filled(:string)
     required(:password).filled(:string)
-    required(:mainURL).filled(:string)
+    optional(:multiuser).filled(:string)
+    optional(:mainURL).filled(:string)
   end
   rule(:port) do
     key.failure('must be greater than 0') if value <= 0
@@ -20,8 +21,6 @@ class YamlValidator < Dry::Validation::Contract
     if (Settings.private == "false")
       key.failure('must have a url') if value !~ /\A#{URI::regexp(['http', 'https'])}\z/
       key.failure('must have a / at the end') if value !~ /\/\z/
-    else 
-      key.failure('must NOT have a url (N/A will work)') if value =~ /\A#{URI::regexp(['http', 'https'])}\z/
     end
   end
   rule(:username) do 
@@ -38,6 +37,11 @@ class YamlValidator < Dry::Validation::Contract
     end
     if (Settings.private == "true")
       key.failure('the password must NOT be "ruby"') if value == "ruby"
+    end
+  end
+  rule(:multiuser) do 
+    if (Settings.private == "true")
+      key.failure('MUST BE TRUE OR FALSE') if value != "true" && value != "false"
     end
   end
 end
