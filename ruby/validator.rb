@@ -7,6 +7,12 @@ class YamlValidator < Dry::Validation::Contract
     required(:password).filled(:string)
     optional(:multiuser).filled(:string)
     optional(:mainURL).filled(:string)
+    optional(:database).filled(:hash).schema do
+      required(:host).filled(:string)
+      required(:username).filled(:string)
+      required(:password).filled(:string)
+      required(:dbname).filled(:string)
+    end
   end
   rule(:port) do
     key.failure('must be greater than 0') if value <= 0
@@ -45,7 +51,7 @@ class YamlValidator < Dry::Validation::Contract
       key.failure('MUST BE TRUE OR FALSE') if value != "true" && value != "false"
     end
   end
-end
+ end
 
 def validateYML
   config = YAML.load_file(File.join(settings.root, '/config/settings.yml'))
