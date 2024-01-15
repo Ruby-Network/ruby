@@ -53,7 +53,7 @@ const proxyHandler = (handler, opts) => {
 };
 
 const app = Fastify({ logger: false, serverFactory: proxyHandler })
-await app 
+await app
     .register(fastifyHttpProxy, {
         upstream: 'http://localhost:9292',
         prefix: '/',
@@ -82,7 +82,7 @@ app.get('/search=:query', async (req, res) => {
         reply.code(500).send({ error: "Internal Server Error" });
     }
 });
-app.get('/version', async (req, res) => {
+app.get('/version', (req, res) => {
     res.send({ version: latestRelease });
 });
 app.get('/health', async (req, res) => {

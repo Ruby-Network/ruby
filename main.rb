@@ -4,6 +4,15 @@ set :root, File.dirname(__FILE__)
 set :public_folder, File.join(settings.root, 'src', 'public')
 set :views, File.join(settings.root, 'src', 'views')
 set :template, File.join(settings.root, 'src', 'templates')
+
+Config.setup do |config|
+  config.use_env = true
+  config.env_prefix = 'SETTINGS'
+  config.env_separator = '_'
+  config.env_converter = :downcase
+  config.env_parse_values = true
+end
+
 register Config
 
 logging = Settings.verboseLogging
