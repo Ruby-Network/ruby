@@ -34,6 +34,7 @@
     private: "true"
     username: "your username"
     password: "your password"
+    multiuser: "false"
     ```
 6. Start the server
     ```bash
@@ -61,11 +62,12 @@
     private: "true"
     username: "your username"
     password: "your password"
+    multiuser: "false"
     ```
 3. Follow the commands in the [docker instance](./docker.md) guide depending on what docker method you used
     - Docker Compose [here](./docker.md#docker-compose)
     - Docker Compose (build) [here](./docker.md#docker-compose-build)
-    - Standalone Docker (not recommended) [here](./docker.md#standalone)
+    - Standalone Docker (not recommended) [here](./docker.md#standalone) **NOT RECOMMENDED**
 
 3a. Simply omit the step where it tells you to make a config.yml file (as you have already done that)
 
@@ -95,9 +97,9 @@ Here is a list of things you will need to do:
     ```yml
     port: 9293 #currently does nothing, but will be used in the future
     verboseLogging: "false" #change this to "true" to enable verbose logging
-    private: "false" #change this to "true" to enable private mode
-    username: "ruby" #change this to your username (when using private mode)
-    password: "ruby" #change this to your password (when using private mode)
+    private: "true" #change this to "true" to enable private mode
+    username: "yourUsername" #change this to your username (when using private mode)
+    password: "yourPassword" #change this to your password (when using private mode)
 
     multiuser: "true" # set to true to enable multiuser mode when using private mode (if not using private mode, this will be ignored)
 
