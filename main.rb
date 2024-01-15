@@ -5,6 +5,7 @@ set :public_folder, File.join(settings.root, 'src', 'public')
 set :views, File.join(settings.root, 'src', 'views')
 set :template, File.join(settings.root, 'src', 'templates')
 register Config
+
 logging = Settings.verboseLogging
 if logging == "true"
   puts "Verbose logging is enabled".green
