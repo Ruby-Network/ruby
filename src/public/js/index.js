@@ -31,7 +31,7 @@ form.addEventListener("submit", (event) => {
         case "rammerhead":
             const origin = window.location.origin;
             async function proxy() {
-                const endURL = await window.rh.rhInteract(`${origin}`, `${url}`);
+                const endURL = await RammerheadEncode(url);
                 handoffToTABS(endURL);
             };
             proxy();
@@ -49,7 +49,7 @@ function proxyOtherStuff(url) {
         case "rammerhead":
             const origin = window.location.origin;
             async function proxy() {
-                const endURL = await window.rh.rhInteract(`${origin}`, `${url}`);
+                const endURL = await RammerheadEncode(url)
                 return endURL;
             };
             proxy();
