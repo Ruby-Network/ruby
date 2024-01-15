@@ -3,10 +3,16 @@ require 'colorize'
 require 'sequel'
 require 'bcrypt'
 require 'readline'
+require 'yaml'
 require_relative '../ruby/db.rb'
 
+settings = YAML.load_file(File.join(File.dirname(__FILE__), '../config/settings.yml'))
+$host = ENV['DB_HOST'] || settings['database']['host'].to_s 
+$user = ENV['DB_USERNAME'] || settings['database']['username'].to_s
+$password = ENV['DB_PASSWORD'] || settings['database']['password'].to_s
+$database = ENV['DB_DATABASE'] || settings['database']['dbname'].to_s
+
 class RubyCLI < Thor
-  #class_option :verbose, :type => :boolean, :aliases => "-v"
   desc "create", "Create a new user"
   def create
     puts "Creating a new user...".red
@@ -24,7 +30,7 @@ class RubyCLI < Thor
       end
     end
 
-    db = connectDB()
+    db = connectDB($host, $user, $password, $database)
     hashedPassword = BCrypt::Password.create(password)
     if db[:users].where(username: username).count > 0
       puts "User already exists!".red
@@ -43,7 +49,7 @@ class RubyCLI < Thor
     username = Readline.readline("Username: ", true)
     username = username.gsub(/[^0-9A-Za-z]/, '')
     username = username.downcase
-    db = connectDB()
+    db = connectDB($host, $user, $password, $database)
     while true
       usernameConfirm = Readline.readline("Are you sure you want to delete #{username}? (y/n): ", true).downcase
       if usernameConfirm == "y" || usernameConfirm == "yes"
@@ -65,7 +71,7 @@ class RubyCLI < Thor
   end
   desc "list", "List all users"
   def list
-    db = connectDB()
+    db = connectDB($host, $user, $password, $database)
     puts "Listing all users...".red
     users = db[:users]
     users.each{|user| puts user[:username]}
@@ -76,7 +82,7 @@ class RubyCLI < Thor
     username = Readline.readline("Username: ", true)
     username = username.gsub(/[^0-9A-Za-z]/, '')
     username = username.downcase
-    db = connectDB()
+    db = connectDB($host, $user, $password, $database)
     if db[:users].where(username: username).count > 0
       while true
         password = Readline.readline("New Password: ", true)

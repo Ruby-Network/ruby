@@ -41,6 +41,7 @@ class YamlValidator < Dry::Validation::Contract
   end
   rule(:multiuser) do 
     if (Settings.private == "true")
+      key.failure('multiuser is required to be used when private mode is enabled') if value == nil
       key.failure('MUST BE TRUE OR FALSE') if value != "true" && value != "false"
     end
   end
