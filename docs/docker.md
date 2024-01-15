@@ -31,20 +31,35 @@
 
     Or just copy this config:
     ```yml
-    version: '2'
+    version: "3"
     services:
-    ruby:
-      restart: unless-stopped
-      image: 'ghcr.io/ruby-network/ruby'
-      ports:
-        #DO NOT CHANGE 9293!
-        - your port here:9293
-      volumes:
-        - ./config.yml:/usr/src/app/config/settings.yml
-   #networks:
-    #  default:
-    #    external:
-    #      name: default_net
+      ruby:
+        image: 'motortruck1221/ruby:latest'
+        container_name: ruby
+        restart: unless-stopped
+        ports:
+          # DO NOT CHANGE 9293
+          - "your port here:9293"
+        volumes:
+          - ./config.yml:/usr/src/app/config/settings.yml
+      
+      # Uncomment the following lines if you want to use a database (multiuser mode)
+      #db:
+      #  image: postgres
+      #  restart: unless-stopped
+      #  environment:
+      #    POSTGRES_PASSWORD: ruby
+      #    POSTGRES_USER: ruby
+      #    POSTGRES_DB: ruby 
+      #  volumes:
+      #    - ./db:/var/lib/postgresql/data
+      
+      # Uncomment the following lines if you want to use adminer (database management)
+      #adminer:
+      #  image: adminer
+      #  restart: unless-stopped
+      #  ports:
+      #    - 8099:8080
     ```
 2. Download our settings.example.yml file [here](https://github.com/ruby-network/ruby/tree/main/config/settings.example.yml)
 

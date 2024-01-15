@@ -4,7 +4,17 @@ set :root, File.dirname(__FILE__)
 set :public_folder, File.join(settings.root, 'src', 'public')
 set :views, File.join(settings.root, 'src', 'views')
 set :template, File.join(settings.root, 'src', 'templates')
+
+Config.setup do |config|
+  config.use_env = true
+  config.env_prefix = 'SETTINGS'
+  config.env_separator = '_'
+  config.env_converter = :downcase
+  config.env_parse_values = true
+end
+
 register Config
+
 logging = Settings.verboseLogging
 if logging == "true"
   puts "Verbose logging is enabled".green
@@ -28,6 +38,10 @@ cookie_options = {
 validateYML()
 #Validate the ENV variables
 validateEnv()
+#Setup DB when Private is true
+if Settings.private == "true" && Settings.multiuser == "true"
+  dbSetup()
+end
 #Encrypted cookies
 use Rack::Session::EncryptedCookie, cookie_options
 #csrf 
@@ -40,8 +54,12 @@ before do
   if request.path_info == '/auth'
     return
   #any route on the main domain
-  elsif request.url.include? ENV['DOMAIN'] || Settings.mainURL
-    return
+  elsif Settings.private == "false"
+    if request.url.include? ENV['DOMAIN'] || Settings.mainURL
+      return
+    else
+      auth()
+    end
   else
     auth()
   end
@@ -61,11 +79,22 @@ end
 
 #Auth to login to the site
 post '/auth' do 
-  if params[:password] == Settings.password && params[:username] == Settings.username
-    session[:auth] = true
-    session[:uid] = SecureRandom.alphanumeric(2048)
-    redirect '/'
+  if Settings.private == "false" || Settings.multiuser == "false"
+    if params[:password] == Settings.password && params[:username].downcase == Settings.username.downcase
+      session[:auth] = true
+      session[:uid] = SecureRandom.alphanumeric(2048)
+      redirect '/'
+    else
+      redirect '/'
+    end
   else
-    redirect '/'
+    loggedIn = login(params[:username], params[:password])
+    if loggedIn == true
+      session[:auth] = true
+      session[:uid] = SecureRandom.alphanumeric(2048)
+      redirect '/'
+    else
+      redirect '/'
+    end
   end
 end

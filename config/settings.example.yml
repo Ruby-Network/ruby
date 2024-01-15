@@ -1,6 +1,18 @@
-port: 9293
-verboseLogging: "false"
-private: "false"
-username: "ruby"
-password: "ruby"
-mainURL: "http://localhost:3000/browser/"
+port: 9293 #currently does nothing, but will be used in the future
+verboseLogging: "false" #change this to "true" to enable verbose logging
+private: "false" #change this to "true" to enable private mode
+username: "ruby" #change this to your username (when using private mode)
+password: "ruby" #change this to your password (when using private mode)
+
+# Everything below this line is optional is some form or another
+mainURL: "https://localhost:9293/" # set to a URL to redirect to when the user visits the root of the server (e.g. http://example.com/) WILL be ignored when private mode is enabled
+multiuser: "true" # set to true to enable multiuser mode when using private mode (if not using private mode, this will be ignored)
+
+# Database Settings Only Needed When Using Multiuser Mode is Enabled
+# These are ignored when multiuser mode is not enabled
+# NOTE: when using docker these values should not be changed
+database:
+  username: "ruby" # change this to your database username
+  password: "ruby" # change this to your database password
+  host: "db" # change this to your database host
+  dbname: "ruby" # change this to your database name
