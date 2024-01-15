@@ -1,6 +1,6 @@
 importScripts('../lib/localforage.js');
-importScripts('../dynamic/dynamic.config.js')
-importScripts('../dynamic/dynamic.worker.js');
+importScripts('/dynamic/dynamic.config.js')
+importScripts('/dynamic/dynamic.worker.js');
 localforage.config({
     driver: localforage.INDEXEDDB,
     name: 'Ruby',
@@ -23,10 +23,11 @@ self.addEventListener('fetch', function (event) {
     event.respondWith((async function() {
         try {
             await promise;
+        }
+        catch (err) {}
+        if (await self.dynamic.route(event)) {
             return await self.dynamic.fetch(event);
         }
-        catch (err) {
-            //console.error(err);
-        }
+        await fetch(event.request);
     })());
 });

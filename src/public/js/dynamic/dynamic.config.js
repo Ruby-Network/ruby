@@ -13,7 +13,7 @@ self.__dynamic$config = {
     ua: null,
   },
   assets: {
-    prefix: '/js/dynamic/',
+    prefix: '/dynamic/',
     files: {
       handler: 'dynamic.handler.js',
       client: 'dynamic.client.js',

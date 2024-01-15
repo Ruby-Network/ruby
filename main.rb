@@ -68,6 +68,10 @@ end
 set :uvPath, File.join(settings.root, 'node_modules', '@titaniumnetwork-dev', 'ultraviolet', 'dist')
 uvPath()
 
+# Dynamic "middleware"
+set :dynamicPath, File.join(settings.root, 'node_modules', '@nebula-services', 'dynamic', 'dist')
+dynamicPath()
+
 # Other routes
 get '/rubyHealth/?' do
   return "OK"

@@ -50,7 +50,7 @@
 
 This is our third edition of [Ruby](https://github.com/ruby-network/ruby-v1). This edition primarily uses the Ruby programming language whilst also adding more features
 
-[![Ruby Network Discord](https://invidget.switchblade.xyz/rbWVGBfuwV?theme=dark)](https://discord.gg/rbWVGBfuwV)
+[![Ruby Network Discord](https://invidget.switchblade.xyz/bXJCZJZcJe?theme=dark)](https://discord.gg/bXJCZJZcJe)
 
 ## Features
 
@@ -84,17 +84,15 @@ This is our third edition of [Ruby](https://github.com/ruby-network/ruby-v1). Th
 
 - [x]   Basic Password protection for the website (you can set a password in the settings page)
 
-- [ ]  Customizable apps and games
-
-- [ ]  Partners page for all of our wonderful partners
-
 - [ ]  Apps 
 
--  [x]  History page
+- [x]  History page
+
+- [ ] Keybinds cheat sheet
 
 - [ ]  Backgrounds, using Particles.js and other libraries
 
-- [ ]  Multiple Users when self hosting in private mode
+- [x]  Multiple Users when self hosting in private mode
 
 ---
 

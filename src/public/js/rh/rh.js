@@ -1,2 +1,176 @@
-(()=>{var l=Object.defineProperty;var f=(n,t,e)=>t in n?l(n,t,{enumerable:!0,configurable:!0,writable:!0,value:e}):n[t]=e;var c=(n,t,e)=>(f(n,typeof t!="symbol"?t+"":t,e),e);var a=class{constructor(t,e,s){this.server=t,this.signal=e,this.password=s}async get(t){this.password&&(t.includes("?")?t+="&pwd="+this.password:t+="?pwd="+this.password);try{let e=await fetch(new URL(t,this.server),{signal:this.signal});if(e.status===200)return await e.text();throw new Error('unexpected server response to not match "200". Server says "'.concat(await e.text(),'"'))}catch(e){throw console.error(e),new Error("Cannot communicate with the server")}}async needPassword(){return await this.get("needpassword")==="true"}async newSession(){return await this.get("newsession")}async editSession(t,e,s){let r=await this.get("editsession?id="+encodeURIComponent(t)+(e?"&httpProxy="+encodeURIComponent(e):"")+"&enableShuffling="+(s?"1":"0"));if(r!=="Success")throw new Error("unexpected response from server. received ".concat(r))}async sessionExists(t){let e=await this.get("sessionexists?id="+encodeURIComponent(t));switch(e){case"exists":return!0;case"not found":return!1;default:throw new Error("unexpected response from server. received ".concat(e))}}async deleteSession(t){if(await this.sessionExists(t)){let e=await this.get("deletesession?id="+t);if(e!=="Success"&&e!=="not found")throw new Error("unexpected response from server. received ".concat(e))}}async shuffleDict(t){let e=await this.get("api/shuffleDict?id="+encodeURIComponent(t));return JSON.parse(e)}},o=class{constructor(t){c(this,"baseDictionary","0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz~-");c(this,"shuffledIndicator","_rhs");t||(t=this.generateDictionary()),this.dictionary=t}mod(t,e){return(t%e+e)%e}generateDictionary(){let t="",e=this.baseDictionary.split("");for(;e.length>0;)t+=e.splice(Math.floor(Math.random()*e.length),1)[0];return t}shuffle(t){if(t.startsWith(this.shuffledIndicator))return t;let e="";for(let s=0;s<t.length;s++){let r=t.charAt(s),i=this.baseDictionary.indexOf(r);r==="%"&&t.length-s>=3?(e+=r,e+=t.charAt(++s),e+=t.charAt(++s)):i===-1?e+=r:e+=this.dictionary.charAt(this.mod(i+s,this.baseDictionary.length))}return this.shuffledIndicator+e}unshuffle(t){if(!t.startsWith(this.shuffledIndicator))return t;t=t.slice(this.shuffledIndicator.length);let e="";for(let s=0;s<t.length;s++){let r=t.charAt(s),i=this.dictionary.indexOf(r);r==="%"&&t.length-s>=3?(e+=r,e+=t.charAt(++s),e+=t.charAt(++s)):i===-1?e+=r:e+=this.baseDictionary.charAt(this.mod(i-s,this.baseDictionary.length))}return e}};var h={};h={rhInteract:async function(n,t){let e=new a(n);await fetch(n),localStorage.getItem("rammerhead_session")&&await e.sessionExists(localStorage.getItem("rammerhead_session"))?(await fetch(new URL(localStorage.getItem("rammerhead_session"),n))).status===403&&localStorage.removeItem("rammerhead_session"):localStorage.removeItem("rammerhead_session");let s;switch(localStorage.getItem("rammerhead_session")){case null:case void 0:case"null":case"undefined":s=await e.newSession();break;default:s=localStorage.getItem("rammerhead_session")}localStorage.setItem("rammerhead_session",s),await e.editSession(s,!1,!0);let r=await e.shuffleDict(s),i=new o(r);return new URL("".concat(s,"/").concat(i.shuffle(t)),n)},rhDecrypt:async function(n,t){let e=new a(n),s=localStorage.getItem("rammerhead_session"),r=await e.shuffleDict(s);return new o(r).unshuffle(t)}};window.rh=h;})();
-//# sourceMappingURL=rh.js.map
+function RammerheadEncode(baseUrl) {
+    const mod = (n, m) => ((n % m) + m) % m;
+    const baseDictionary = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz~-";
+    const shuffledIndicator = "_rhs";
+    const generateDictionary = function () {
+        let str = "";
+        const split = baseDictionary.split("");
+        while (split.length > 0) {
+            str += split.splice(Math.floor(Math.random() * split.length), 1)[0];
+        }
+        return str;
+    };
+    class StrShuffler {
+        constructor(dictionary = generateDictionary()) {
+            this.dictionary = dictionary;
+        }
+        shuffle(str) {
+            if (str.startsWith(shuffledIndicator)) {
+                return str;
+            }
+            let shuffledStr = "";
+            for (let i = 0; i < str.length; i++) {
+                const char = str.charAt(i);
+                const idx = baseDictionary.indexOf(char);
+                if (char === "%" && str.length - i >= 3) {
+                    shuffledStr += char;
+                    shuffledStr += str.charAt(++i);
+                    shuffledStr += str.charAt(++i);
+                }
+                else if (idx === -1) {
+                    shuffledStr += char;
+                }
+                else {
+                    shuffledStr += this.dictionary.charAt(mod(idx + i, baseDictionary.length));
+                }
+            }
+            return shuffledIndicator + shuffledStr;
+        }
+        unshuffle(str) {
+            if (!str.startsWith(shuffledIndicator)) {
+                return str;
+            }
+            str = str.slice(shuffledIndicator.length);
+            let unshuffledStr = "";
+            for (let i = 0; i < str.length; i++) {
+                const char = str.charAt(i);
+                const idx = this.dictionary.indexOf(char);
+                if (char === "%" && str.length - i >= 3) {
+                    unshuffledStr += char;
+                    unshuffledStr += str.charAt(++i);
+                    unshuffledStr += str.charAt(++i);
+                }
+                else if (idx === -1) {
+                    unshuffledStr += char;
+                }
+                else {
+                    unshuffledStr += baseDictionary.charAt(mod(idx - i, baseDictionary.length));
+                }
+            }
+            return unshuffledStr;
+        }
+    }
+    function get(url, callback, shush = false) {
+        var request = new XMLHttpRequest();
+        request.open("GET", url, true);
+        request.send();
+        request.onerror = function () {
+            if (!shush)
+                console.log("Cannot communicate with the server");
+        };
+        request.onload = function () {
+            if (request.status === 200) {
+                callback(request.responseText);
+            }
+            else {
+                if (!shush)
+                    console.log('unexpected server response to not match "200". Server says "' +
+                        request.responseText +
+                        '"');
+            }
+        };
+    }
+    var api = {
+        newsession(callback) {
+            get("/newsession", callback);
+        },
+        sessionexists(id, callback) {
+            get("/sessionexists?id=" + encodeURIComponent(id), function (res) {
+                if (res === "exists")
+                    return callback(true);
+                if (res === "not found")
+                    return callback(false);
+                console.log("unexpected response from server. received" + res);
+            });
+        },
+        shuffleDict(id, callback) {
+            console.log("Shuffling", id);
+            get("/api/shuffleDict?id=" + encodeURIComponent(id), function (res) {
+                callback(JSON.parse(res));
+            });
+        }
+    };
+    var localStorageKey = "rammerhead_sessionids";
+    var localStorageKeyDefault = "rammerhead_default_sessionid";
+    var sessionIdsStore = {
+        get() {
+            var rawData = localStorage.getItem(localStorageKey);
+            if (!rawData)
+                return [];
+            try {
+                var data = JSON.parse(rawData);
+                if (!Array.isArray(data))
+                    throw "getout";
+                return data;
+            }
+            catch (e) {
+                return [];
+            }
+        },
+        set(data) {
+            if (!data || !Array.isArray(data))
+                throw new TypeError("must be array");
+            localStorage.setItem(localStorageKey, JSON.stringify(data));
+        },
+        getDefault() {
+            var sessionId = localStorage.getItem(localStorageKeyDefault);
+            if (sessionId) {
+                var data = sessionIdsStore.get();
+                data.filter(function (e) {
+                    return e.id === sessionId;
+                });
+                if (data.length)
+                    return data[0];
+            }
+            return null;
+        },
+        setDefault(id) {
+            localStorage.setItem(localStorageKeyDefault, id);
+        }
+    };
+    function addSession(id) {
+        var data = sessionIdsStore.get();
+        data.unshift({ id: id, createdOn: new Date().toLocaleString() });
+        sessionIdsStore.set(data);
+    }
+    function getSessionId() {
+        return new Promise((resolve) => {
+            var id = localStorage.getItem("session-string");
+            api.sessionexists(id, function (value) {
+                if (!value) {
+                    console.log("Session validation failed");
+                    api.newsession(function (id) {
+                        addSession(id);
+                        localStorage.setItem("session-string", id);
+                        console.log(id);
+                        console.log("^ new id");
+                        resolve(id);
+                    });
+                }
+                else {
+                    resolve(id);
+                }
+            });
+        });
+    }
+    var ProxyHref;
+    return getSessionId().then((id) => {
+        return new Promise((resolve, reject) => {
+            api.shuffleDict(id, function (shuffleDict) {
+                var shuffler = new StrShuffler(shuffleDict);
+                ProxyHref = "/" + id + "/" + shuffler.shuffle(baseUrl);
+                resolve(ProxyHref);
+            });
+        });
+    });
+}

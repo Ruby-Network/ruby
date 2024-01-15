@@ -7,8 +7,8 @@
     "scripts": {
         "dev": "bundle exec rerun --ignore 'src/public/css/*' --signal 'TERM' -c -w 5 --no-notify -- puma",
         "start": "bundle exec puma -e production",
-        "install": "bundle install && npm run build",
-        "build": "node ./build.js",
+        "install": "bundle install",
+        "build:rh": "tsc -p ./rammerhead/tsconfig.json",
         "cli": "bundle exec ruby ./cli/cli.rb"
     },
     "engines": {
@@ -17,14 +17,15 @@
     "dependencies": {
         "@fastify/http-proxy": "^9.2.1",
         "@fastify/middie": "^8.3.0",
+        "@nebula-services/dynamic": "^0.7.2-patch.2",
         "@titaniumnetwork-dev/ultraviolet": "^2.0.0",
         "@tomphttp/bare-server-node": "^2.0.0",
         "chalk": "^5.2.0",
-        "esbuild": "^0.19.2",
         "fastify": "^4.21.0",
         "progress-estimator": "^0.3.1",
         "rammerhead": "https://github.com/Ruby-Network/rammerhead/releases/download/v1/rammerhead-2.tgz",
         "sass": "^1.62.1",
+        "typescript": "^5.3.3",
         "yaml": "^2.3.1"
     }
 }
