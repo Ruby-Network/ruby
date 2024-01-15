@@ -17,6 +17,7 @@
     "dependencies": {
         "@fastify/http-proxy": "^9.2.1",
         "@fastify/middie": "^8.3.0",
+        "@nebula-services/dynamic": "^0.7.2-patch.2",
         "@titaniumnetwork-dev/ultraviolet": "^2.0.0",
         "@tomphttp/bare-server-node": "^2.0.0",
         "chalk": "^5.2.0",
