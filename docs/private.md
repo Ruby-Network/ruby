@@ -102,6 +102,7 @@ Here is a list of things you will need to do:
     multiuser: "true" # set to true to enable multiuser mode when using private mode (if not using private mode, this will be ignored)
 
     database:
+        #The db defaults should not be changed when using docker
         username: "ruby" # change this to your database username
         password: "ruby" # change this to your database password
         host: "db" # change this to your database host
