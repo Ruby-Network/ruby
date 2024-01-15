@@ -74,7 +74,7 @@ This is not supported due to the fact that everyones setup is different.
 Here is a list of things you will need to do:
 - Setup a database (Postgresql)
 - Setup ruby to use multiuser mode
-- Pray
+
 **Use docker if you want multiuser mode [here](./private.md#docker-multiuser)**
 
 ## Docker (multiuser)
@@ -107,9 +107,11 @@ Here is a list of things you will need to do:
         host: "db" # change this to your database host
         dbname: "ruby" # change this to your database name
     ```
-3. Follow the commands in the [docker instance](./docker.md) guide depending on what docker method you used
+3. Follow the commands in the [docker instance](./docker.md) guide depending on what docker method you used. **Make sure you uncomment the database section of the file**
     - Docker Compose [here](./docker.md#docker-compose)
     - Docker Compose (build) [here](./docker.md#docker-compose-build)
     - Standalone Docker (not recommended) [here](./docker.md#standalone) **NOT SUPPORTED**
 
 3a. Simply omit the step where it tells you to make a config.yml file (as you have already done that)
+
+3b. For multiuser mode, we provide a set of CLI commands to manage users. You can find them [here](./multiuser.md)

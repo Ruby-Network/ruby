@@ -13,15 +13,17 @@ services:
   # Uncomment the following lines if you want to use a database (mutliuser mode)
   #db:
   #  image: postgres
-  #  restart: always
+  #  restart: unless-stopped
   #  environment:
   #    POSTGRES_PASSWORD: ruby
   #    POSTGRES_USER: ruby
   #    POSTGRES_DB: ruby
+  #  volumes:
+  #    - ./db:/var/lib/postgresql/data
   
   # Uncomment the following lines if you want to use adminer (database management)
   #adminer:
   #  image: adminer
-  #  restart: always
+  #  restart: unless-stopped
   #  ports:
   #    - 8099:8080
