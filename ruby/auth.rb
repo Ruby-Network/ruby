@@ -22,8 +22,14 @@ class Auth
     @app.call(env)
   end
 end
+def viewer
+  #server any public content
+  settings.public_folder = 'edu/v2'
+  erb :'edu/v1/index'
+end
 def auth 
   if session[:auth] != true
-    halt erb :'edu/v1/index'
+    #server the whole edu/v2 folder
+    halt viewer()
   end
 end
