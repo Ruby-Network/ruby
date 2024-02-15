@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ruby Skillz | Sign Up</title>
+    <link rel="stylesheet" type="text/css" href="../index.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Ruby Skillz</h1>
+      <nav>
+        <ul>
+          <li><a href="/home">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="/pricing">Pricing</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="/Sign-Up">Sign Up</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <h1>Sign Up for Ruby Skillz</h1>
+      <p>
+        Enter your email address and password to sign up for the waiting list.
+      </p>
+      <form method="POST" action="/signup">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" />
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" />
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" />
+
+        <label for="grade">Grade:</label>
+        <select id="grade" name="grade" required>
+          <option value="">Select your grade</option>
+          <option value="6">6th grade</option>
+          <option value="7">7th grade</option>
+          <option value="8">8th grade</option></select
+        ><br /><br />
+        <button type="submit">Submit</button>
+      </form>
+
+      <h2>Testimonials</h2>
+      <section class="testimonial">
+        <p>
+          "My daughter struggled with math in middle school, but after just a
+          few sessions with Ruby Skillz, her grades improved significantly. The
+          tutor was patient and knowledgeable, and my daughter felt more
+          confident in her abilities."
+        </p>
+        <p class="author">- Jane Doe</p>
+      </section>
+
+      <section class="testimonial">
+        <p>
+          "My son was having trouble with writing, but the tutors at Ruby Skillz
+          helped him improve his skills and build his confidence. He even
+          started enjoying writing more!"
+        </p>
+        <p class="author">- John Smith</p>
+      </section>
+
+      <h2>More Information</h2>
+      <p>
+        Ruby Skillz is a comprehensive online tutoring platform for middle
+        school students. We offer personalized one-on-one tutoring in a variety
+        of subjects, including math, science, English, and social studies.
+      </p>
+      <p>
+        Our tutors are experienced educators who are passionate about helping
+        students succeed. We use a personalized approach to tutoring, tailoring
+        our sessions to each student's individual needs and learning style.
+        Whether your child is struggling in a particular subject or simply wants
+        to improve their grades, Ruby Skillz can help.
+      </p>
+    </main>
+    <footer>
+      <p>&copy; 2023 Ruby Skillz</p>
+    </footer>
+  </body>
+</html>
