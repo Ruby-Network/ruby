@@ -103,21 +103,27 @@ function setItems() {
     let searchInput = document.getElementById('searchInput');
     let proxySelect = document.getElementById('proxySelect');
     let fullscreenSelect = document.getElementById('fullscreenSelect');
-    let bareInput = document.getElementById('bareInput');
+    let wispInput = document.getElementById('wispInput');
+    let transportSelect = document.getElementById('transportSelect');
+    //let bareInput = document.getElementById('bareInput');
     let title = localStorage.getItem('title');
     let favicon = localStorage.getItem('favicon');
     let theme = localStorage.getItem('theme');
     let search = localStorage.getItem('searchEngine');
     let proxy = localStorage.getItem('proxy');
     let fullscreen = localStorage.getItem('fullScreen');
-    let bare = localStorage.getItem('bare');
+    let wispUrl = localStorage.getItem('wispUrl');
+    let transports = localStorage.getItem('transports');
+    //let bare = localStorage.getItem('bare');
     titleInput.value = title;
     faviconInput.value = favicon;
     themeSelect.value = theme;
     searchInput.value = search;
     proxySelect.value = proxy;
     fullscreenSelect.value = fullscreen;
-    if (bare === window.location.origin + '/bare/') { bareInput.value = '/bare/'; } else { bareInput.value = bare; }
+    wispInput.value = wispUrl;
+    transportSelect.value = transports;
+    //if (bare === window.location.origin + '/bare/') { bareInput.value = '/bare/'; } else { bareInput.value = bare; }
     document.documentElement.className = localStorage.getItem('theme');
     document.title = title;
     document.getElementById('favicon').href = favicon;
@@ -131,6 +137,7 @@ function reset() {
     searchSettings('https://www.google.com/search?q=%s');
     proxyChange('uv');
     fullScreenChange('page');
+    setDefaultTransport();
     setItems();
 }
 function exportSettings() {
@@ -142,6 +149,8 @@ function exportSettings() {
     let fullscreen = localStorage.getItem('fullScreen');
     let bare = localStorage.getItem('bare');
     let password = localStorage.getItem('password');
+    let transports = localStorage.getItem('transports');
+    let wispUrl = localStorage.getItem('wispUrl');
     let settings = {
         title: title,
         favicon: favicon,
@@ -151,6 +160,8 @@ function exportSettings() {
         fullscreen: fullscreen,
         bare: bare,
         password: password,
+        transports: transports,
+        wispUrl: wispUrl
     }
     let a = document.createElement('a');
     let file = new Blob([JSON.stringify(settings)], { type: 'text/plain' });
@@ -179,6 +190,8 @@ function importSettings() {
             localStorage.setItem('fullScreen', settings.fullscreen);
             localStorage.setItem('bare', settings.bare);
             localStorage.setItem('password', settings.password);
+            localStorage.setItem('transports', settings.transports);
+            changeWisp(settings.wispUrl);
             setItems();
             console.log('Imported settings');
             window.location.reload();
@@ -209,6 +222,27 @@ function passwordKeybinds() {
     console.log("Password Keybind initalized");
 }
 
+function changeWisp(value) {
+    if (value.startsWith('http://')) {
+        value = value.replace('http://', 'ws://');
+    }
+    else if (value.startsWith('https://')) {
+        value = value.replace('https://', 'wss://');
+    }
+    localStorage.setItem('wispUrl', value);
+    setTransports();
+}
+
+function transportChange(value) {
+    if (value === 'soon') {
+        return;
+    }
+    else {
+        localStorage.setItem('transports', value);
+        setTransports();
+    }
+}
+
 function init() {
     let init = localStorage.getItem('init');
     if (init === null || init === undefined || init === 'false') {
@@ -220,7 +254,7 @@ function init() {
         localStorage.setItem('searchEngine', 'https://www.google.com/search?q=%s');
         localStorage.setItem('proxy', 'uv');
         localStorage.setItem('bare', window.location.origin + '/bare/');
-        localStorage.setItem('fullScreen', 'page');
+        localStorage.setItem('fullScreen', 'page'); 
         setItems();
     }
     else {

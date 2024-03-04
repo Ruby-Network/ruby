@@ -17,3 +17,18 @@ def dynamicPath
     end
   end
 end
+
+def epoxyPath
+  get '/epoxy/*' do
+    send_file File.join(settings.epoxyPath, params[:splat][0])
+  end
+end
+
+def baremuxPath 
+  get '/baremux/*' do
+  if params[:splat][0].end_with?('.cjs')
+      headers['Content-Type'] = 'application/javascript'
+    end
+    send_file File.join(settings.baremuxPath, params[:splat][0]) 
+  end
+end

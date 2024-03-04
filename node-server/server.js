@@ -13,6 +13,7 @@ const settings = YAML.parse(fs.readFileSync(path.join(__dirname, '/config/settin
 import chalk from 'chalk';
 import compile from './compile.js';
 import getLatestRelease from './version.js';
+import wisp from 'wisp-server-node';
 let rubyPort = process.argv.find((arg) => arg.startsWith('--ruby-port')).split('=')[1] || 9292;
 let nodePort = process.argv.find((arg) => arg.startsWith('--node-port')).split('=')[1] || 9293;
 
@@ -48,6 +49,9 @@ const proxyHandler = (handler, opts) => {
         }
         else if (shouldRouteRh(req)) {
             routeRhUpgrade(req, socket, head);
+        }
+        else if (req.url.endsWith('/wisp/')) {
+            wisp.routeRequest(req, socket, head);
         }
     });
 };

@@ -72,6 +72,12 @@ uvPath()
 set :dynamicPath, File.join(settings.root, 'node_modules', '@nebula-services', 'dynamic', 'dist')
 dynamicPath()
 
+set :epoxyPath, File.join(settings.root, 'node_modules', '@mercuryworkshop', 'epoxy-transport', 'dist')
+epoxyPath()
+
+set :baremuxPath, File.join(settings.root, 'node_modules', '@mercuryworkshop', 'bare-mux', 'dist')
+baremuxPath()
+
 # Other routes
 get '/rubyHealth/?' do
   return "OK"
