@@ -24,7 +24,6 @@ class Auth
 end
 def viewer
   #server any public content
-  settings.public_folder = 'edu/v2'
   erb :'edu/v1/index'
 end
 def auth 
