@@ -1,9 +1,10 @@
 'serviceWorker' in navigator &&
-    window.addEventListener('load', function () {
-        navigator.serviceWorker.register('/sw.js', { scope: '/' }) 
+    window.addEventListener('load', async function () {
+        await navigator.serviceWorker.register('/sw.js', { scope: '/' }) 
         //uv SW  
-        navigator.serviceWorker.register('/js/sw/uv.js', { scope: '/js/sw/service/uv/' })
-        navigator.serviceWorker.register('/js/sw/dynamic.js', { scope: '/js/sw/service/dynamic/' })
+        await navigator.serviceWorker.register('/js/sw/uv.js', { scope: '/js/sw/service/uv/' })
+        await navigator.serviceWorker.register('/js/sw/dynamic.js', { scope: '/js/sw/service/dynamic/' })
+        setDefaultTransport();
     });
 function regSW() {
     'serviceWorker' in navigator && 

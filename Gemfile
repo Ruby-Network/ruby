@@ -21,6 +21,6 @@ gem 'thor'
 gem 'readline'
 gem 'readline-ext'
 gem "rack-reverse-proxy", require: "rack/reverse_proxy"
-group :development, :test do
+group :development do
   gem "rerun"
 end
