@@ -15,6 +15,7 @@
         "node": ">=18.0.0"
     },
     "dependencies": {
+        "@fastify/caching": "^8.3.0",
         "@fastify/http-proxy": "^9.2.1",
         "@fastify/middie": "^8.3.0",
         "@mercuryworkshop/bare-mux": "^1.0.4",

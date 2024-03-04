@@ -5,6 +5,6 @@ pnpm-lock.yaml
 Gemfile.lock
 .env
 settings.yml
-.bundle/
+.bundle/config
 vendor/
 .ruby-version

@@ -17,7 +17,17 @@ function setDefaultTransport() {
         localStorage.setItem('transports', 'epoxy');
         setEpoxyTransport();
     }
+    else {
+        setTransports();
+    }
 }
+
+function recreateTransports() {
+    setTransports();
+}
+
+//run recreateTransports every ten minutes
+setInterval(recreateTransports, 600000);
 
 function setEpoxyTransport() {
     BareMux.SetTransport('EpxMod.EpoxyClient', { wisp: localStorage.getItem('wispUrl') || wispUrl });

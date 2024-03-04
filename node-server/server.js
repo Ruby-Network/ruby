@@ -14,6 +14,7 @@ import chalk from 'chalk';
 import compile from './compile.js';
 import getLatestRelease from './version.js';
 import wisp from 'wisp-server-node';
+import fastifyCaching from '@fastify/caching';
 let rubyPort = process.argv.find((arg) => arg.startsWith('--ruby-port')).split('=')[1] || 9292;
 let nodePort = process.argv.find((arg) => arg.startsWith('--node-port')).split('=')[1] || 9293;
 
@@ -58,6 +59,9 @@ const proxyHandler = (handler, opts) => {
 
 const app = Fastify({ logger: false, serverFactory: proxyHandler })
 await app
+    .register(fastifyCaching, {
+        privacy: fastifyCaching.privacy.NOCACHE
+    })
     .register(fastifyHttpProxy, {
         upstream: 'http://localhost:9292',
         prefix: '/',
