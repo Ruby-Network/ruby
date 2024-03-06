@@ -1,3 +1,6 @@
+> [!WARNING]
+> Currently, this project only allows `pnpm` as the package manager.
+
 # What these docs provide
 
 - They provide explanations on how to install the [Ruby](https://ruby-lang.org) programming language, and [Bundler](https://bundler.io)
