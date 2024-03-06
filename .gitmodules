@@ -1,0 +1,3 @@
+[submodule "epoxytransport"]
+	path = epoxytransport
+	url = https://github.com/mercuryworkshop/epoxytransport

@@ -26,8 +26,8 @@ function recreateTransports() {
     setTransports();
 }
 
-//run recreateTransports every 2 minutes
-setInterval(recreateTransports, 120000);
+//run recreateTransports every 1 minute to update transport setting
+setInterval(recreateTransports, 60000);
 
 function setEpoxyTransport() {
     BareMux.SetTransport('EpxMod.EpoxyClient', { wisp: localStorage.getItem('wispUrl') || wispUrl });

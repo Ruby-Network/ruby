@@ -5,10 +5,13 @@
     "license": "AGPL-3.0-only",
     "author": "Ruby Network",
     "scripts": {
+        "preinstall": "npx -y only-allow pnpm",
         "dev": "bundle exec rerun --ignore 'src/public/css/*' --signal 'TERM' -c -w 5 --no-notify -- puma",
         "start": "bundle exec puma -e production",
-        "install": "bundle install",
+        "install": "pnpm run build && bundle install",
         "build:rh": "tsc -p ./rammerhead/tsconfig.json",
+        "build:epoxytransport": "cd ./epoxytransport/ && npm run build",
+        "build": "pnpm run build:rh && pnpm run build:epoxytransport",
         "cli": "bundle exec ruby ./cli/cli.rb"
     },
     "engines": {
@@ -19,7 +22,7 @@
         "@fastify/http-proxy": "^9.2.1",
         "@fastify/middie": "^8.3.0",
         "@mercuryworkshop/bare-mux": "^1.0.4",
-        "@mercuryworkshop/epoxy-transport": "^1.0.2",
+        "@mercuryworkshop/epoxy-transport": "workspace:*",
         "@nebula-services/dynamic": "^0.7.2-patch.2",
         "@titaniumnetwork-dev/ultraviolet": "^3.0.0",
         "@tomphttp/bare-server-node": "^2.0.0",
