@@ -103,8 +103,9 @@ This is our third edition of [Ruby](https://github.com/ruby-network/ruby-v1). Th
 -   [Fastify](https://fastify.dev) (The routes for the node server)
 -   [Bare Server Node](https://github.com/tomphttp/bare-server-node)
 -   [Ultraviolet](https://github.com/titaniumnetwork-dev/ultraviolet)
--   [Dynamic](https://github.com/nebulaServices/dynamic)
 -   [RammerHead](https://github.com/binary-person/rammerhead)
+-   [Epoxy](https://github.com/mercuryworkshop/epoxy-tls)
+-   [Libcurl.js](https://github.com/ading2210/libcurl.js)
 -   HTML, CSS, and JavaScript
 <!-- [Particles.js](https://vincentgarreau.com/particles.js/) -->
 
