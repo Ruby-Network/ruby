@@ -75,6 +75,9 @@ dynamicPath()
 set :epoxyPath, File.join(settings.root, 'node_modules', '@mercuryworkshop', 'epoxy-transport', 'dist')
 epoxyPath()
 
+set :libcurlPath, File.join(settings.root, 'node_modules', '@mercuryworkshop', 'libcurl-transport', 'dist')
+libcurlPath()
+
 set :baremuxPath, File.join(settings.root, 'node_modules', '@mercuryworkshop', 'bare-mux', 'dist')
 baremuxPath()
 

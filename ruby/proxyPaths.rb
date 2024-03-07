@@ -24,6 +24,15 @@ def epoxyPath
   end
 end
 
+def libcurlPath
+  get '/libcurl/*' do
+    if params[:splat][0].end_with?('.cjs')
+      headers['Content-Type'] = 'application/javascript'
+    end
+    send_file File.join(settings.libcurlPath, params[:splat][0])
+  end
+end
+
 def baremuxPath 
   get '/baremux/*' do
   if params[:splat][0].end_with?('.cjs')
