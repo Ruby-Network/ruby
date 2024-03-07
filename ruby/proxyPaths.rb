@@ -29,6 +29,9 @@ def libcurlPath
     if params[:splat][0].end_with?('.cjs')
       headers['Content-Type'] = 'application/javascript'
     end
+    if params[:splat][0].end_with?('.mjs')
+      headers['Content-Type'] = 'application/javascript'
+    end
     send_file File.join(settings.libcurlPath, params[:splat][0])
   end
 end

@@ -3,13 +3,22 @@ const wispUrl = localStorage.getItem('wispUrl') || (location.protocol === "https
 
 function setTransports() {
         switch (transports) {
+            case 'libcurl':
+                setLibcurlTransport();
+                break;
             case 'epoxy':
                 setEpoxyTransport();
+                //run recreateTransports every 1 minute to update transport setting
+                setInterval(recreateTransports, 60000);
                 break;
             default:
                 setEpoxyTransport();
                 break;
         }
+}
+
+function setLibcurlTransport() {
+    BareMux.SetTransport('CurlMod.LibcurlClient', { wisp: localStorage.getItem('wispUrl') || wispUrl });
 }
 
 function setDefaultTransport() {
@@ -25,9 +34,6 @@ function setDefaultTransport() {
 function recreateTransports() {
     setTransports();
 }
-
-//run recreateTransports every 1 minute to update transport setting
-setInterval(recreateTransports, 60000);
 
 function setEpoxyTransport() {
     BareMux.SetTransport('EpxMod.EpoxyClient', { wisp: localStorage.getItem('wispUrl') || wispUrl });

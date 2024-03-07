@@ -1,5 +1,6 @@
 //all Ultraviolet realted stuff goes here
 importScripts('/epoxy/index.js');
+importScripts('/libcurl/index.cjs');
 importScripts('/uv/uv.bundle.js');
 importScripts('/uv/uv.config.js');
 importScripts('/js/lib/localforage.js');
