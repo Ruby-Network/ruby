@@ -255,6 +255,8 @@ function init() {
         localStorage.setItem('proxy', 'uv');
         localStorage.setItem('bare', window.location.origin + '/bare/');
         localStorage.setItem('fullScreen', 'page'); 
+        localStorage.setItem('transports', 'libcurl');
+        localStorage.setItem('wispUrl', (location.protocol === "https:" ? "wss" : "ws") + "://" + location.host + "/wisp/");
         setItems();
     }
     else {

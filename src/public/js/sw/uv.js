@@ -24,13 +24,15 @@ const promise = new Promise(async (resolve) => {
     resolve();
 });
 self.addEventListener('fetch', function (event) {
-    event.respondWith((async function() {
-        try {
-            await promise;
-            return await self.uv.fetch(event);
-        }
-        catch (err) {
-            //console.error(err);
-        }
-    })());
+    if (event.request.url.startsWith(location.origin + __uv$config.prefix)) {
+        event.respondWith((async function() {
+            try {
+                await promise;
+                return await self.uv.fetch(event);
+            }
+            catch (err) {
+                //console.error(err);
+            }
+        })());
+    }
 });

@@ -81,6 +81,8 @@ libcurlPath()
 set :baremuxPath, File.join(settings.root, 'node_modules', '@mercuryworkshop', 'bare-mux', 'dist')
 baremuxPath()
 
+mime_type :wasm, 'application/wasm'
+
 # Other routes
 get '/rubyHealth/?' do
   return "OK"

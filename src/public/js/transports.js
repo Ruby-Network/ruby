@@ -8,8 +8,6 @@ function setTransports() {
                 break;
             case 'epoxy':
                 setEpoxyTransport();
-                //run recreateTransports every 1 minute to update transport setting
-                setInterval(recreateTransports, 60000);
                 break;
             default:
                 setEpoxyTransport();
@@ -17,21 +15,22 @@ function setTransports() {
         }
 }
 
+
 function setLibcurlTransport() {
-    BareMux.SetTransport('CurlMod.LibcurlClient', { wisp: localStorage.getItem('wispUrl') || wispUrl });
+    BareMux.SetTransport('CurlMod.LibcurlClient', { wisp: localStorage.getItem('wispUrl') || wispUrl, wasm: '/libcurl.wasm' })
 }
 
 function setDefaultTransport() {
     if (!transports) {
-        localStorage.setItem('transports', 'epoxy');
-        setEpoxyTransport();
+        localStorage.setItem('transports', 'libcurl');
+        setLibcurlTransport();
     }
     else {
         setTransports();
     }
 }
 
-function recreateTransports() {
+function refreshEpoxyTransport() {
     setTransports();
 }
 
