@@ -237,6 +237,9 @@ function transportChange(value) {
     if (value === 'soon') {
         return;
     }
+    if (value === 'epoxy') {
+        notifyBeta('Epoxy', setEpoxyTransport, setTransports);
+    }
     else {
         localStorage.setItem('transports', value);
         setTransports();
