@@ -234,15 +234,21 @@ function changeWisp(value) {
 }
 
 function transportChange(value) {
-    if (value === 'soon') {
-        return;
+    function epoxy() {
+        localStorage.setItem('transports', 'epoxy');
+        setTransports('epoxy');
+    }
+    function defaultFUNC() {
+        localStorage.setItem('transports', 'libcurl');
+        setTransports('libcurl');
+        setItems();
     }
     if (value === 'epoxy') {
-        notifyBeta('Epoxy', setEpoxyTransport, setTransports);
+        notifyBeta('Epoxy', epoxy, defaultFUNC);
     }
     else {
         localStorage.setItem('transports', value);
-        setTransports();
+        setTransports(value);
     }
 }
 

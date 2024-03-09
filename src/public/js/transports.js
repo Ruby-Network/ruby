@@ -1,8 +1,20 @@
-const transports = localStorage.getItem('transports');
 const wispUrl = localStorage.getItem('wispUrl') || (location.protocol === "https:" ? "wss" : "ws") + "://" + location.host + "/wisp/";
 
-function setTransports() {
-        switch (transports) {
+function setTransports(transport) {
+        function localStorageTransport() {
+            switch (localStorage.getItem('transports')) {
+                case 'libcurl':
+                    setLibcurlTransport();
+                    break;
+                case 'epoxy':
+                    setEpoxyTransport();
+                    break;
+                default:
+                    setLibcurlTransport();
+                    break;
+            }
+        }
+        switch (transport) {
             case 'libcurl':
                 setLibcurlTransport();
                 break;
@@ -10,7 +22,7 @@ function setTransports() {
                 setEpoxyTransport();
                 break;
             default:
-                setEpoxyTransport();
+                localStorageTransport();
                 break;
         }
 }
@@ -20,8 +32,16 @@ function setLibcurlTransport() {
     BareMux.SetTransport('CurlMod.LibcurlClient', { wisp: localStorage.getItem('wispUrl') || wispUrl, wasm: '/libcurl.wasm' })
 }
 
+function destroyLibcurlTransport() {
+    //remove all wasm modules
+
+    for (let i = 0; i < WebAssembly.Module.length; i++) {
+        WebAssembly.Module[i].dispose();
+    }
+}
+
 function setDefaultTransport() {
-    if (!transports) {
+    if (!localStorage.getItem('transports')) {
         localStorage.setItem('transports', 'libcurl');
         setLibcurlTransport();
     }
