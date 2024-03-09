@@ -32,13 +32,6 @@ function setLibcurlTransport() {
     BareMux.SetTransport('CurlMod.LibcurlClient', { wisp: localStorage.getItem('wispUrl') || wispUrl, wasm: '/libcurl.wasm' })
 }
 
-function destroyLibcurlTransport() {
-    //remove all wasm modules
-
-    for (let i = 0; i < WebAssembly.Module.length; i++) {
-        WebAssembly.Module[i].dispose();
-    }
-}
 
 function setDefaultTransport() {
     if (!localStorage.getItem('transports')) {
