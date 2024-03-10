@@ -20,6 +20,7 @@ gem 'bcrypt'
 gem 'thor'
 gem 'readline'
 gem 'readline-ext'
+gem 'httparty'
 gem "rack-reverse-proxy", require: "rack/reverse_proxy"
 group :development do
   gem "rerun"

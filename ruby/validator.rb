@@ -13,6 +13,10 @@ class YamlValidator < Dry::Validation::Contract
       required(:password).filled(:string)
       required(:dbname).filled(:string)
     end
+    optional(:corlink).filled(:hash).schema do 
+      required(:url).filled(:string)
+      required(:apiKey).filled(:string)
+    end
   end
   rule(:port) do
     key.failure('must be greater than 0') if value <= 0

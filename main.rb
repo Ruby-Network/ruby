@@ -94,22 +94,39 @@ end
 
 #Auth to login to the site
 post '/auth' do 
-  if Settings.private == "false" || Settings.multiuser == "false"
-    if params[:password] == Settings.password && params[:username].downcase == Settings.username.downcase
-      session[:auth] = true
-      session[:uid] = SecureRandom.alphanumeric(2048)
-      redirect '/'
+  if Settings.corlink.enabled == "true" && Settings.private == "false"
+    password = params[:password]
+    username = params[:username]
+    req = HTTParty.post("#{Settings.corlink.url}", headers: { 'Content-Type' => 'application/json', 'Authorization' => "Bearer #{Settings.corlink.apiKey}", 'Key' => "#{password}" })
+    if req.code == 200
+      if username == "ruby"
+        session[:auth] = true
+        session[:uid] = SecureRandom.alphanumeric(2048)
+        redirect '/'
+      else 
+        redirect '/'
+      end
     else
       redirect '/'
     end
   else
-    loggedIn = login(params[:username], params[:password])
-    if loggedIn == true
-      session[:auth] = true
-      session[:uid] = SecureRandom.alphanumeric(2048)
-      redirect '/'
+    if Settings.private == "false" || Settings.multiuser == "false"
+      if params[:password] == Settings.password && params[:username].downcase == Settings.username.downcase
+        session[:auth] = true
+        session[:uid] = SecureRandom.alphanumeric(2048)
+        redirect '/'
+      else
+        redirect '/'
+      end
     else
-      redirect '/'
+      loggedIn = login(params[:username], params[:password])
+      if loggedIn == true
+        session[:auth] = true
+        session[:uid] = SecureRandom.alphanumeric(2048)
+        redirect '/'
+      else
+        redirect '/'
+      end
     end
   end
 end

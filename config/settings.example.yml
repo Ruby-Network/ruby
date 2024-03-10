@@ -16,3 +16,8 @@ database:
   password: "ruby" # change this to your database password
   host: "db" # change this to your database host
   dbname: "ruby" # change this to your database name
+
+corlink:
+  enabled: "false"
+  url: "https://corlink.com"
+  apiKey: "yourapikey"
