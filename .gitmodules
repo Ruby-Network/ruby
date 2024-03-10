@@ -1,3 +1,6 @@
 [submodule "epoxytransport"]
 	path = epoxytransport
 	url = https://github.com/mercuryworkshop/epoxytransport
+[submodule "bare-as-module3"]
+	path = bare-as-module3
+	url = https://github.com/motortruck1221/bare-as-module3

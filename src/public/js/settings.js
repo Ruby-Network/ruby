@@ -104,6 +104,7 @@ function setItems() {
     let proxySelect = document.getElementById('proxySelect');
     let fullscreenSelect = document.getElementById('fullscreenSelect');
     let wispInput = document.getElementById('wispInput');
+    let bareInput = document.getElementById('bareInput');
     let transportSelect = document.getElementById('transportSelect');
     //let bareInput = document.getElementById('bareInput');
     let title = localStorage.getItem('title');
@@ -113,6 +114,7 @@ function setItems() {
     let proxy = localStorage.getItem('proxy');
     let fullscreen = localStorage.getItem('fullScreen');
     let wispUrl = localStorage.getItem('wispUrl');
+    let bare = localStorage.getItem('bare');
     let transports = localStorage.getItem('transports');
     //let bare = localStorage.getItem('bare');
     titleInput.value = title;
@@ -122,6 +124,7 @@ function setItems() {
     proxySelect.value = proxy;
     fullscreenSelect.value = fullscreen;
     wispInput.value = wispUrl;
+    bareInput.value = bare;
     transportSelect.value = transports;
     //if (bare === window.location.origin + '/bare/') { bareInput.value = '/bare/'; } else { bareInput.value = bare; }
     document.documentElement.className = localStorage.getItem('theme');
@@ -161,7 +164,7 @@ function exportSettings() {
         bare: bare,
         password: password,
         transports: transports,
-        wispUrl: wispUrl
+        wispUrl: wispUrl,
     }
     let a = document.createElement('a');
     let file = new Blob([JSON.stringify(settings)], { type: 'text/plain' });

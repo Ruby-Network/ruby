@@ -26,7 +26,8 @@ function bareChange(value) {
     }).catch(function(err) {
         console.log(err);
     });
-    uninstallAllSW()
+    localStorage.setItem('bare', value);
+    //uninstallAllSW()
 }
 
 function uninstallAllSW() {

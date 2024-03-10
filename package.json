@@ -23,6 +23,7 @@
         "@fastify/middie": "^8.3.0",
         "@mercuryworkshop/bare-mux": "^1.0.4",
         "@mercuryworkshop/epoxy-transport": "workspace:*",
+        "@tomphttp/bare-client": "workspace:*",
         "@mercuryworkshop/libcurl-transport": "^1.2.0",
         "@nebula-services/dynamic": "0.7.2-patch.2",
         "@titaniumnetwork-dev/ultraviolet": "^3.0.0",
