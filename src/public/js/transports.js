@@ -9,6 +9,9 @@ function setTransports(transport) {
                 case 'epoxy':
                     setEpoxyTransport();
                     break;
+                case 'bare':
+                    setBareTransport(localStorage.getItem('bare'));
+                    break;
                 default:
                     setLibcurlTransport();
                     break;
@@ -20,6 +23,9 @@ function setTransports(transport) {
                 break;
             case 'epoxy':
                 setEpoxyTransport();
+                break;
+            case 'bare':
+                setBareTransport(localStorage.getItem('bare'));
                 break;
             default:
                 localStorageTransport();
@@ -49,4 +55,8 @@ function refreshEpoxyTransport() {
 
 function setEpoxyTransport() {
     BareMux.SetTransport('EpxMod.EpoxyClient', { wisp: localStorage.getItem('wispUrl') || wispUrl });
+}
+
+function setBareTransport(value) {
+    BareMux.SetTransport('BareMod.BareClient', value);
 }

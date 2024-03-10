@@ -19,10 +19,15 @@
       <input type="text" id="bareInput" name="bare" class="input" placeholder="Bare Server URL" onchange="bare(this.value)"></input>
       <button id="bareButton" class="button">Set</button>
   </div -->
-    <div id="tile">
+    <div id="tile" class="wisp">
       <h2> Wisp Server </h2>
       <input type="text" id="wispInput" name="wisp" class="input" placeholder="Wisp Server URL" onchange="changeWisp(this.value)"></input>
       <button id="wispButton" class="button">Set</button>
+    </div>
+    <div id="tile" class="bare dnone">
+      <h2> Bare Server </h2>
+      <input type="text" id="bareInput" name="bare" class="input" placeholder="Bare Server URL" onchange="bareChange(this.value)"></input>
+      <button id="bareButton" class="button">Set</button>
     </div>
     <div id="tile">
       <h2> Search Engine </h2>
@@ -48,6 +53,7 @@
       <select id="transportSelect" class="select" onchange="transportChange(this.value)">
         <option value="libcurl"> Libcurl </option>
         <option value="epoxy"> Epoxy </option>
+        <option value="bare"> Bare </option>
         <!-- option value="soon"> More Soon </option -->
       </select>
     </div>
