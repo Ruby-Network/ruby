@@ -9,6 +9,7 @@ RUN gem install bundler
 # Installing pnpm
 RUN npm install -g pnpm
 RUN pnpm install
+RUN make bare-module 
 # Setup a basic configuration
 RUN cp config/settings.example.yml config/settings.yml
 # Mount config/settings.yml as a volume

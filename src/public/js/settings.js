@@ -126,6 +126,7 @@ function setItems() {
     wispInput.value = wispUrl;
     bareInput.value = bare;
     transportSelect.value = transports;
+    bareOrWisp(transports);
     //if (bare === window.location.origin + '/bare/') { bareInput.value = '/bare/'; } else { bareInput.value = bare; }
     document.documentElement.className = localStorage.getItem('theme');
     document.title = title;
@@ -237,21 +238,45 @@ function changeWisp(value) {
 }
 
 function transportChange(value) {
-    function epoxy() {
+    function epox() {
         localStorage.setItem('transports', 'epoxy');
         setTransports('epoxy');
+        bareOrWisp('epoxy');
     }
     function defaultFUNC() {
-        localStorage.setItem('transports', 'libcurl');
-        setTransports('libcurl');
+        const lastValue = localStorage.getItem('transports');
+        setTransports(lastValue);
+        bareOrWisp(lastValue);
         setItems();
     }
+    function bareee() {
+        localStorage.setItem('transports', 'bare');
+        setTransports('bare');
+        bareOrWisp('bare');
+    }
     if (value === 'epoxy') {
-        notifyBeta('Epoxy', epoxy, defaultFUNC);
+        return notifyWithConfirm('Epoxy', 'is a less stable. Are you sure you want to use Epoxy?', epox, defaultFUNC);
+    }
+    if (value === 'bare') {
+        return notifyWithConfirm('Bare', 'is a less secure option then the others. Are you sure you want to use Bare?', bareee, defaultFUNC);
     }
     else {
         localStorage.setItem('transports', value);
         setTransports(value);
+        bareOrWisp(value);
+    }
+}
+
+function bareOrWisp(transport) {
+    const wispBox = document.getElementsByClassName('wisp')[0];
+    const bareBox = document.getElementsByClassName('bare')[0];
+    if (transport === 'bare') {
+        wispBox.classList.add('dnone');
+        bareBox.classList.remove('dnone');
+    }
+    else {
+        bareBox.classList.add('dnone');
+        wispBox.classList.remove('dnone');
     }
 }
 
