@@ -34,7 +34,7 @@
         "rammerhead": "https://github.com/Ruby-Network/rammerhead/releases/download/v1/rammerhead-2.tgz",
         "sass": "^1.71.1",
         "typescript": "^5.4.2",
-        "wisp-server-node": "^1.0.1",
+        "wisp-server-node": "^1.0.2",
         "yaml": "^2.4.1"
     }
 }
