@@ -42,7 +42,7 @@ VOLUME /usr/src/app/config/
 EXPOSE 9293
 CMD ["pnpm", "start"]
 
-FROM ghcr.io/graalvm/truffleruby-community:23.1.2-ol8 as truffleruby
+FROM ghcr.io/graalvm/truffleruby-community:23.1.2-debian as truffleruby
 WORKDIR /usr/src/app
 COPY package*.json ./
 COPY . .
