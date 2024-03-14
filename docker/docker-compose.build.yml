@@ -2,7 +2,9 @@ version: "3"
 services:
   ruby:
     image: ruby:latest
-    build: .
+    build:
+      context: .
+      target: normal
     container_name: ruby
     restart: unless-stopped
     ports:
