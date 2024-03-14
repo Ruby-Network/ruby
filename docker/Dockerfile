@@ -42,18 +42,17 @@ VOLUME /usr/src/app/config/
 EXPOSE 9293
 CMD ["pnpm", "start"]
 
-FROM node:latest as truffleruby
+FROM ghcr.io/graalvm/truffleruby-community:23.1.2-ol8 as truffleruby
 WORKDIR /usr/src/app
 COPY package*.json ./
 COPY . .
+# Installing Node (nvm)
+RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+RUN export NVM_DIR="$HOME/.nvm"
+RUN [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+RUN nvm install node 
 # Installing Ruby and TruffleRuby 
-RUN apt update && apt install -y ruby-full rbenv
-RUN rbenv install ruby --list
-# Install truffleruby 
-RUN rbenv install truffleruby+graalvm-22.1.0
-# Set truffleruby as the default ruby version
-RUN rbenv global truffleruby+graalvm-22.1.0
-# Installing Bundler 
+RUN apt update && apt install -y ruby-full
 RUN gem install bundler 
 # Installing pnpm
 RUN npm install -g pnpm
