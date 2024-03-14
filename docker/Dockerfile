@@ -47,13 +47,9 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 COPY . .
 # Installing Node (nvm)
-RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
-RUN export NVM_DIR="$HOME/.nvm"
 RUN touch ~/.bashrc 
-RUN echo "export NVM_DIR=\"$HOME/.nvm\"" >> ~/.bashrc 
-RUN echo "[ -s \"$NVM_DIR/nvm.sh\" ] && \. \"$NVM_DIR/nvm.sh\"" >> ~/.bashrc 
-RUN [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-RUN source ~/.bashrc 
+RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+RUN source ~/.bashrc
 RUN nvm install node
 #RUN [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 RUN nvm install node 
