@@ -60,3 +60,4 @@ function setEpoxyTransport() {
 function setBareTransport(value) {
     BareMux.SetTransport('BareMod.BareClient', value);
 }
+

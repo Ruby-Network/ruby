@@ -4,8 +4,7 @@
         //uv SW  
         await navigator.serviceWorker.register('/js/sw/uv.js', { scope: '/js/sw/service/uv/' })
         //await navigator.serviceWorker.register('/js/sw/dynamic.js', { scope: '/js/sw/service/dynamic/' })
-        BareMux.registerRemoteListener(navigator.serviceWorker.controller);
-        setDefaultTransport();
+        //await setDefaultTransport();
     });
 function regSW() {
     'serviceWorker' in navigator && 
@@ -13,6 +12,5 @@ function regSW() {
     //uv SW 
     navigator.serviceWorker.register('/js/sw/uv.js', { scope: '/js/sw/service/uv/' })
     //navigator.serviceWorker.register('/js/sw/dynamic.js', { scope: '/js/sw/service/dynamic/' })
-    BareMux.registerRemoteListener(navigator.serviceWorker.controller);
     setDefaultTransport();
 }
