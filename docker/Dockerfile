@@ -46,15 +46,8 @@ FROM ghcr.io/graalvm/truffleruby-community:23.1.2-ol8 as truffleruby
 WORKDIR /usr/src/app
 COPY package*.json ./
 COPY . .
-# Installing Node (nvm)
-RUN touch ~/.bashrc 
-RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
-RUN source ~/.bashrc
-RUN nvm install node
-#RUN [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-RUN nvm install node 
-# Installing Ruby and TruffleRuby 
-RUN apt update && apt install -y ruby-full
+# Installing Ruby and Node.js
+RUN apt update && apt install -y ruby-full nodejs npm
 RUN gem install bundler 
 # Installing pnpm
 RUN npm install -g pnpm
