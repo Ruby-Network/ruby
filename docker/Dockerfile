@@ -47,16 +47,7 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 COPY . .
 # Installing Ruby and Node.js
-RUN apt update && apt install -y ruby-full libpq-dev
-#Install NVM
-RUN touch ~/.bashrc
-RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash 
-RUN source ~/.bashrc
-RUN export NVM_DIR="$HOME/.nvm"
-RUN [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-RUN [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
-RUN nvm install node 
-RUN nvm use node
+RUN apt update && apt install -y ruby-full libpq-dev nodejs npm
 RUN gem install bundler 
 # Installing pnpm
 RUN npm install -g pnpm
