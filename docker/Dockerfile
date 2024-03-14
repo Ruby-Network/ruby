@@ -23,11 +23,11 @@ WORKDIR /usr/src/app
 COPY package*.json ./ 
 COPY . .
 # Installing Ruby and JRuby, and JRE
-RUN apt update && apt install -y ruby-full openjdk-11-jre-headless rbenv
+RUN apt update && apt install -y ruby-full rbenv default-jre
 # Install jruby 
-RUN rbenv install jruby-9.4.6.0
+RUN rbenv install jruby-9.3.4.0
 # Set jruby as the default ruby version
-RUN rbenv global jruby-9.4.6.0
+RUN rbenv global jruby-9.3.4.0
 # Installing Bundler 
 RUN gem install bundler 
 # Installing pnpm 
@@ -48,10 +48,11 @@ COPY package*.json ./
 COPY . .
 # Installing Ruby and TruffleRuby 
 RUN apt update && apt install -y ruby-full rbenv
+RUN rbenv install ruby --list
 # Install truffleruby 
-RUN rbenv install truffleruby+graalvm-23.1.2
+RUN rbenv install truffleruby+graalvm-22.1.0
 # Set truffleruby as the default ruby version
-RUN rbenv global truffleruby+graalvm-23.1.2
+RUN rbenv global truffleruby+graalvm-22.1.0
 # Installing Bundler 
 RUN gem install bundler 
 # Installing pnpm
