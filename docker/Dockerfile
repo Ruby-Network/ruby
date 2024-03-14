@@ -49,7 +49,7 @@ COPY . .
 # Installing Node (nvm)
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 RUN export NVM_DIR="$HOME/.nvm"
-RUN [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+#RUN [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 RUN nvm install node 
 # Installing Ruby and TruffleRuby 
 RUN apt update && apt install -y ruby-full
