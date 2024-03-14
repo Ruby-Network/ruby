@@ -48,6 +48,8 @@ COPY package*.json ./
 COPY . .
 # Installing Ruby and Node.js
 RUN apt update && apt install -y ruby-full nodejs npm
+RUN node -v
+RUN npm -v
 RUN gem install bundler 
 # Installing pnpm
 RUN npm install -g pnpm
