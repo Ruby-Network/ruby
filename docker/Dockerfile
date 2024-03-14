@@ -47,9 +47,11 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 COPY . .
 # Installing Ruby and Node.js
-RUN apt update && apt install -y ruby-full nodejs npm
-RUN node -v
-RUN npm -v
+RUN apt update && apt install -y ruby-full libpq-dev
+#Install NVM
+RUN touch ~/.bashrc
+RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash 
+RUN source ~/.bashrc
 RUN gem install bundler 
 # Installing pnpm
 RUN npm install -g pnpm
