@@ -1,4 +1,8 @@
 SHELL := bash
+.PHONY: bare-module minify-js all
+DEFAULT_GOAL := all
+
+all: bare-module minify-js
 
 bare-module:
 	@echo "Building bare as module 3"
