@@ -11,7 +11,7 @@ env:
 
 jobs:
   build-and-push-image-normal:
-    name: Build and Push Docker Image (Normal, MRI ruby)
+    name: Build and Push Docker Image (MRI)
     runs-on: ubuntu-latest
     permissions:
       contents: write

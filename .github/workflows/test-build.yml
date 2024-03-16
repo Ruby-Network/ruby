@@ -2,7 +2,7 @@ name: Test The Docker Build
 on: [pull_request, workflow_dispatch]
 jobs:
   build:
-    name: Test Docker Build (Normal, MRI ruby)
+    name: Test Docker Build (MRI)
     runs-on: ubuntu-latest
     if: github.repository_owner == 'Ruby-Network'
     steps:
