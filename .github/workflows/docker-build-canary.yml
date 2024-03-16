@@ -12,7 +12,7 @@ env:
 
 jobs:
   build-and-push-image-normal:
-    name: Build and Push Docker Image (Normal, MRI ruby)
+    name: Build and Push Docker Image (Normal, MRI ruby Canary)
     runs-on: ubuntu-latest
     if: github.repository_owner == 'Ruby-Network'
     permissions:
@@ -50,7 +50,7 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
   build-and-push-image-jruby:
-    name: Build and Push Docker Image (JRuby)
+    name: Build and Push Docker Image (JRuby Canary)
     runs-on: ubuntu-latest
     if: github.repository_owner == 'Ruby-Network'
     permissions:
@@ -88,7 +88,7 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
   build-and-push-image-truffleruby:
-    name: Build and Push Docker Image (TruffleRuby)
+    name: Build and Push Docker Image (TruffleRuby Canary)
     runs-on: ubuntu-latest
     if: github.repository_owner == 'Ruby-Network'
     permissions:
