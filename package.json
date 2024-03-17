@@ -6,12 +6,13 @@
     "author": "Ruby Network",
     "scripts": {
         "preinstall": "npx -y only-allow pnpm",
-        "dev": "bundle exec rerun --ignore 'src/public/css/*' --signal 'TERM' -c -w 5 --no-notify -- puma",
-        "start": "bundle exec puma -e production",
+        "dev": "bundle exec rerun --ignore 'src/public/css/*' --ignore 'node_modules/*' --signal 'TERM' -c -w 5 --no-notify -- puma",
+        "start": "bundle exec ruby cli/cli.rb start",
         "install": "pnpm run build && bundle install",
         "build:rh": "tsc -p ./rammerhead/tsconfig.json",
         "build:epoxytransport": "cd ./epoxytransport/ && npm run build",
-        "build": "pnpm run build:rh && pnpm run build:epoxytransport",
+        "build:css": "node ./nodeJS/compile.js",
+        "build": "pnpm run build:rh && pnpm run build:epoxytransport && pnpm run build:css",
         "cli": "bundle exec ruby ./cli/cli.rb"
     },
     "engines": {
@@ -31,7 +32,7 @@
         "chalk": "^5.3.0",
         "fastify": "^4.26.2",
         "progress-estimator": "^0.3.1",
-        "rammerhead": "https://github.com/Ruby-Network/rammerhead/releases/download/v1/rammerhead-2.tgz",
+        "rammerhead": "https://github.com/Ruby-Network/rammerhead/releases/download/v1.0.5/rammerhead-1.2.41-ruby.1.tgz",
         "sass": "^1.71.1",
         "terser": "^5.29.2",
         "typescript": "^5.4.2",

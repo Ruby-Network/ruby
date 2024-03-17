@@ -16,7 +16,7 @@ RUN cp config/settings.example.yml config/settings.yml
 VOLUME /usr/src/app/config/
 # Run the app
 EXPOSE 9293
-CMD ["pnpm", "start"]
+CMD ["pnpm", "start", "--node"]
 
 FROM node:latest as jruby
 WORKDIR /usr/src/app
@@ -40,7 +40,7 @@ RUN cp config/settings.example.yml config/settings.yml
 VOLUME /usr/src/app/config/
 # Run the app
 EXPOSE 9293
-CMD ["pnpm", "start"]
+CMD ["pnpm", "start", "--node"]
 
 FROM ghcr.io/graalvm/truffleruby-community:23.1.2-debian as truffleruby
 WORKDIR /usr/src/app
@@ -59,4 +59,4 @@ RUN cp config/settings.example.yml config/settings.yml
 VOLUME /usr/src/app/config/
 # Run the app
 EXPOSE 9293
-CMD ["pnpm", "start"]
+CMD ["pnpm", "start", "--node"]

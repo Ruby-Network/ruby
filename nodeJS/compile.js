@@ -16,4 +16,5 @@ async function compile() {
     }
     await logger(compileSCSS(), 'Compiling SCSS');
 }
-export default compile;
+compile();
+//export default compile;

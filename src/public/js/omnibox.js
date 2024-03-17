@@ -4,7 +4,7 @@ async function omniBox(query) {
         results = [[], []];
     }
     else {
-        results = await fetch(`/search=${query}`).then((res) => res.json()).catch((err) => console.log("OmniBox Error ignoring..."));
+        results = await fetch(`/search/?q=${query}`).then((res) => res.json()).catch((err) => console.log("OmniBox Error ignoring..."));
     }
     document.getElementById("omnibox-list").innerHTML = '';
     document.getElementById("uv-form").style.marginTop = "120px";

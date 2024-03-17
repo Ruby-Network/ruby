@@ -143,6 +143,7 @@ function reset() {
     fullScreenChange('page');
     setDefaultTransport();
     setItems();
+    uninstallAllSW();
 }
 function exportSettings() {
     let title = localStorage.getItem('title');

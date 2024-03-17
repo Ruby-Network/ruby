@@ -13,6 +13,18 @@ $password = ENV['DB_PASSWORD'] || settings['database']['password'].to_s
 $database = ENV['DB_DATABASE'] || settings['database']['dbname'].to_s
 
 class RubyCLI < Thor
+  desc "start", "Start the server"
+  option :node, :type => :boolean
+  def start
+    if options[:node]
+      puts "Starting with node server...".red
+      system("node nodeJS/server.js --node-port=9294 &")
+      system("bundle exec puma -e production -q")
+    else 
+      puts "Starting the server...".red 
+      system("bundle exec puma -e production -q")
+    end
+  end
   desc "create", "Create a new user"
   def create
     puts "Creating a new user...".red

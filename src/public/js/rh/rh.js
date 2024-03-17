@@ -82,10 +82,10 @@ function RammerheadEncode(baseUrl) {
     }
     var api = {
         newsession(callback) {
-            get("/newsession", callback);
+            get("/rammer/newsession", callback);
         },
         sessionexists(id, callback) {
-            get("/sessionexists?id=" + encodeURIComponent(id), function (res) {
+            get("/rammer/sessionexists?id=" + encodeURIComponent(id), function (res) {
                 if (res === "exists")
                     return callback(true);
                 if (res === "not found")
@@ -95,7 +95,7 @@ function RammerheadEncode(baseUrl) {
         },
         shuffleDict(id, callback) {
             console.log("Shuffling", id);
-            get("/api/shuffleDict?id=" + encodeURIComponent(id), function (res) {
+            get("/rammer/api/shuffleDict?id=" + encodeURIComponent(id), function (res) {
                 callback(JSON.parse(res));
             });
         }
@@ -168,7 +168,8 @@ function RammerheadEncode(baseUrl) {
         return new Promise((resolve, reject) => {
             api.shuffleDict(id, function (shuffleDict) {
                 var shuffler = new StrShuffler(shuffleDict);
-                ProxyHref = "/" + id + "/" + shuffler.shuffle(baseUrl);
+                ProxyHref = "/rammer/" + id + "/" + shuffler.shuffle(baseUrl);
+                console.log(ProxyHref);
                 resolve(ProxyHref);
             });
         });

@@ -24,7 +24,7 @@ else
   logging = false
 end
 set :logging, logging
-set :show_exceptions, logging
+set :show_exceptions, logging 
 set :components, File.join(settings.root, 'src', 'views', 'components')
 cookie_options = {
   :key => 'UserAllowed',
@@ -34,6 +34,7 @@ cookie_options = {
   :secure => true,
   :httponly => true
 }
+
 #Validate the YML file 
 validateYML()
 #Validate the ENV variables
@@ -83,14 +84,32 @@ baremuxPath()
 
 mime_type :wasm, 'application/wasm'
 
+latestRelease = getLatestRelease()
+
 # Other routes
-get '/rubyHealth/?' do
-  return "OK"
+get '/health/?' do
+  return { status: "ok" }.to_json
 end
 
 get '/:unlock?' do
   erb :index, :layout => :"layouts/index"
 end
+
+get '/version/?' do 
+  return { version: latestRelease }.to_json
+end
+
+use Rack::ReverseProxy do
+  reverse_proxy /^\/gms(\/.*)$/, 'https://rawcdn.githack.com/$1'
+end
+
+get '/search/:q?' do
+  content_type :json 
+  query = params[:q]
+  resp = HTTParty.get("https://search.brave.com/api/suggest?q=#{query}&format=json")
+  return resp.body
+end
+
 
 #Auth to login to the site
 post '/auth' do 
