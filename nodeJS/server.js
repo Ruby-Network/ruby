@@ -16,13 +16,16 @@ const rammerheadScopes = [ "/rammerhead.js", "/hammerhead.js", "/transport-worke
 const rammerheadSession = /^\/[a-z0-9]{32}/;
 function shouldRouteRh(req) {
   const url = new URL(req.url, "http://0.0.0.0");
-  return (rammerheadScopes.includes("/rammer/" + url.pathname) || rammerheadSession.test("/rammer/" + url.pathname));
+  return (rammerheadScopes.includes(url.pathname) || rammerheadSession.test(url.pathname))
 }
 function routeRhRequest(req, res) { rh.emit("request", req, res) }
 function routeRhUpgrade(req, socket, head) { rh.emit("upgrade", req, socket, head) }
 
 const proxyHandler = (handler, opts) => {
     return createServer().on('request', (req, res) => {
+        if (req.url.startsWith('/rammer')) {
+            req.url = req.url.replace('/rammer', '');
+        }
         if (bare.shouldRoute(req)) {
             bare.routeRequest(req, res);
         }
