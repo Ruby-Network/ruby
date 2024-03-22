@@ -9,7 +9,7 @@ services:
     restart: unless-stopped
     ports:
       # DO NOT CHANGE 9293!
-      - your port here:9293
+      - your port here:9294
     volumes:
       - ./config.yml:/usr/src/app/config/settings.yml
   #

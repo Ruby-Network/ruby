@@ -4,8 +4,8 @@ services:
     restart: unless-stopped
     image: 'motortruck1221/ruby:latest'
     ports:
-      #DO NOT CHANGE 9293!
-      - your port here:9293
+      #DO NOT CHANGE 9294!
+      - your port here:9294
     volumes:
       - ./config.yml:/usr/src/app/config/settings.yml
 

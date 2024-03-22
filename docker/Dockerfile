@@ -16,6 +16,7 @@ RUN cp config/settings.example.yml config/settings.yml
 VOLUME /usr/src/app/config/
 # Run the app
 EXPOSE 9293
+EXPOSE 9294
 ENTRYPOINT [  "bundle", "exec", "ruby", "cli/cli.rb", "start", "--node" ]
 
 FROM node:latest as jruby
@@ -40,6 +41,7 @@ RUN cp config/settings.example.yml config/settings.yml
 VOLUME /usr/src/app/config/
 # Run the app
 EXPOSE 9293
+EXPOSE 9294
 ENTRYPOINT [ "bundle", "exec", "ruby", "cli/cli.rb", "start", "--node"
 
 FROM ghcr.io/graalvm/truffleruby-community:23.1.2-debian as truffleruby
@@ -59,4 +61,5 @@ RUN cp config/settings.example.yml config/settings.yml
 VOLUME /usr/src/app/config/
 # Run the app
 EXPOSE 9293
+EXPOSE 9294
 ENTRYPOINT [ "bundle", "exec", "ruby", "cli/cli.rb", "start", "--node" ]
