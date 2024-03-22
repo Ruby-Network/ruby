@@ -37,6 +37,9 @@ const proxyHandler = (handler, opts) => {
         }
     })
     .on('upgrade', (req, socket, head) => {
+        if (req.url.startsWith('/rammer')) {
+            req.url = req.url.replace('/rammer', '');
+        }
         if (bare.shouldRoute(req)) {
             bare.routeUpgrade(req, socket, head);
         }
