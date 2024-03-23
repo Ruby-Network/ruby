@@ -122,6 +122,10 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 'latest'
+      - name: Setup Ruby 
+        run: sudo apt-get install ruby-full
+      - name: Setup Bundler 
+        run: gem install bundler
       - name: Install pnpm
         run: npm install -g pnpm
       - name: Install npm deps 
@@ -165,6 +169,10 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 'latest'
+      - name: Setup Ruby 
+        run: sudo apt-get install ruby-full
+      - name: Setup Bundler 
+        run: gem install bundler
       - name: Install pnpm
         run: npm install -g pnpm
       - name: Install npm deps 
@@ -208,6 +216,10 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 'latest'
+      - name: Setup Ruby 
+        run: sudo apt-get install ruby-full
+      - name: Setup Bundler 
+        run: gem install bundler
       - name: Install pnpm
         run: npm install -g pnpm
       - name: Install npm deps 
