@@ -141,6 +141,8 @@ jobs:
         run: npm install -g pnpm
       - name: Install Node Deps
         run: pnpm install
+      - name: LS 
+        run: ls -la
       - name: Run Makefile
         run: make
       - name: Setup Docker Buildx
