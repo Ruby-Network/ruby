@@ -13,13 +13,15 @@ class Auth
       #  session[:auth] = true
       #  session[:uid] = SecureRandom.alphanumeric(2048)
        # return [302, {'Location' => '/'}, []]
-      if Settings.corlink.enabled == "true" && Settings.private == "false"
-        auth = params['unlock']
-        req = HTTParty.post("#{Settings.corlink.url}", headers: { 'Content-Type' => 'application/json', 'Authorization' => "Bearer #{Settings.corlink.apiKey}", 'Key' => "#{auth}" })
-        if req.code == 200
-          session[:auth] = true
-          session[:uid] = SecureRandom.alphanumeric(2048)
-          return [302, {'Location' => '/'}, []]
+      if Settings.corlink != nil
+        if Settings.corlink.enabled == "true" && Settings.private == "false"
+          auth = params['unlock']
+          req = HTTParty.post("#{Settings.corlink.url}", headers: { 'Content-Type' => 'application/json', 'Authorization' => "Bearer #{Settings.corlink.apiKey}", 'Key' => "#{auth}" })
+          if req.code == 200
+            session[:auth] = true
+            session[:uid] = SecureRandom.alphanumeric(2048)
+            return [302, {'Location' => '/'}, []]
+          end
         end
       else 
         if Settings.private == "false" && params['unlock'] == '' || params['unlock'] == 'unlock' || params['unlock'] == 'true' || params['unlock'] == ' '

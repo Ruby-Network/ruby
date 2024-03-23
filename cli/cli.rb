@@ -7,10 +7,14 @@ require 'yaml'
 require_relative '../ruby/db.rb'
 
 settings = YAML.load_file(File.join(File.dirname(__FILE__), '../config/settings.yml'))
-$host = ENV['DB_HOST'] || settings['database']['host'].to_s 
-$user = ENV['DB_USERNAME'] || settings['database']['username'].to_s
-$password = ENV['DB_PASSWORD'] || settings['database']['password'].to_s
-$database = ENV['DB_DATABASE'] || settings['database']['dbname'].to_s
+$host = settings['database']['host'].to_s if settings['database']
+$user = settings['database']['username'].to_s if settings['database']
+$password = settings['database']['password'].to_s if settings['database']
+$database = settings['database']['dbname'].to_s if settings['database']
+$host = ENV['DB_HOST'] if ENV['DB_HOST']
+$user = ENV['DB_USER'] if ENV['DB_USER']
+$password = ENV['DB_PASS'] if ENV['DB_PASS']
+$database = ENV['DB_NAME'] if ENV['DB_NAME']
 
 class RubyCLI < Thor
   desc "start", "Start the server"

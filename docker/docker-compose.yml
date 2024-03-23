@@ -2,7 +2,7 @@ version: '3'
 services:
   ruby:
     restart: unless-stopped
-    image: 'motortruck1221/ruby:latest'
+    image: 'motortruck1221/ruby-node:latest'
     ports:
       #DO NOT CHANGE 9294!
       - your port here:9294
