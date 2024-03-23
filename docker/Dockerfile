@@ -89,7 +89,7 @@ FROM ghcr.io/graalvm/truffleruby-community:24-debian as truffleruby
 WORKDIR /usr/src/app
 COPY . .
 COPY node_modules/ node_modules/
-RUN sudo apt update && sudo apt install -y libpq-dev
+RUN apt update && apt install -y libpq-dev
 RUN bundle install
 RUN cp config/settings.example.yml config/settings.yml
 VOLUME /usr/src/app/config/
