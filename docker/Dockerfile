@@ -44,7 +44,7 @@ EXPOSE 9293
 EXPOSE 9294
 ENTRYPOINT [ "bundle", "exec", "ruby", "cli/cli.rb", "start", "--node"
 
-FROM ghcr.io/graalvm/truffleruby-community:23.1.2-debian as truffleruby-node
+FROM ghcr.io/graalvm/truffleruby-community:24-debian as truffleruby-node
 WORKDIR /usr/src/app
 COPY package*.json ./
 COPY . .
@@ -85,10 +85,11 @@ VOLUME /usr/src/app/config/
 EXPOSE 9293
 ENTRYPOINT [ "bundle", "exec", "ruby", "cli/cli.rb", "start" ]
 
-FROM ghcr.io/graalvm/truffleruby-community:23.1.2-debian as truffleruby
+FROM ghcr.io/graalvm/truffleruby-community:24-debian as truffleruby
 WORKDIR /usr/src/app
 COPY . .
 COPY node_modules/ node_modules/
+RUN sudo apt update && sudo apt install -y libpq-dev
 RUN bundle install
 RUN cp config/settings.example.yml config/settings.yml
 VOLUME /usr/src/app/config/
