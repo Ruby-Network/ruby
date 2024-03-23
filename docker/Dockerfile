@@ -1,4 +1,4 @@
-FROM node:latest as normal
+FROM node:latest as node
 WORKDIR /usr/src/app
 COPY package*.json ./ 
 COPY . .
@@ -19,7 +19,7 @@ EXPOSE 9293
 EXPOSE 9294
 ENTRYPOINT [  "bundle", "exec", "ruby", "cli/cli.rb", "start", "--node" ]
 
-FROM node:latest as jruby
+FROM node:latest as jruby-node
 WORKDIR /usr/src/app
 COPY package*.json ./ 
 COPY . .
@@ -44,7 +44,7 @@ EXPOSE 9293
 EXPOSE 9294
 ENTRYPOINT [ "bundle", "exec", "ruby", "cli/cli.rb", "start", "--node"
 
-FROM ghcr.io/graalvm/truffleruby-community:23.1.2-debian as truffleruby
+FROM ghcr.io/graalvm/truffleruby-community:23.1.2-debian as truffleruby-node
 WORKDIR /usr/src/app
 COPY package*.json ./
 COPY . .
@@ -63,3 +63,33 @@ VOLUME /usr/src/app/config/
 EXPOSE 9293
 EXPOSE 9294
 ENTRYPOINT [ "bundle", "exec", "ruby", "cli/cli.rb", "start", "--node" ]
+
+FROM ruby:alpine3.19 as normal
+WORKDIR /usr/src/app
+COPY . .
+COPY node_modules/ node_modules/
+RUN ls -la
+RUN apk add --no-cache build-base libxml2-dev libxslt-dev postgresql-dev
+RUN bundle install
+RUN cp config/settings.example.yml config/settings.yml
+VOLUME /usr/src/app/config/
+EXPOSE 9293
+ENTRYPOINT [ "bundle", "exec", "ruby", "cli/cli.rb", "start" ]
+
+FROM jruby:latest as jruby 
+WORKDIR /usr/src/app
+COPY . .
+COPY node_modules/ node_modules/
+RUN cp config/settings.example.yml config/settings.yml
+VOLUME /usr/src/app/config/
+EXPOSE 9293
+ENTRYPOINT [ "bundle", "exec", "ruby", "cli/cli.rb", "start" ]
+
+FROM ghcr.io/graalvm/truffleruby-community:23.1.2-debian as truffleruby
+WORKDIR /usr/src/app
+COPY . .
+COPY node_modules/ node_modules/
+RUN cp config/settings.example.yml config/settings.yml
+VOLUME /usr/src/app/config/
+EXPOSE 9293
+ENTRYPOINT [ "bundle", "exec", "ruby", "cli/cli.rb", "start" ]
