@@ -68,7 +68,6 @@ FROM ruby:alpine3.19 as normal
 WORKDIR /usr/src/app
 COPY . .
 COPY node_modules/ node_modules/
-RUN ls -la
 RUN apk add --no-cache build-base libxml2-dev libxslt-dev postgresql-dev
 RUN bundle install
 RUN cp config/settings.example.yml config/settings.yml
@@ -80,6 +79,7 @@ FROM jruby:latest as jruby
 WORKDIR /usr/src/app
 COPY . .
 COPY node_modules/ node_modules/
+RUN bundle install
 RUN cp config/settings.example.yml config/settings.yml
 VOLUME /usr/src/app/config/
 EXPOSE 9293
@@ -89,6 +89,7 @@ FROM ghcr.io/graalvm/truffleruby-community:23.1.2-debian as truffleruby
 WORKDIR /usr/src/app
 COPY . .
 COPY node_modules/ node_modules/
+RUN bundle install
 RUN cp config/settings.example.yml config/settings.yml
 VOLUME /usr/src/app/config/
 EXPOSE 9293
