@@ -139,6 +139,8 @@ jobs:
           node-version: 'latest'
       - name: Setup Ruby 
         uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 'ruby'
       - name: Install pnpm
         run: npm install -g pnpm
       - name: Install Node Deps
@@ -190,6 +192,8 @@ jobs:
           node-version: 'latest'
       - name: Setup Ruby 
         uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 'jruby'
       - name: Install pnpm
         run: npm install -g pnpm
       - name: Install Node Deps
@@ -238,7 +242,9 @@ jobs:
         with:
           node-version: 'latest'
       - name: Setup Ruby 
-        run: sudo apt-get install ruby-full
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 'truffleruby'
       - name: Install pnpm
         run: npm install -g pnpm
       - name: Install Node Deps
