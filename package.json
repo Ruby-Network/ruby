@@ -35,7 +35,7 @@
         "sass": "^1.71.1",
         "terser": "^5.29.2",
         "typescript": "^5.4.2",
-        "rammerhead": "file:./rammerheadPackage/",
+        "rammerhead": "@rubynetwork/rammerhead",
         "wisp-server-node": "^1.0.2",
         "yaml": "^2.4.1"
     }
