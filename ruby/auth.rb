@@ -22,8 +22,14 @@ class Auth
             session[:uid] = SecureRandom.alphanumeric(2048)
             return [302, {'Location' => '/'}, []]
           end
+        else 
+          if Settings.private == "false" && params['unlock'] == '' || params['unlock'] == 'unlock' || params['unlock'] == 'true' || params['unlock'] == ' '
+            session[:auth] = true
+            session[:uid] = SecureRandom.alphanumeric(2048)
+            return [302, {'Location' => '/'}, []]
+          end
         end
-      else 
+      else
         if Settings.private == "false" && params['unlock'] == '' || params['unlock'] == 'unlock' || params['unlock'] == 'true' || params['unlock'] == ' '
           session[:auth] = true
           session[:uid] = SecureRandom.alphanumeric(2048)

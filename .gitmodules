@@ -4,3 +4,6 @@
 [submodule "bare-as-module3"]
 	path = bare-as-module3
 	url = https://github.com/motortruck1221/bare-as-module3
+[submodule "rammerheadPackage"]
+	path = rammerheadPackage
+	url = https://github.com/Ruby-Network/rammerhead.git
