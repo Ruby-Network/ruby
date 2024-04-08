@@ -2,7 +2,7 @@ import Fastify from 'fastify';
 import fastifyMiddie from '@fastify/middie';
 import fastifyHttpProxy from '@fastify/http-proxy';
 import { createBareServer } from '@tomphttp/bare-server-node';
-import createRammerhead from "rammerhead/src/server/index.js";
+import createRammerhead from "@rubynetwork/rammerhead/src/server/index.js";
 import { createServer } from 'http';
 import path from 'path';
 const __dirname = path.resolve();
