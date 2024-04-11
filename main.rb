@@ -101,6 +101,7 @@ end
 
 use Rack::ReverseProxy do
   reverse_proxy_options preserve_host: true
+  reverse_proxy_options :force_ssl
   reverse_proxy /^\/gms(\/.*)$/, 'https://rawcdn.githack.com/$1'
 end
 
