@@ -21,7 +21,10 @@ jobs:
         run: |
           git config user.name github-actions
           git config user.email
-          git push origin HEAD:full-build
+          git checkout -b full-build
+          git add .
+          git commit -m "Full Build (from main)"
+          git push origin full-build
       - name: Checkout (full-build branch)
         uses: actions/checkout@v3
         with:
