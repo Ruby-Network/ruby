@@ -19,9 +19,8 @@ jobs:
         run: git submodule update --init --recursive
       - name: Switch to full build branch and merge
         run: |
-          git fetch --all
-          git checkout full-build
-          git merge origin/main
+          git checkout -b full-build
+          git merge main
       - name: Setup Node 
         uses: actions/setup-node@v3
         with:
@@ -46,4 +45,4 @@ jobs:
           git config user.email github-actions@github.com
           git add .
           git commit -m "Build from Github Actions"
-          git push
+          git push --force
