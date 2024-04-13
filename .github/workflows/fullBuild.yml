@@ -19,10 +19,9 @@ jobs:
         run: git submodule update --init --recursive
       - name: Switch to full build branch and merge
         run: |
-          #git checkout full-build
-          #git merge origin/main
           git fetch --all
           git checkout full-build
+          git merge origin/main
       - name: Setup Node 
         uses: actions/setup-node@v3
         with:
