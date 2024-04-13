@@ -8,3 +8,4 @@ settings.yml
 .bundle/config
 vendor/
 .ruby-version
+~/
