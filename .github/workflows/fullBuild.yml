@@ -15,10 +15,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+        with:
+          ref: full-build
       - name: Submodule Update
         run: git submodule update --init --recursive
-      - name: Checkout Full Build Branch
-        run: git checkout full-build
       - name: Setup Node 
         uses: actions/setup-node@v3
         with:
