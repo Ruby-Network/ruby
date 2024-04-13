@@ -2,7 +2,7 @@ name: Build and Push To Full Build branch
 on: 
   push:
     branches:
-      - main
+      - full-build
   workflow_dispatch:
 jobs:
   build:
@@ -19,8 +19,6 @@ jobs:
           ref: full-build
       - name: Submodule Update
         run: git submodule update --init --recursive
-      - name: Pull changes from main
-        run: git pull origin main --rebase
       - name: Setup Node 
         uses: actions/setup-node@v3
         with:
