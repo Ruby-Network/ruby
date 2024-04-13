@@ -35,7 +35,7 @@ function setTransports(transport) {
 
 
 function setLibcurlTransport() {
-    BareMux.SetTransport('CurlMod.LibcurlClient', { wisp: localStorage.getItem('wispUrl') || wispUrl, wasm: 'https://cdn.jsdelivr.net/npm/libcurl.js@v0.5.3/libcurl.wasm' })
+    BareMux.SetTransport('CurlMod.LibcurlClient', { wisp: localStorage.getItem('wispUrl') || wispUrl })   
 }
 
 

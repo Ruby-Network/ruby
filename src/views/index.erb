@@ -1,22 +1,23 @@
 <% addTitle("Ruby") %>
+<% extension = getExtension() %>
 <% addHeader({
     1 => '<link rel="stylesheet" href="css/style.css">',
     2 => '<link rel="stylesheet" href="css/chrome-tabs/chrome-tabs.css">',
     3 => '<script src="js/chrome-tabs/draggabilly.pkgd.min.js" defer></script>',
     4 => '<script src="js/chrome-tabs/chrome-tabs.js" defer></script>',
-    5 => '<script src="js/tabs.js.min.js" defer></script>',
+    5 => "<script src='js/tabs.#{extension}' defer></script>",
     6 => '<link rel="stylesheet" href="font-awesome/icons/css/all.css">',
-    7 => '<script src="js/utils.js.min.js" defer></script>',
-    8 => '<script src="js/pages.js.min.js" defer></script>',
-    9 => '<script src="js/controls.js.min.js" defer></script>',
-    10 => '<script src="js/notify.js.min.js" defer></script>',
-    11 => '<script src="js/settings.js.min.js" defer></script>',
-    12 => '<script src="js/games.js.min.js" defer></script>',
-    13 => '<script src="js/omnibox.js.min.js" defer></script>',
-    14 => '<script src="js/updates.js.min.js" defer></script>',
-    15 => '<script src="js/eruda/create.js.min.js" defer></script>',
-    16 => '<script src="js/eruda/rightClick.js.min.js" defer></script>',
-    17 => '<script src="js/keyBinds.js.min.js" defer></script>',
+    7 => "<script src='js/utils.#{extension}' defer></script>",
+    8 => "<script src='js/pages.#{extension}' defer></script>",
+    9 => "<script src='js/controls.#{extension}' defer></script>",
+    10 => "<script src='js/notify.#{extension}' defer></script>",
+    11 => "<script src='js/settings.#{extension}' defer></script>",
+    12 => "<script src='js/games.#{extension}' defer></script>",
+    13 => "<script src='js/omnibox.#{extension}' defer></script>",
+    14 => "<script src='js/updates.#{extension}' defer></script>",
+    15 => "<script src='js/eruda/create.#{extension}' defer></script>",
+    16 => "<script src='js/eruda/rightClick.#{extension}' defer></script>",
+    17 => "<script src='js/keyBinds.#{extension}' defer></script>",
   })
 %>
 <div class="chrome-tabs" style="--tab-content-margin: 9px">

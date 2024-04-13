@@ -284,7 +284,6 @@ function bareOrWisp(transport) {
 function init() {
     let init = localStorage.getItem('init');
     if (init === null || init === undefined || init === 'false') {
-        bareInit();
         localStorage.setItem('init', true);
         localStorage.setItem('title', 'Ruby');
         localStorage.setItem('favicon', '/favicon.ico');

@@ -19,14 +19,23 @@ $database = ENV['DB_NAME'] if ENV['DB_NAME']
 class RubyCLI < Thor
   desc "start", "Start the server"
   option :node, :type => :boolean
+  option :development, :type => :boolean
   def start
     if options[:node]
       puts "Starting with node server...".red
       system("node nodeJS/server.js --node-port=9294 &")
-      system("bundle exec puma -e production -q")
+      if options[:development]
+        system("bundle exec puma -e development")
+      else
+        system("bundle exec puma -e production -q")
+      end
     else 
       puts "Starting the server...".red 
-      system("bundle exec puma -e production -q")
+      if options[:development]
+        system("bundle exec puma -e development")
+      else
+        system("bundle exec puma -e production -q")
+      end
     end
   end
   desc "create", "Create a new user"

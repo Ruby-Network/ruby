@@ -84,7 +84,7 @@ function tabRemoved(detail) {
 }
 function handoffToTABS(url) {
     //MAKE SURE A BARE CLIENT EXISTS
-    setTransports();
+    //setTransports();
     //if there is a current iframe, delete it
     let i = chromeTabs.activeTabEl.getAttribute('data-tab-id');
     let isCurentTabHaveIframe = document.querySelector(`[data-iframe-id="${i}"]`);

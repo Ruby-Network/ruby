@@ -32,6 +32,14 @@ function bareChange(value) {
     //uninstallAllSW()
 }
 
+function updateSw() {
+    navigator.serviceWorker.getRegistrations().then(function(registrations) {
+        for(let registration of registrations) {
+            registration.update();
+        }
+    });
+}
+
 function uninstallAllSW() {
     navigator.serviceWorker.getRegistrations().then(function(registrations) {
         for(let registration of registrations) {
