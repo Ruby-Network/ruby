@@ -1,5 +1,9 @@
 name: Build and Push To Full Build branch
-on: [push, workflow_dispatch]
+on: 
+  push:
+    branches:
+      - main
+  workflow_dispatch:
 jobs:
   build:
     name: Build and Push To Full Build branch 
@@ -24,7 +28,7 @@ jobs:
         with:
           ruby-version: '3.2.2'
       - name: Install other things
-        run: apt-get install -y build-essential libpq-dev
+        run: sudo apt update && sudo apt install -y build-essential libpq-dev
       - name: Install PNPM
         run: npm install -g pnpm 
       - name: Install 
