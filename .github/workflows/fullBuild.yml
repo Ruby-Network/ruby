@@ -13,24 +13,14 @@ jobs:
     runs-on: ubuntu-latest
     if: github.repository_owner == 'Ruby-Network'
     steps:
-      - name: Checkout (main)
-        uses: actions/checkout@v3
-      - name: Submodule Update
-        run: git submodule update --init --recursive
-      - name: Push to full-build branch
-        run: |
-          git config user.name github-actions
-          git config user.email
-          git checkout -b full-build
-          git add .
-          git commit -m "Full Build (from main)"
-          git push origin full-build
-      - name: Checkout (full-build branch)
+      - name: Checkout
         uses: actions/checkout@v3
         with:
           ref: full-build
       - name: Submodule Update
         run: git submodule update --init --recursive
+      - name: Pull changes from main
+        run: git pull origin main --rebase
       - name: Setup Node 
         uses: actions/setup-node@v3
         with:
