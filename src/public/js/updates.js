@@ -5,6 +5,7 @@ function getLatestRelease() {
         if (userVersion != data.version || userVersion == null || userVersion == undefined) {
             localStorage.setItem('updated', true);
             localStorage.setItem('version', data.version);
+            console.log("Updated to version " + data.version);
         }
     });
 }
