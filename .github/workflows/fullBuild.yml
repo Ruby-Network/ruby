@@ -2,7 +2,7 @@ name: Build and Push To Full Build branch
 on: 
   push:
     branches:
-      - full-build
+      - main
   workflow_dispatch:
 jobs:
   build:
@@ -13,12 +13,14 @@ jobs:
     runs-on: ubuntu-latest
     if: github.repository_owner == 'Ruby-Network'
     steps:
-      - name: Checkout
+      - name: Checkout (full build)
         uses: actions/checkout@v3
-        with:
-          ref: full-build
       - name: Submodule Update
         run: git submodule update --init --recursive
+      - name: Switch to full build branch and merge
+        run: |
+          git checkout full-build
+          git merge origin/main
       - name: Setup Node 
         uses: actions/setup-node@v3
         with:
