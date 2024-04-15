@@ -1,8 +1,7 @@
-# depend on both the ./dockerHub.yml and ./docker-build.yml workflows to complete before running the update.yml workflow.
 name: Update server
 on:
   workflow_run:
-    workflows: ["Docker Build (Docker Hub)", "Docker Build"]
+    workflows: ["Docker Build (Docker Hub)"]
     types:
       - completed
   workflow_dispatch:
