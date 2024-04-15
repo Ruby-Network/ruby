@@ -10,13 +10,13 @@ function createTransportScripts() {
         libcurlScript.src = 'libcurl/index.cjs';
         //libcurlScript.defer = true;
         document.body.appendChild(libcurlScript);
-        //wait for the scripts to load 
-        epoxyScript.onload = () => {
-            libcurlScript.onload = () => {
-                console.log('Transport Scripts Loaded');
+        //wait for the scripts to be loaded
+        const checkScripts = setInterval(() => {
+            if (typeof EpxMod !== 'undefined' && typeof CurlMod !== 'undefined') {
+                clearInterval(checkScripts);
                 resolve();
             }
-        }
+        }, 100);
     });
 }
 
