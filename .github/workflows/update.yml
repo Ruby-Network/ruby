@@ -10,7 +10,7 @@ on:
 jobs:
   # Git clone our ansible-scripts repository (private)
   git-clone-ansible-scripts:
-    name: Git Clone Ansible Scripts
+    name: Run Ansible Playbook to update Ruby
     runs-on: ubuntu-latest
     steps:
       - name: Git Clone our Private Ansible Scripts
@@ -36,3 +36,6 @@ jobs:
         run: |
           #we don't have ssh keys so we need to use the password
           ansible-playbook -i ./hosts ./playbooks/ruby.yml --extra-vars "ansible_ssh_pass=${{ secrets.ANSIBLE_PASSWORD }}"
+      - name: Send Webhook to Discord about Ruby being updated
+        run: |
+          curl -X POST -H 'Content-type: application/json' --data '{"content":"Ruby has been updated! :tada:"}' ${{ secrets.DISCORD_WEBHOOK }}
