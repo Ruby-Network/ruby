@@ -13,9 +13,9 @@ jobs:
     name: Git Clone Ansible Scripts
     runs-on: ubuntu-latest
     steps:
-      - name: Git Clone Ansible Scripts
+      - name: Git Clone our Private Ansible Scripts
         uses: actions/checkout@v3
         with:
-          repository: ruby-network/ansible-scripts
-          token: ${{ secrets.GITHUB_TOKEN }}
+          repository: Ruby-Network/ansible-scripts
+          token: ${{ secrets.GH_TOKEN }}
           ref: main
