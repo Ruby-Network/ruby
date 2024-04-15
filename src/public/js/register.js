@@ -2,14 +2,16 @@ if ('serviceWorker' in navigator) {
     navigator.serviceWorker.ready.then(async (sw) => {
         //await registerRemoteListener(sw.active!)
         console.log('Service Worker Ready');
-        setDefaultTransport();
+        await createTransportScripts()
+        setDefaultTransport()
     });
-    navigator.serviceWorker.register('/sw.js', { scope: '/' }) 
+    navigator.serviceWorker.register('/sw.js', { scope: '/' })
 }
 function regSW() {
     if ('serviceWorker' in navigator) {
         navigator.serviceWorker.ready.then(async (sw) => {
-            setDefaultTransport();
+            await createTransportScripts()
+            setDefaultTransport()
         })
         navigator.serviceWorker.register('/sw.js', { scope: '/' })
     }

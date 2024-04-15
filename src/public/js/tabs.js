@@ -188,4 +188,6 @@ function init() {
         favicon: 'favicon.ico',
     });
 }
+
+
 init();

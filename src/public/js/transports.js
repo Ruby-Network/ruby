@@ -1,5 +1,25 @@
 const wispUrl = localStorage.getItem('wispUrl') || (location.protocol === "https:" ? "wss" : "ws") + "://" + location.host + "/wisp/";
 
+function createTransportScripts() {
+    return new Promise((resolve) => {
+        const epoxyScript = document.createElement('script');
+        epoxyScript.src = 'epoxy/index.js';
+        //epoxyScript.defer = true;
+        document.body.appendChild(epoxyScript);
+        const libcurlScript = document.createElement('script');
+        libcurlScript.src = 'libcurl/index.cjs';
+        //libcurlScript.defer = true;
+        document.body.appendChild(libcurlScript);
+        //wait for the scripts to load 
+        epoxyScript.onload = () => {
+            libcurlScript.onload = () => {
+                console.log('Transport Scripts Loaded');
+                resolve();
+            }
+        }
+    });
+}
+
 function setTransports(transport) {
         function localStorageTransport() {
             switch (localStorage.getItem('transports')) {
