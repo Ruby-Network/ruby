@@ -19,3 +19,7 @@ jobs:
           repository: Ruby-Network/ansible-scripts
           token: ${{ secrets.GH_TOKEN }}
           ref: main
+      - name: Install Ansible
+        run: |
+          sudo apt update
+          sudo apt install ansible -y
