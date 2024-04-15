@@ -1,0 +1,20 @@
+# depend on both the ./dockerHub.yml and ./docker-build.yml workflows to complete before running the update.yml workflow.
+on:
+  workflow_run:
+    workflows: ["Docker Build (Docker Hub)", "Docker Build"]
+    types:
+      - completed
+  workflow_dispatch:
+
+jobs:
+  # Git clone our ansible-scripts repository (private)
+  git-clone-ansible-scripts:
+    name: Git Clone Ansible Scripts
+    runs-on: ubuntu-latest
+    steps:
+      - name: Git Clone Ansible Scripts
+        uses: actions/checkout@v3
+        with:
+          repository: ruby-network/ansible-scripts
+          token: ${{ secrets.GITHUB_TOKEN }}
+          ref: main
