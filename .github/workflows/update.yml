@@ -23,3 +23,6 @@ jobs:
         run: |
           sudo apt update
           sudo apt install ansible -y
+      - name: Send Webhook to Discord (using Curl)
+        run: |
+          curl -X POST -H 'Content-type: application/json' --data '{"content":"Updating Server..."}' ${{ secrets.DISCORD_WEBHOOK }}
