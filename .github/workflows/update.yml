@@ -23,6 +23,10 @@ jobs:
         run: |
           sudo apt update
           sudo apt install ansible -y
-      - name: Send Webhook to Discord (using Curl)
+      - name: Send Webhook to Discord about updating Ruby
         run: |
-          curl -X POST -H 'Content-type: application/json' --data '{"content":"Updating Server..."}' ${{ secrets.DISCORD_WEBHOOK }}
+          curl -X POST -H 'Content-type: application/json' --data '{"content":"Updating Ruby..."}' ${{ secrets.DISCORD_WEBHOOK }}
+      - name: Run Ansible Playbook
+        run: |
+          #we don't have ssh keys so we need to use the password
+          ansible-playbook -i ./hosts ./playbooks/ruby.yml --extra-vars "ansible_ssh_pass=${{ secrets.ANSIBLE_PASSWORD }}"
