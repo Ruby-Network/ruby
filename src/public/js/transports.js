@@ -33,7 +33,7 @@ function setTransports(transport) {
                     setBareTransport(localStorage.getItem('bare'));
                     break;
                 default:
-                    setLibcurlTransport();
+                    setEpoxyTransport();
                     break;
             }
         }
@@ -48,7 +48,7 @@ function setTransports(transport) {
                 setBareTransport(localStorage.getItem('bare'));
                 break;
             default:
-                localStorageTransport();
+                setEpoxyTransport();
                 break;
         }
 }
@@ -61,8 +61,8 @@ function setLibcurlTransport() {
 
 function setDefaultTransport() {
     if (!localStorage.getItem('transports')) {
-        localStorage.setItem('transports', 'libcurl');
-        setLibcurlTransport();
+        localStorage.setItem('transports', 'epoxy');
+        setEpoxyTransport();
     }
     else {
         setTransports();

@@ -19,5 +19,3 @@ minify-js:
 	@ls src/public/js/eruda/*.js | xargs -I {} npx terser -c -m -o {}.min.js {}
 	@rm -f src/public/js/rh/*.min.js
 	@ls src/public/js/rh/*.js | xargs -I {} npx terser -c -m -o {}.min.js {}
-	@rm -f src/public/js/sw/*.min.js
-	@ls src/public/js/sw/*.js | xargs -I {} npx terser -c -m -o {}.min.js {}
