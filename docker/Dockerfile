@@ -29,6 +29,7 @@ RUN apt update && apt install -y ruby-full rbenv default-jre netbase
 RUN rbenv install jruby-9.3.4.0
 # Set jruby as the default ruby version
 RUN rbenv global jruby-9.3.4.0
+RUN rbenv local jruby-9.3.4.0
 # Installing Bundler 
 RUN gem install bundler 
 # Installing pnpm 
@@ -79,6 +80,7 @@ FROM jruby:latest as jruby
 WORKDIR /usr/src/app
 COPY . .
 COPY node_modules/ node_modules/
+RUN apt update && apt install -y libpq-dev netbase
 RUN bundle install
 RUN cp config/settings.example.yml config/settings.yml
 VOLUME /usr/src/app/config/
