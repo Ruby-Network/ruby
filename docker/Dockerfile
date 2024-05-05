@@ -24,7 +24,7 @@ WORKDIR /usr/src/app
 COPY package*.json ./ 
 COPY . .
 # Installing Ruby and JRuby, and JRE
-RUN apt update && apt install -y ruby-full rbenv default-jre
+RUN apt update && apt install -y ruby-full rbenv default-jre netbase
 # Install jruby 
 RUN rbenv install jruby-9.3.4.0
 # Set jruby as the default ruby version
@@ -42,7 +42,7 @@ VOLUME /usr/src/app/config/
 # Run the app
 EXPOSE 9293
 EXPOSE 9294
-ENTRYPOINT [ "bundle", "exec", "ruby", "cli/cli.rb", "start", "--node"
+ENTRYPOINT [ "bundle", "exec", "ruby", "cli/cli.rb", "start", "--node" ]
 
 FROM ghcr.io/graalvm/truffleruby-community:24-debian as truffleruby-node
 WORKDIR /usr/src/app
