@@ -23,7 +23,6 @@ gem 'readline'
 gem "pg", :platforms => [:ruby, :truffleruby]
 gem "pg_jruby", :platform => :jruby
 gem 'httparty'
-gem "rack-reverse-proxy", require: "rack/reverse_proxy"
 group :development do
   gem "rerun"
 end

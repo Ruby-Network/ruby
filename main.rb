@@ -99,11 +99,6 @@ get '/version/?' do
   return { version: $latestRelease }.to_json
 end
 
-use Rack::ReverseProxy do
-  reverse_proxy_options preserve_host: true, force_ssl: true, replace_response_host: true
-  reverse_proxy /^\/gms(\/.*)$/, 'https://rawcdn.githack.com/$1'
-end
-
 get '/search/:q?' do
   content_type :json 
   query = params[:q]
