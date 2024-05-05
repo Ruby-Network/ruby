@@ -666,28 +666,62 @@
 .swal2-container {
     z-index: 100000;
 }
-#credit {
+#bottom-container {
+    height: 50px;
+    width: 100%;
+    background: var(--bg-color);
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
-    height: 50px;
-    background: var(--bg-color);
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    padding: 0 15px;
     flex-direction: row;
-    gap: 10px;
     font-size: 15px;
     color: var(--text-color);
-    p {
-        margin: 0;
-    }
-    a {
+    #credit {
+        background: var(--bg-color);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+        gap: 10px;
+        font-size: 15px;
         color: var(--text-color);
-        text-decoration: none;
-        &:hover {
-            text-decoration: underline;
+        p {
+            margin: 0;
+        }
+        a {
+            color: var(--text-color);
+            text-decoration: none;
+            opacity: 0.75;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+    #version {
+        height: 50px;
+        background: var(--bg-color);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+        gap: 10px;
+        font-size: 15px;
+        color: var(--text-color);
+        p {
+            margin: 0;
+            opacity: 0.75;
+        }
+        a {
+            color: var(--text-color);
+            text-decoration: none;
+            &:hover {
+                text-decoration: underline;
+            }
         }
     }
 }
@@ -752,7 +786,7 @@ noscript {
     }
 }
 @media (max-width: 722px) {
-    #credit {
+    #bottom-container {
         display: none;
         width: 0;
         height: 0;

@@ -1,5 +1,5 @@
 SHELL := bash
-.PHONY: bare-module minify-js all
+.PHONY: bare-module minify-js all clean
 DEFAULT_GOAL := all
 
 all: bare-module minify-js
@@ -8,6 +8,13 @@ bare-module:
 	@echo "Building bare as module 3"
 	@cd bare-as-module3 && pnpm run build 
 	@cp bare-as-module3/dist/bare.cjs src/public/js/bareTransport/bareMod.js
+
+clean:
+	@echo "Removing all minified JS"
+	@rm -f src/public/js/*.min.js
+	@rm -f src/public/js/bareTransport/*.min.js
+	@rm -f src/public/js/eruda/*.min.js
+	@rm -f src/public/js/rh/*.min.js
 
 minify-js:
 	@echo "Minifying JS"

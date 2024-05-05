@@ -84,7 +84,7 @@ baremuxPath()
 
 mime_type :wasm, 'application/wasm'
 
-latestRelease = getLatestRelease()
+$latestRelease = getLatestRelease()
 
 # Other routes
 get '/health/?' do
@@ -96,7 +96,7 @@ get '/:unlock?' do
 end
 
 get '/version/?' do 
-  return { version: latestRelease }.to_json
+  return { version: $latestRelease }.to_json
 end
 
 use Rack::ReverseProxy do

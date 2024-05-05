@@ -95,8 +95,15 @@
   </div>
 </div>
 <button id="exit-iframe" class="dnone" onclick="exitIframe()"><i class="fa-solid fa-circle-xmark"></i></button>
+<div id="bottom-container">
+  <div id="version">
+    <p> Build: <%= "#{$latestRelease} (#{RUBY_ENGINE})" %> </p>
+  </div>
+  <div id="credit">
+    <a href="https://auttaja.io/rubynetwork" target="_blank"> Join Our Discord Server </a>
+  </div>
+</div>
 <% showComponent("settings") %>
 <% showComponent("games") %>
-<% showComponent("credit") %>
 <% showComponent("history") %>
 <% showComponent("rightClickMenu") %>
