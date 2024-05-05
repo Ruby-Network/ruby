@@ -69,6 +69,11 @@ await app
             }
         }
     })
+    .register(fastifyHttpProxy, {
+        upstream: 'https://rawcdn.githack.com',
+        prefix: '/gms/',
+        http2: false,
+    })
     .register(fastifyMiddie)
 
 app.listen({ port: nodePort, host: '0.0.0.0' });
