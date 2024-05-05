@@ -76,7 +76,7 @@ VOLUME /usr/src/app/config/
 EXPOSE 9293
 ENTRYPOINT [ "bundle", "exec", "ruby", "cli/cli.rb", "start" ]
 
-FROM jruby:latest as jruby 
+FROM jruby:9.4.7-jdk21 as jruby 
 WORKDIR /usr/src/app
 COPY . .
 COPY node_modules/ node_modules/
