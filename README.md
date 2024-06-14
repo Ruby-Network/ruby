@@ -50,7 +50,7 @@
 
 This is our third edition of [Ruby](https://github.com/ruby-network/ruby-v1). This edition primarily uses the Ruby programming language whilst also adding more features
 
-[![Ruby Network Discord](https://invidget.switchblade.xyz/bXJCZJZcJe?theme=dark)](https://discord.gg/bXJCZJZcJe)
+[![Ruby Network Discord](https://invidget.switchblade.xyz/bWgw8469VS?theme=dark)](https://discord.gg/bWgw8469VS)
 
 ## Features
 
