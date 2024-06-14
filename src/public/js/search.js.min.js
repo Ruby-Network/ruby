@@ -1,0 +1,1 @@
+"use strict";function search(t,n){try{return new URL(t).toString()}catch(t){}try{const n=new URL(`http://${t}`);if(n.hostname.includes("."))return n.toString()}catch(t){}return n.replace("%s",encodeURIComponent(t))}
