@@ -25,9 +25,6 @@ form.addEventListener("submit", (event) => {
         case "uv":
             handoffToTABS(__uv$config.prefix + __uv$config.encodeUrl(url));
             break;
-        case "dynamic":
-            handoffToTABS(__dynam$ic.prefix + __dynam$ic.encodeUrl(url));
-            break;
         case "rammerhead":
             const origin = window.location.origin;
             async function proxy() {
@@ -44,8 +41,6 @@ function proxyOtherStuff(url) {
     switch (localStorage.getItem("proxy")) {
         case "uv":
             return __uv$config.prefix + __uv$config.encodeUrl(url);
-        case "dynamic":
-            return __dynam$ic.prefix + __dynam$ic.encodeUrl(url);
         case "rammerhead":
             const origin = window.location.origin;
             async function proxy() {

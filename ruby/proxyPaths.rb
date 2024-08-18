@@ -8,19 +8,27 @@ def uvPath
   end
 end
 
-def dynamicPath
-  get '/dynamic/*' do
-    if params[:splat][0] == 'dynamic.config.js'
-      send_file File.join(settings.public_folder, 'js', 'dynamic', params[:splat][0])
-    else
-      send_file File.join(settings.dynamicPath, params[:splat][0])
+def epoxyPath
+  get '/epoxy/*' do
+    if params[:splat][0].end_with?('.mjs')
+      headers['Content-Type'] = 'application/javascript'
     end
+    send_file File.join(settings.epoxyPath, params[:splat][0])
   end
 end
 
-def epoxyPath
-  get '/epoxy/*' do
-    send_file File.join(settings.epoxyPath, params[:splat][0])
+def rammerheadPath
+  get '/rammerhead/*' do
+    send_file File.join(settings.rammerheadPath, params[:splat][0])
+  end
+end
+
+def baremodulePath
+  get "/baremodule/*" do
+    if params[:splat][0].end_with?('.mjs')
+      headers['Content-Type'] = 'application/javascript'
+    end
+    send_file File.join(settings.baremodulePath, params[:splat][0])
   end
 end
 

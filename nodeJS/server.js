@@ -2,7 +2,7 @@ import Fastify from 'fastify';
 import fastifyMiddie from '@fastify/middie';
 import fastifyHttpProxy from '@fastify/http-proxy';
 import { createBareServer } from '@tomphttp/bare-server-node';
-import createRammerhead from "@rubynetwork/rammerhead/src/server/index.js";
+import { createRammerhead, shouldRouteRh, routeRhRequest, routeRhUpgrade } from "@rubynetwork/rammerhead";
 import { createServer } from 'http';
 import path from 'path';
 const __dirname = path.resolve();
@@ -11,40 +11,31 @@ import wisp from 'wisp-server-node';
 import fastifyCaching from '@fastify/caching';
 let nodePort = process.argv.find((arg) => arg.startsWith('--node-port')).split('=')[1] || 9294;
 const bare = createBareServer('/bare/');
-const rh = createRammerhead();
-const rammerheadScopes = [ "/rammerhead.js", "/hammerhead.js", "/transport-worker.js", "/task.js", "/iframe-task.js", "/worker-hammerhead.js", "/messaging", "/sessionexists", "/deletesession", "/newsession", "/editsession", "/needpassword", "/syncLocalStorage", "/api/shuffleDict", "/mainport" ];
-const rammerheadSession = /^\/[a-z0-9]{32}/;
-function shouldRouteRh(req) {
-  const url = new URL(req.url, "http://0.0.0.0");
-  return (rammerheadScopes.includes(url.pathname) || rammerheadSession.test(url.pathname))
-}
-function routeRhRequest(req, res) { rh.emit("request", req, res) }
-function routeRhUpgrade(req, socket, head) { rh.emit("upgrade", req, socket, head) }
+const rh = createRammerhead({
+    reverseProxy: true,
+    disableHttp2: false,
+    disableLocalStorageSync: false,
+    logLevel: 'debug'
+});
 
 const proxyHandler = (handler, opts) => {
     return createServer().on('request', (req, res) => {
-        if (req.url.startsWith('/rammer')) {
-            req.url = req.url.replace('/rammer', '');
-        }
         if (bare.shouldRoute(req)) {
             bare.routeRequest(req, res);
         }
         else if (shouldRouteRh(req)) {
-            routeRhRequest(req, res);
+            routeRhRequest(rh, req, res);
         }
         else {
             handler(req, res);
         }
     })
     .on('upgrade', (req, socket, head) => {
-        if (req.url.startsWith('/rammer')) {
-            req.url = req.url.replace('/rammer', '');
-        }
         if (bare.shouldRoute(req)) {
             bare.routeUpgrade(req, socket, head);
         }
         else if (shouldRouteRh(req)) {
-            routeRhUpgrade(req, socket, head);
+            routeRhUpgrade(rh, req, socket, head);
         }
         else if (req.url.endsWith('/wisp/')) {
             wisp.routeRequest(req, socket, head);

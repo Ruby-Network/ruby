@@ -69,10 +69,6 @@ end
 set :uvPath, File.join(settings.root, 'node_modules', '@titaniumnetwork-dev', 'ultraviolet', 'dist')
 uvPath()
 
-# Dynamic "middleware"
-set :dynamicPath, File.join(settings.root, 'node_modules', '@nebula-services', 'dynamic', 'dist')
-dynamicPath()
-
 set :epoxyPath, File.join(settings.root, 'node_modules', '@mercuryworkshop', 'epoxy-transport', 'dist')
 epoxyPath()
 
@@ -81,6 +77,12 @@ libcurlPath()
 
 set :baremuxPath, File.join(settings.root, 'node_modules', '@mercuryworkshop', 'bare-mux', 'dist')
 baremuxPath()
+
+set :rammerheadPath, File.join(settings.root, 'node_modules', '@rubynetwork', 'rammerhead-browser', 'dist')
+rammerheadPath()
+
+set :baremodulePath, File.join(settings.root, 'node_modules', '@mercuryworkshop', 'bare-as-module3', 'dist')
+baremodulePath()
 
 mime_type :wasm, 'application/wasm'
 

@@ -1,25 +1,5 @@
 const wispUrl = localStorage.getItem('wispUrl') || (location.protocol === "https:" ? "wss" : "ws") + "://" + location.host + "/wisp/";
-
-function createTransportScripts() {
-    return new Promise((resolve) => {
-        const epoxyScript = document.createElement('script');
-        epoxyScript.src = 'epoxy/index.js';
-        //epoxyScript.defer = true;
-        document.body.appendChild(epoxyScript);
-        const libcurlScript = document.createElement('script');
-        libcurlScript.src = 'libcurl/index.cjs';
-        //libcurlScript.defer = true;
-        document.body.appendChild(libcurlScript);
-        //wait for the scripts to be loaded
-        const checkScripts = setInterval(() => {
-            if (typeof EpxMod !== 'undefined' && typeof CurlMod !== 'undefined') {
-                clearInterval(checkScripts);
-                resolve();
-            }
-        }, 100);
-    });
-}
-
+const connection = new BareMux.BareMuxConnection('/baremux/worker.js');
 function setTransports(transport) {
         function localStorageTransport() {
             switch (localStorage.getItem('transports')) {
@@ -55,7 +35,7 @@ function setTransports(transport) {
 
 
 function setLibcurlTransport() {
-    BareMux.SetTransport('CurlMod.LibcurlClient', { wisp: localStorage.getItem('wispUrl') || wispUrl })   
+    connection.setTransport("/libcurl/index.mjs", [{ wisp: localStorage.getItem("wispUrl") || wispUrl }]);
 }
 
 
@@ -74,10 +54,10 @@ function refreshEpoxyTransport() {
 }
 
 function setEpoxyTransport() {
-    BareMux.SetTransport('EpxMod.EpoxyClient', { wisp: localStorage.getItem('wispUrl') || wispUrl });
+    connection.setTransport('/epoxy/index.mjs', [{ wisp: localStorage.getItem('wispUrl') || wispUrl }]);
 }
 
 function setBareTransport(value) {
-    BareMux.SetTransport('BareMod.BareClient', value);
+    connection.setTransport('/baremodule/index.mjs', [value]);
 }
 

@@ -57,10 +57,6 @@ function updateURLBar(val) {
         val = val.replace(__uv$config.prefix, '');
         val = __uv$config.decodeUrl(val);
     }
-    if (currentProx === 'dynamic') {
-        val = val.replace(__dynam$ic.prefix, '');
-        val = __dynam$ic.decodeUrl(val);
-    }
     if (currentProx === 'rammerhead') {
         val = '';
     }
