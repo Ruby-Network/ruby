@@ -9,9 +9,8 @@
         "dev": "pnpm run build:css && bundle exec rerun --ignore 'src/public/css/*' --ignore 'node_modules/*' --signal 'TERM' -c -w 5 --no-notify -- cli/cli.rb start --development --node",
         "start": "bundle exec ruby cli/cli.rb start",
         "install": "pnpm run build && bundle install",
-        "build:rh": "tsc -p ./rammerhead/tsconfig.json",
         "build:css": "node ./nodeJS/compile.js",
-        "build": "pnpm run build:rh && pnpm run build:css",
+        "build": "pnpm run build:css",
         "cli": "bundle exec ruby ./cli/cli.rb"
     },
     "engines": {
