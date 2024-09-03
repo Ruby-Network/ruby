@@ -1,11 +1,6 @@
-node_modules/
-package-lock.json
-yarn.lock
-pnpm-lock.yaml
+**/node_modules/**
 Gemfile.lock
-.env
-settings.yml
-.bundle/config
 vendor/
 .ruby-version
+**/~/**
 ~/

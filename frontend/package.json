@@ -1,0 +1,21 @@
+{
+  "name": "create-dreamland-app",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc && vite build",
+    "dev": "vite",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "dreamland": "^0.0.24",
+    "dreamland-router": "https://github.com/mercuryworkshop/dreamland-router",
+    "rollup-plugin-typescript2": "^0.36.0",
+    "vite-plugin-dreamland": "^1.2.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.5",
+    "vite": "^5.2.11"
+  }
+}
