@@ -1,10 +1,9 @@
 import 'dreamland/dev';
 import { Route, Router } from 'dreamland-router';
 import Home from './routes/home';
-
 //base styles
-import './index.css';
-let router = new Router(
+import '@styles/index.scss';
+new Router(
     <Route>
         <Route path="" show={<Home />} />
     </Route>

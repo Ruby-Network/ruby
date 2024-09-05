@@ -1,0 +1,16 @@
+.drag {
+  opacity: 0 !important;
+}
+
+.tabTextContainer { 
+  display: inline-block;
+  overflow: hidden;
+}
+.tabTextContainer::before {
+  content: '';
+  display: inline-block;
+}
+.tabText {
+  display: inline-block;
+  white-space: nowrap;
+}

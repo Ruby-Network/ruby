@@ -22,7 +22,12 @@
         "jsx": "react",
         "jsxFactory": "h",
         "jsxFragmentFactory": "Fragment",
-        "types": ["dreamland"]
+        "types": ["dreamland"],
+        "baseUrl": "./",
+        "paths": {
+            "@components/*": ["src/components/*"],
+            "@styles/*": ["src/styles/*"]
+        }
     },
     "include": ["src"]
 }
