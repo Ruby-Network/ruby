@@ -1,10 +1,27 @@
-import Sortable, { MultiDrag } from "sortablejs";
+import Sortable from "sortablejs";
+import { search as searchUtil } from "@utils/search";
+import { genUtils } from "@utils/general";
+import { loadUV, register as registerSW, setTransport, conn /* Connection is created in the file */ } from "@utils/sw";
 import { CloseButton, AddButton } from "@components/icons";
 import "@styles/tabs.scss";
+
+const settings = $store(
+    {
+        transport: "epoxy",
+        search: "https://www.google.com/search?q=%s",
+        wisp: "ws://localhost:5173/wisp/"
+    },
+    {
+        ident: 'ruby||settings',
+        backing: 'localstorage',
+        autosave: 'auto'
+    }
+)
 
 interface TabsData {
     title: string;
     favicon: string;
+    iframe?: HTMLIFrameElement;
 }
 
 const tabs = css`
@@ -169,11 +186,14 @@ const searchHover = css`
 `
 
 const Tabs: Component<{}, {
-    tabs: TabsData[], 
+    tabs: TabsData[],
+    currentTab: number,
     createTab(title: string, favicon: string): void, 
     removeTab(idx: number): void, 
-    createIframe(id: string): void,
-    hideIframes(): void
+    createIframe(id: string): HTMLIFrameElement,
+    deleteIframe(id: string): void,
+    hideIframes(): void,
+    search(e: any): void
 }> = function() {
     this.tabs = [
         {title: "Home", favicon: "/favicon.ico"}
@@ -182,46 +202,61 @@ const Tabs: Component<{}, {
         this.tabs.forEach((_tab, idx) => {
             if (idx !== 0) {
                 const iframe = document.querySelector(`[data-iframe-id='${idx}']`) as HTMLIFrameElement;
-                    if (!iframe.className.includes(hideIt)) {
-                        iframe.classList.add(hideIt);
+                    try {
+                        if (!iframe.className.includes(hideIt)) {
+                            iframe.classList.add(hideIt);
+                        }
                     }
+                    catch (_) {}
             }
         });
     }
-    this.createIframe = (id: string) => {
+    this.createIframe = (id: string): HTMLIFrameElement => {
         const iframeEl = document.createElement("iframe");
-        const content = document.getElementById("content") as HTMLDivElement;
         iframeEl.dataset.iframeId = id;
         iframeEl.classList.add(iframe);
         iframeEl.classList.add(hideIt);
-        iframeEl.src = "https://motortruck1221.com"
-        content.append(iframeEl);
+        return iframeEl;
+    }
+    this.deleteIframe = (id: string) => {
+        const iframeEl = document.querySelector(`[data-iframe-id='${id}`) as HTMLIFrameElement;
+        const content = document.getElementById("content") as HTMLDivElement;
+        content.removeChild(iframeEl);
     }
     this.createTab = (title: string, favicon: string) => {
         this.hideIframes();
         const searchBar = document.getElementById("searchBar") as HTMLInputElement;
-        console.log("Creating new tab...");
+        console.log("Creating new tab..."); 
         console.log(this.tabs);
-        this.createIframe(`${this.tabs.length}`);
-        this.tabs = [...this.tabs, { title, favicon }];
+        this.currentTab = this.tabs.length;
+        const iframe = this.createIframe(`${this.tabs.length}`) as HTMLIFrameElement;
+        this.tabs = [...this.tabs, { title, favicon, iframe }];
         this.tabs = [...this.tabs];
+        document.getElementById("content")?.appendChild(iframe as HTMLIFrameElement);
         searchBar.value = "rh://home";
     }
     this.removeTab = (idx: number) => {
+        this.hideIframes();
+        this.deleteIframe(`${idx}`);
         this.tabs = this.tabs.filter((_tab, i) => i !== idx);
         this.tabs = [...this.tabs];
         if (!this.tabs.length) {
             this.createTab("New Tab", "/favicon.ico");
         }
     }
+    this.search = (e: any) => {
+        let iframe = genUtils.getIframe(this.currentTab);
+        iframe.classList.remove(hideIt);
+        if (e.key === "Enter") {
+            const url = searchUtil(e.target.value, "https://google.com/search?q=%s");
+            iframe.src = __uv$config?.prefix + __uv$config.encodeUrl!(url); 
+        }
+    }
     this.mount = () => {
         const searchBar = this.root.querySelector("#searchBar") as HTMLInputElement;
         searchBar.value = "rh://home";
-        Sortable.mount(new MultiDrag());
         new Sortable(this.root.querySelector("#tabs") as HTMLDivElement, {
             forceFallback: true,
-            multiDrag: true,
-            multiDragKey: 'CTRL',
             selectedClass: 'selectedTab',
             animation: 100,
             direction: "horizontal",
@@ -229,26 +264,33 @@ const Tabs: Component<{}, {
             filter: '.ignore',
             draggable: '.allowDrag',
             onSort: (e) => {
-                const oldI = e.oldIndex;
-                const newI = e.newIndex;
-                const movedI = this.tabs.splice(oldI as number, 1)[0];
-                this.tabs.splice(newI as number, 0, movedI);
+                const newIndex = e.newIndex as number;
+                const oldIndex = e.oldIndex as number;
+
+                const movedItem = this.tabs.splice(oldIndex, 1)[0];
+                this.tabs.splice(newIndex, 0, movedItem);
             },
             onChoose: (e) => {
-                const iframe = document.querySelector(`[data-iframe-id='${e.item.dataset.tabId}']`) as HTMLIFrameElement;
                 this.hideIframes();
-                if (iframe.src) {
-                    iframe.classList.remove(hideIt);
-                }
-            }
+                const iframe = this.tabs[e.oldIndex as number].iframe;
+                iframe?.classList.remove(hideIt);
+            },
         });
+        //Lazy load UV and set a transport based off of the initial settings stuff
+        loadUV().then(() => {
+            setTransport(conn, settings.transport, settings.wisp).then(() => {
+                registerSW().then(() => {
+                    console.log("Service Worker registered!");
+                })
+            })
+        })
     }
     return (
         <div class={tabs}>
             <div class={tabBar}>
                 <div id="tabs" class={tabContainer}>
                     {use(this.tabs, (tabs) => tabs.map((tab: TabsData, idx: number) => (
-                        <div data-tab-id={idx} class={[`${idx !== 0 ? "allowDrag" : "ignore"}`, `${idx !== 0 ? tabStyl: homeTabStyl}`]}>
+                        <div data-id={idx} data-tab-id={idx} class={[`${idx !== 0 ? "allowDrag" : "ignore"}`, `${idx !== 0 ? tabStyl: homeTabStyl}`]}>
                             <div class={tabTitle}>
                                 <img class={tabFavicon} src={tab.favicon} />
                                 {idx !== 0 ? (
@@ -270,7 +312,7 @@ const Tabs: Component<{}, {
                     </button>
                 </div>
                 <div class={navButtons}>
-                    <input id="searchBar" placeholder="Search for something..." class={[search, searchHover]}></input>
+                    <input on:keydown={this.search} id="searchBar" placeholder="Search for something..." class={[search, searchHover]}></input>
                 </div>
             </div>
             <div id="content" class={tabContent}>
